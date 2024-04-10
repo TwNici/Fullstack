@@ -3,26 +3,24 @@ name: JAVA CI mit Maven
 on:
   push:
     branches:
-      -  main
+      - main
   pull_request:
     branches:
       - main
 
 
 jobs:
-    build:
+  build:
 
+    runs-on: ubuntu-latest
 
-      runs-on: ubuntu-latest
-
-
-      steps:
-        - uses: action/checkout@v4
-        - name: JDK 21 einrichten
-          uses: action/setup-java@v4
-          with:
-            java-version: "21"
-            distribution: "temurin"
-            cache: maven
-        - name: Mit Maven erstellen
-          run: mvn -B package --file Backend/pom.xml -Dspring.profiles.active=dev
+    steps:
+      - uses: actions/checkout@v4
+      - name: JDK21 einrichten
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+      - name: Mit Maven erstellen
+        run: mvn -B package --file backend/pom.xml -Dspring.profiles.active=dev
