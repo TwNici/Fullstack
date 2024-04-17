@@ -12,7 +12,7 @@
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://dpg-coaji84f7o1s73drillg-a.frankfurt-postgres.render.com:5432/postgres</jdbc-url>
+      <jdbc-url>jpa:postgresql://dpg-coaji84f7o1s73drillg-a.frankfurt-postgres.render.com/fullstack_zyf9</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
