@@ -42,7 +42,7 @@
 
     }
     #labels {
-        left: 18vh;
+        left: 1vh;
         top: 10vh;
         padding: 5vh;
         position: absolute;
@@ -122,12 +122,12 @@
 
     #suchleistencanvas {
         width: 80vw;
-        height: 5vh;
+        height: 6vh;
         background-color: white;
         position: absolute;
         left: 16vw;
         top: 7vw;
-        border-radius: 10px 10px 10px 10px;
+        border-radius: 10px;
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 
 
@@ -175,29 +175,38 @@
         z-index: 5;
 
     }
+#mdatentext {
+    left: 7.6vw;
+    position: absolute;
+}
 
-    #datencanvas {
+    .canvas-container {
         width: 15vw;
         height: 25vh;
+        margin: 5px;
         background-color: white;
-        position: absolute;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+        position: relative;
         left: 16vw;
         top: 11vw;
-        border-radius: 10px 10px 10px 10px;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-
-
     }
+
+    canvas {
+        border-radius: 10px;
+        position: absolute;
+    }
+
 
     #mitarbeitertexttitel {
         width: 23vw;
         height: 8vh;
         background-color: white;
         position: absolute;
-        left: 35vw;
-        top: 11vw;
+        left: 8.5vw;
+        top: 2.5vw;
         padding: 1.2vw;
-        border-radius: 10px 10px 10px 10px;
+        border-radius: 10px;
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 
 
@@ -207,6 +216,11 @@
         display: grid;
         grid-template-columns: auto minmax(auto, 1fr);
         gap: 20px;
+        width: 40vw;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+
     }
 
     input {
@@ -219,9 +233,9 @@
     height: 90vh;
     background-color: black;
     position: fixed;
-    left: 25vw;
-    top: 46vw;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    left: 65vw;
+    top: 40vw;
+    box-shadow: 5px 5px 15px;
     z-index: 3;
 
 }
@@ -229,11 +243,11 @@
         border-radius: 50%;
         width: 70vw;
         height: 90vh;
-        background-color: lightgrey;
+        background-color: whitesmoke;
         position: fixed;
-        left: 20vw;
-        top: 40vw;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+        left: 60vw;
+        top: 35vw;
+        box-shadow: 5px 5px 15px;
         z-index: 2;
 
 
@@ -242,12 +256,45 @@
         border-radius: 50%;
         width: 80vw;
         height: 110vh;
-        background-color: whitesmoke;
+        background-color: white;
         position: fixed;
-        left: 15vw;
-        top: 35vw;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+        left: 55vw;
+        top: 30vw;
+        box-shadow: 5px 5px 15px;
         z-index: 1;
 
     }
+
+    #suchleiste{
+    width: 30vw;
+        border-radius: 10px;
+        border-color: black;
+        top: 1.5vh;
+        left: 0.5vw;
+        position: absolute;
+
+
+
+    }
+
+    #treffertext {
+        position: absolute;
+        left: 31vw;
+        top: 0.85vw;
+        width: 3.5vw;
+        height: 2.5vh;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    }
+    #dragDrop {
+
+    }
+    .canvas-container img {
+        max-width: 100px;
+        max-height: 100px;
+        display: block;
+    }
+
+
 }

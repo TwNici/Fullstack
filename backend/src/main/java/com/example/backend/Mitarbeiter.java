@@ -25,6 +25,5 @@ public class Mitarbeiter {
     private int pultnummer;
     private String gebaeude;
     private String userid;
-
-
+    private String bildUrl;
 }

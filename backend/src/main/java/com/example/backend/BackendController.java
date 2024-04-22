@@ -3,6 +3,8 @@ package com.example.backend;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import org.springframework.http.ResponseEntity;
+import java.util.Base64;
 
 @RestController
 @RequestMapping("/api")
@@ -30,6 +32,15 @@ public class BackendController {
     public Mitarbeiter getMitarbeiterById(@PathVariable int id) {
         return service.getMitarbeiterById(id);
     }
+
+    @GetMapping("/mitarbeiter-bildUrl/{id}")
+    public ResponseEntity<String> getMitarbeiterBildUrl(@PathVariable int id) {
+        Mitarbeiter mitarbeiter = service.getMitarbeiterById(id);
+        return ResponseEntity.ok(mitarbeiter.getBildUrl());
+    }
+
+
+
 
     @DeleteMapping("/mitarbeiter/{id}")
     public void deleteMitarbeiter(@PathVariable int id) {
