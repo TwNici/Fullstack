@@ -1,110 +1,3 @@
-@media (max-width: 500px) {
-    #uppercanvas {
-        width: 97vw;
-        height: 11vh;
-        background-color: blue;
-        position: absolute;
-        left: 0.1vw;
-        top: 1vw;
-        border-radius: 10px  10px  10px 0;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-
-
-    }
-    #leftcanvas {
-        width: 30vw;
-        height: 107vh;
-        top: 11.3vh;
-        background-color: lightgrey;
-        position: absolute;
-        margin-left: 0%;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-        border-radius: 0 0 10px  10px ;
-    }
-    .adressbuchbutton {
-        border-radius: 8px;
-        border: 1px solid transparent;
-        padding: 0.6em 1.2em;
-        font-size: 0.8em;
-        font-weight: 500;
-        font-family: inherit;
-        background-color: white;
-        cursor: pointer;
-        transition: border-color 0.25s;
-        margin-top: 2vh;
-        width: 80px;
-
-    }
-    .button-vertical {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-    }
-    #labels {
-        left: 1vh;
-        top: 10vh;
-        padding: 5vh;
-        position: absolute;
-
-    }
-
-}
-
-@media (min-width: 501px) {
-    #uppercanvas {
-        width: 100vw;
-        height: 11vh;
-        background-color: blue;
-        position: absolute;
-        left: -6.2vw;
-        top: 0.5vw;
-        border-radius: 10px  10px  10px 0;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-
-
-    }
-    #leftcanvas {
-        width: 30vw;
-        height: 88vh;
-        top: 11.3vh;
-        background-color: lightgrey;
-        position: absolute;
-        margin-left: 0%;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-        border-radius: 0 0 10px  10px ;
-    }
-    .adressbuchbutton {
-        border-radius: 8px;
-        border: 1px solid transparent;
-        padding: 0.6em 1.2em;
-        font-size: 0.8em;
-        font-weight: 500;
-        font-family: inherit;
-        background-color: white;
-        cursor: pointer;
-        transition: border-color 0.25s;
-        margin-top: 2vh;
-        width: 80px;
-
-    }
-    .button-vertical {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-    }
-    #labels {
-        left: 20vh;
-        top: -3vh;
-        padding: 15vh;
-        position: absolute;
-        font-size: 1.2em;
-
-    }
-
-}
-
 @media (min-width: 1000px) {
     #uppercanvas {
         width: 98vw;
@@ -132,6 +25,8 @@
 
 
     }
+
+
 
     #leftcanvas {
         width: 15vw;
@@ -172,10 +67,32 @@
         top: 15vh;
         position: absolute;
         font-size: 1.0em;
+        padding: 13vh;
         z-index: 5;
 
     }
-#mdatentext {
+
+    #labels2 {
+        left: 49vh;
+        top: 15vh;
+        position: absolute;
+        font-size: 1.0em;
+        padding: 5vh;
+        z-index: 5;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    #mdatentext {
     left: 7.6vw;
     position: absolute;
 }
@@ -204,7 +121,7 @@
         background-color: white;
         position: absolute;
         left: 8.5vw;
-        top: 2.5vw;
+        top: 1vw;
         padding: 1.2vw;
         border-radius: 10px;
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
@@ -212,6 +129,10 @@
 
     }
 
+    #inputfeldauswahl{
+        position: absolute;
+
+    }
     .inputfelder {
         display: grid;
         grid-template-columns: auto minmax(auto, 1fr);
@@ -222,6 +143,7 @@
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 
     }
+
 
     input {
         width: 100%;
@@ -268,7 +190,7 @@
     #suchleiste{
     width: 30vw;
         border-radius: 10px;
-        border-color: black;
+        border-color: Black;
         top: 1.5vh;
         left: 0.5vw;
         position: absolute;
@@ -283,18 +205,56 @@
         top: 0.85vw;
         width: 3.5vw;
         height: 2.5vh;
-        background-color: white;
         border-radius: 10px;
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
     }
-    #dragDrop {
 
+    #treffertexterweiterte {
+        position: absolute;
+        left: 61vw;
+        top: 0.85vw;
+        width: 3.5vw;
+        height: 2.5vh;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
     }
+
+
+    #operator {
+        position: absolute;
+        left: 35vw;
+        top: 1vw;
+        width: 3.5vw;
+        height: 2.5vh;
+        border-radius: 10px;
+        border-color: black;
+    }
+
+    #userdata {
+        position: absolute;
+        left: 43vw;
+        top: 1vw;
+        width: 15vw;
+        height: 2.5vh;
+        border-radius: 10px;
+        border-color: black;
+    }
+
     .canvas-container img {
         max-width: 100px;
         max-height: 100px;
         display: block;
     }
+#datencanvas {
+    display: flex;
+    flexWrap: wrap;
+}
 
+#search-form {
+    z-index: 8;
+    position: fixed;
+    top: 200px;
+    left: 500px
+}
 
 }

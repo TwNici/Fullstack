@@ -14,22 +14,20 @@ public class BackendService {
         return repo.save(mitarbeiter);
     }
 
-    public Mitarbeiter updateMitarbeiter(int id, Mitarbeiter mitarbeiterDetails) {
-        Mitarbeiter mitarbeiter = repo.findById(id).orElseThrow();
-        mitarbeiter.setName(mitarbeiterDetails.getName());
-
-        return repo.save(mitarbeiter);
+    public Mitarbeiter updateMitarbeiter(String userId, Mitarbeiter mitarbeiterDetails) {
+        repo.deleteById(userId);
+        return repo.save(mitarbeiterDetails);
     }
 
     public List<Mitarbeiter> getAllMitarbeiter() {
         return repo.findAll();
     }
 
-    public Mitarbeiter getMitarbeiterById(int id) {
-        return repo.findById(id).orElseThrow();
+    public Mitarbeiter getMitarbeiterById(String userId) {
+        return repo.findById(userId).orElseThrow();
     }
 
-    public void deleteMitarbeiter(int id) {
-        repo.deleteById(id);
+    public void deleteMitarbeiter(String userId) {
+        repo.deleteById(userId);
     }
 }

@@ -1,17 +1,14 @@
 package com.example.backend;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.lang.reflect.Type;
 
 @Data
 @Entity
 public class Mitarbeiter {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int mitarbeiterId;
+
 
     private String name;
     private String nachname;
@@ -21,9 +18,13 @@ public class Mitarbeiter {
     private String strasse;
     private String privatadresse;
     private String geschaeftsadresse;
-    private String stock;
+    private int stock;
     private int pultnummer;
     private String gebaeude;
+
+    @Id
     private String userid;
+
+    @Column(columnDefinition = "Text")
     private String bildUrl;
 }

@@ -1,32 +1,15 @@
-import React, { useState } from "react";
+import React, {useRef, useState} from "react";
 import './App.css';
 import axios from "axios";
+import {FormInputType} from "./App.tsx";
 
-export type FormInputType = {
-    stock?: number;
-    geschaeftsadresse: string;
-    privatadresse: string;
-    strasse: string;
-    ort: string;
-    userid?: number;
-    pultnummer?: number;
-    gebaeude: string;
-    tele: string;
-    id?: number;
-    name: string;
-    nachname: string;
-    status: string;
-    species: string;
-    geschlecht: string;
-    bildUrl: string;
-};
+
 
 function CreateMitarbeiter() {
+    const fileInputRef = useRef<HTMLInputElement>(null);
     const [form, setForm] = useState<FormInputType>({
         name: "",
         nachname: "",
-        status: "",
-        species: "",
         geschlecht: "",
         geschaeftsadresse: "",
         privatadresse: "",
@@ -34,7 +17,7 @@ function CreateMitarbeiter() {
         ort: "",
         gebaeude: "",
         bildUrl: "",
-        tele: "",
+        telefonnummer: "",
 
     });
 
@@ -47,19 +30,55 @@ function CreateMitarbeiter() {
         }
         ;
 
-        const handleSubmit = (ev: React.FormEvent) => {
-            ev.preventDefault();
-            console.log(form);
+    const handleSubmit = (ev: React.FormEvent) => {
+        ev.preventDefault();
 
-
-            axios.post("/api/mitarbeiter", form)
-                .then(response => {
-                    console.log('Mitarbeiter gespeichert:', response.data);
-                })
-                .catch(error => {
-                    console.error('FR to Back', error);
+        axios.post("/api/mitarbeiter", form)
+            .then(response => {
+                console.log('Mitarbeiter gespeichert:', response.data);
+                // Reset file input
+                if (fileInputRef.current) {
+                    fileInputRef.current.value = '';
+                }
+                // Reset the rest of the form state
+                setForm({
+                    name: "",
+                    nachname: "",
+                    geschlecht: "",
+                    geschaeftsadresse: "",
+                    privatadresse: "",
+                    strasse: "",
+                    ort: "",
+                    gebaeude: "",
+                    bildUrl: "",
+                    telefonnummer: "",
                 });
-        };
+            })
+            .catch(error => {
+                console.error('Fehler beim Senden an den Server', error);
+            });
+    };
+
+
+    const fileToBase64 = (file: File): Promise<string> => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result as string);
+            reader.onerror = error => reject(error);
+            reader.readAsDataURL(file);
+        });
+    };
+
+    const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files ? event.target.files[0] : null;
+        if (file) {
+            const base64String = await fileToBase64(file);
+            setForm(prevForm => ({
+                ...prevForm,
+                bildUrl: base64String
+            }));
+        }
+    };
 
         return (
             <form onSubmit={handleSubmit}>
@@ -83,7 +102,7 @@ function CreateMitarbeiter() {
                         </div>
                         <div>
                             <label>Telefonnummer:</label>
-                            <input id="tele" name="tele" required value={form.tele}
+                            <input id="tele" name="telefonnummer" required value={form.telefonnummer}
                                    onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
                         </div>
                         <div>
@@ -119,7 +138,7 @@ function CreateMitarbeiter() {
                         </div>
                         <div>
                             <label>Pultnummer:</label>
-                            <input id="pultnummer" name="pultnummer" required value={form.pultnummer}
+                            <input id="pultnummer" type="number" name="pultnummer" required value={form.pultnummer}
                                    onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
                         </div>
                         <div>
@@ -129,8 +148,8 @@ function CreateMitarbeiter() {
                         </div>
                         <div>
                             <label>Bild Url:</label>
-                            <input id="dragDrop" type="file" name="bildUrl" required value={form.bildUrl}
-                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
+                            <input ref={fileInputRef} id="dragDrop" type="file" name="bildUrl" required onChange={handleFileChange} />
+
                         </div>
                         <button type="submit" className="adressbuchbutton">Mitarbeiter speichern</button>
                     </div>

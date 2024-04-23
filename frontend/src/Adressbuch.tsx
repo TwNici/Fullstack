@@ -40,15 +40,10 @@ function DatenAnzeigen() {
     return (
         <div>
             <div id="suchleistencanvas">
-                <input
-                    id="suchleiste"
-                    placeholder="Mitarbeiter Suchen..."
-                    value={suchbegriff}
-                    onChange={(e) => setSuchbegriff(e.target.value)}
-                />
+                <input id="suchleiste" placeholder="Mitarbeiter Suchen..." type={"search"} value={suchbegriff} onChange={(e) => setSuchbegriff(e.target.value)}/>
                 <div id="treffertext">Treffer: {gefilterteMitarbeiter.length}</div>
             </div>
-            <div id="datencanvas" style={{ display: 'flex', flexWrap: 'wrap' }}>
+            <div id="datencanvas">
                 {gefilterteMitarbeiter.map((mitarbeiter, index) => (
                     <div className="canvas-container" key={index}>
                         <div id={"mdatentext"}>

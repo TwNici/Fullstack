@@ -18,9 +18,9 @@ public class BackendController {
         return service.createMitarbeiter(mitarbeiter);
     }
 
-    @PutMapping("/mitarbeiter/{id}")
-    public Mitarbeiter updateMitarbeiter(@PathVariable int id, @RequestBody Mitarbeiter mitarbeiter) {
-        return service.updateMitarbeiter(id, mitarbeiter);
+    @PutMapping("/mitarbeiter/{userId}")
+    public Mitarbeiter updateMitarbeiter(@PathVariable String userId, @RequestBody Mitarbeiter mitarbeiter) {
+        return service.updateMitarbeiter(userId, mitarbeiter);
     }
 
     @GetMapping("/mitarbeiter")
@@ -28,22 +28,22 @@ public class BackendController {
         return service.getAllMitarbeiter();
     }
 
-    @GetMapping("/mitarbeiter/{id}")
-    public Mitarbeiter getMitarbeiterById(@PathVariable int id) {
-        return service.getMitarbeiterById(id);
+    @GetMapping("/mitarbeiter/{userId}")
+    public Mitarbeiter getMitarbeiterById(@PathVariable String userId) {
+        return service.getMitarbeiterById(userId);
     }
 
-    @GetMapping("/mitarbeiter-bildUrl/{id}")
-    public ResponseEntity<String> getMitarbeiterBildUrl(@PathVariable int id) {
-        Mitarbeiter mitarbeiter = service.getMitarbeiterById(id);
+    @GetMapping("/mitarbeiter-bildUrl/{userId}")
+    public ResponseEntity<String> getMitarbeiterBildUrl(@PathVariable String userId) {
+        Mitarbeiter mitarbeiter = service.getMitarbeiterById(userId);
         return ResponseEntity.ok(mitarbeiter.getBildUrl());
     }
 
 
 
 
-    @DeleteMapping("/mitarbeiter/{id}")
-    public void deleteMitarbeiter(@PathVariable int id) {
-        service.deleteMitarbeiter(id);
+    @DeleteMapping("/mitarbeiter/{userId}")
+    public void deleteMitarbeiter(@PathVariable String userId) {
+        service.deleteMitarbeiter(userId);
     }
 }
