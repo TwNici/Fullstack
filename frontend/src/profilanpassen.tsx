@@ -77,20 +77,20 @@ function ProfilAnpassen() {
     }
 
     return (<>
-        <form id={"search-form"} onSubmit={(e) => {
-            e.preventDefault()
-            handleGetUser()
-        }}>
-            <div>
-                <label>Mitarbeiter auswählen:</label>
-                <input placeholder={"USERID"} id="userid" onChange={(e) => {setUserId(e.target.value)}} />
-            </div>
-        </form>
-        <form onSubmit={(e) => {
+        <form id={"input-form"} onSubmit={(e) => {
             e.preventDefault();
             handleSubmit();
             }}>
             <div id={"labels"} className={"inputfelder"}>
+                <form id={"search-form"} onSubmit={(e) => {
+                    e.preventDefault()
+                    handleGetUser()
+                }}>
+                    <div id="searchID">
+                        <label>Mitarbeiter auswählen:</label>
+                        <input placeholder={"USERID"} onChange={(e) => {setUserId(e.target.value)}} />
+                    </div>
+                </form>
                 <div id={"mitarbeitertexttitel"}><h1>Mitarbeiter anpassen</h1></div>
                 <div>
                     <label>UserID</label>
@@ -141,7 +141,7 @@ function ProfilAnpassen() {
                     <input  id="gebaeude" name="gebaeude" value={formData.gebaeude} onChange={handleInputChange}/>
                 </div>
                 <div>
-                    <label>Bild Url:</label>
+                    <label htmlFor="dragDrop" className="adressbuchbutton">Bild Hochladen / PNG</label>
                     <input ref={fileInputRef} id="dragDrop" type="file" name="bildUrl" required onChange={handleFileChange} />
                 </div>
                 <button type={"submit"} className="adressbuchbutton">Mitarbeiter speichern</button>

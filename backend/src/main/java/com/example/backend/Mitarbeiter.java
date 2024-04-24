@@ -25,6 +25,6 @@ public class Mitarbeiter {
     @Id
     private String userid;
 
-    @Column(columnDefinition = "Text")
+    @Column(columnDefinition = "longtext")
     private String bildUrl;
 }

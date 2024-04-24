@@ -47,7 +47,7 @@ function DatenAnzeigen() {
                 {gefilterteMitarbeiter.map((mitarbeiter, index) => (
                     <div className="canvas-container" key={index}>
                         <div id={"mdatentext"}>
-                            {mitarbeiter.bildUrl && <img src={formatBase64Image(mitarbeiter.bildUrl)} alt="Mitarbeiterbild" style={{ maxWidth: '100px', maxHeight: '100px' }} />}
+                            {mitarbeiter.bildUrl && <img src={formatBase64Image(mitarbeiter.bildUrl)} id="BildAdressbuch" alt="BILD"/>}
                             <p>{mitarbeiter.name} {mitarbeiter.nachname} ({mitarbeiter.userid})</p>
                             <p>{mitarbeiter.telefonnummer}</p>
                             <p>{mitarbeiter.ort}</p>

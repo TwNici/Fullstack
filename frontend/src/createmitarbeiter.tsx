@@ -102,7 +102,7 @@ function CreateMitarbeiter() {
                         </div>
                         <div>
                             <label>Telefonnummer:</label>
-                            <input id="tele" name="telefonnummer" required value={form.telefonnummer}
+                            <input id="tele" name="telefonnummer"   type={"tel"} pattern="[+][0-9]{2}[0-9]{2}[0-9]{3}[0-9]{4}" required value={form.telefonnummer}
                                    onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
                         </div>
                         <div>
@@ -147,9 +147,8 @@ function CreateMitarbeiter() {
                                    onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
                         </div>
                         <div>
-                            <label>Bild Url:</label>
-                            <input ref={fileInputRef} id="dragDrop" type="file" name="bildUrl" required onChange={handleFileChange} />
-
+                            <label htmlFor="dragDrop" className="adressbuchbutton">Bild Hochladen / PNG</label>
+                            <input ref={fileInputRef} id="dragDrop" type="file" name="bildUrl" required onChange={handleFileChange}/>
                         </div>
                         <button type="submit" className="adressbuchbutton">Mitarbeiter speichern</button>
                     </div>

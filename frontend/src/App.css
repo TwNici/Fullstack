@@ -49,10 +49,14 @@
         color: white;
         background-color: black;
         cursor: pointer;
-        transition: border-color 0.25s;
+        transition: all 0.3s ease;
         margin-top: 2vh;
         width: 10vw;
 
+    }
+
+    .adressbuchbutton:active {
+        transform: translateY(3px);
     }
 
     .button-vertical {
@@ -256,5 +260,29 @@
     top: 200px;
     left: 500px
 }
+
+
+    #searchID {
+        left: 8vw;
+        top: 32vw;
+        width: 14.5vw;
+        position: absolute;
+    }
+
+    #BildAdressbuch {
+        left: -6vw;
+        top: 0.5vw;
+        maxWidth: 100px;
+        maxHeight: 100px;
+        position: absolute;
+    }
+
+
+
+    input[type="file"] {
+        display: none;
+    }
+
+
 
 }
