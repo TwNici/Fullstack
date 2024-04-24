@@ -13,8 +13,8 @@ function CreateMitarbeiter() {
         nachname: "",
         geschlecht: "",
         geschaeftsadresse: "",
-        privatadresse: "",
-        strasse: "",
+        rolle: "",
+        initialPW: "",
         ort: "",
         gebaeude: "",
         bildUrl: "",
@@ -37,18 +37,16 @@ function CreateMitarbeiter() {
         axios.post("/api/mitarbeiter", form)
             .then(response => {
                 console.log('Mitarbeiter gespeichert:', response.data);
-                // Reset file input
                 if (fileInputRef.current) {
                     fileInputRef.current.value = '';
                 }
-                // Reset the rest of the form state
                 setForm({
                     name: "",
                     nachname: "",
                     geschlecht: "",
                     geschaeftsadresse: "",
-                    privatadresse: "",
-                    strasse: "",
+                    rolle: "",
+                    initialPW: "",
                     ort: "",
                     gebaeude: "",
                     bildUrl: "",
@@ -119,13 +117,13 @@ function CreateMitarbeiter() {
                                    onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
                         </div>
                         <div>
-                            <label>Strasse:</label>
-                            <input id="strasse" name="strasse" required value={form.strasse}
+                            <label>Initial Passwort:</label>
+                            <input id="initialPW" name="initialPW" required value={form.initialPW}
                                    onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
                         </div>
                         <div>
-                            <label>Privat Adresse:</label>
-                            <input id="privatadresse" name="privatadresse" required value={form.privatadresse}
+                            <label>Rolle:</label>
+                            <input id="rolle" name="rolle" required value={form.rolle}
                                    onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
                         </div>
                         <div>

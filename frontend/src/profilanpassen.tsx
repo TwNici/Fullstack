@@ -14,8 +14,8 @@ function ProfilAnpassen() {
         nachname: "",
         geschlecht: "",
         geschaeftsadresse: "",
-        privatadresse: "",
-        strasse: "",
+        rolle: "",
+        initialPW: "",
         ort: "",
         gebaeude: "",
         bildUrl: "",
@@ -36,8 +36,8 @@ function ProfilAnpassen() {
 
     const handleSubmit = () => {
         axios.put(`/api/mitarbeiter/${formData.userid}`, {name: formData.name, nachname: formData.nachname,
-            geschlecht: formData.geschlecht, geschaeftsadresse: formData.geschaeftsadresse, privatadresse: formData.privatadresse,
-            strasse: formData.strasse,
+            geschlecht: formData.geschlecht, geschaeftsadresse: formData.geschaeftsadresse, rolle: formData.rolle,
+            initialPW: formData.initialPW,
             ort: formData.ort,
             gebaeude: formData.gebaeude,
             bildUrl: formData.bildUrl,
@@ -72,27 +72,28 @@ function ProfilAnpassen() {
     const handleGetUser = () => {
         axios.get(`/api/mitarbeiter/${userId}`).then((res) => {
             setFormData({
-                name: res.data.name, nachname: res.data.nachname, geschlecht: res.data.geschlecht, geschaeftsadresse: res.data.geschaeftsadresse, privatadresse: res.data.privatadresse, strasse: res.data.strasse, ort: res.data.ort, gebaeude: res.data.gebaeude, bildUrl: res.data.bildUrl, newUserid: res.data.userid, stock: res.data.stock, userid: undefined, telefonnummer: res.data.telefonnummer, pultnummer: res.data.pultnummer
+                name: res.data.name, nachname: res.data.nachname, geschlecht: res.data.geschlecht, geschaeftsadresse: res.data.geschaeftsadresse, rolle: res.data.rolle, initialPW: res.data.InitialPW, ort: res.data.ort, gebaeude: res.data.gebaeude, bildUrl: res.data.bildUrl, newUserid: res.data.userid, stock: res.data.stock, userid: undefined, telefonnummer: res.data.telefonnummer, pultnummer: res.data.pultnummer
             });
         })
     }
 
     return (<>
             <Layout />
+            <form id={"search-form"} onSubmit={(e) => {
+                e.preventDefault()
+                handleGetUser()
+            }}>
+                <div id="searchID">
+                    <label>Mitarbeiter auswählen:</label>
+                    <input placeholder={"USERID"} onChange={(e) => {setUserId(e.target.value)}} />
+                </div>
+            </form>
         <form id={"input-form"} onSubmit={(e) => {
-            e.preventDefault();
+            e.preventDefault()
             handleSubmit();
             }}>
             <div id={"labels"} className={"inputfelder"}>
-                <form id={"search-form"} onSubmit={(e) => {
-                    e.preventDefault()
-                    handleGetUser()
-                }}>
-                    <div id="searchID">
-                        <label>Mitarbeiter auswählen:</label>
-                        <input placeholder={"USERID"} onChange={(e) => {setUserId(e.target.value)}} />
-                    </div>
-                </form>
+
                 <div id={"mitarbeitertexttitel"}><h1>Mitarbeiter anpassen</h1></div>
                 <div>
                     <label>UserID</label>
@@ -119,12 +120,12 @@ function ProfilAnpassen() {
                     <input  id="ort" name="ort" value={formData.ort} onChange={handleInputChange}/>
                 </div>
                 <div>
-                    <label>Strasse:</label>
-                    <input  id="strasse" name="strasse" value={formData.strasse} onChange={handleInputChange}/>
+                    <label>Initial Passwort:</label>
+                    <input  id="initialPW" name="initialPW" value={formData.initialPW} onChange={handleInputChange}/>
                 </div>
                 <div>
-                    <label>Privat Adresse:</label>
-                    <input  id="privatadresse" name="privatadresse" value={formData.privatadresse} onChange={handleInputChange}/>
+                    <label>Rolle</label>
+                    <input  id="rolle" name="rolle" value={formData.rolle} onChange={handleInputChange}/>
                 </div>
                 <div>
                     <label>Geschäfts Adresse:</label>

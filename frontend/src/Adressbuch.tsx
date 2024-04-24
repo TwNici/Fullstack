@@ -52,9 +52,11 @@ function DatenAnzeigen() {
                         <div id={"mdatentext"}>
                             {mitarbeiter.bildUrl && <img src={formatBase64Image(mitarbeiter.bildUrl)} id="BildAdressbuch" alt="BILD"/>}
                             <p>{mitarbeiter.name} {mitarbeiter.nachname} ({mitarbeiter.userid})</p>
-                            <p>{mitarbeiter.telefonnummer}</p>
-                            <p>{mitarbeiter.ort}</p>
-                            <p>{mitarbeiter.geschlecht}</p>
+                            <p>Tele: {mitarbeiter.telefonnummer}</p>
+                            <p>Ort: {mitarbeiter.ort}</p>
+                            <p>Geschlächt: {mitarbeiter.geschlecht}</p>
+                            <p>Rolle: {mitarbeiter.rolle}</p>
+                            <p>PW: {mitarbeiter.initialPW}</p>
                         </div>
                     </div>
                 ))}

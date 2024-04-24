@@ -10,10 +10,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export type FormInputType = {
+    initialPW: string;
+    rolle: string;
     stock?: number;
     geschaeftsadresse: string;
-    privatadresse: string;
-    strasse: string;
     ort: string;
     userid?: string;
     pultnummer?: number;

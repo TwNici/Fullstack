@@ -7,8 +7,8 @@ export interface InterfaceDaten {
     geschlecht: string;
     telefonnummer: string;
     ort: string;
-    strasse: string;
-    privatadresse: string;
+    InitialPW: string;
+    rolle: string;
     geschaeftsadresse: string;
     stock: string;
     pultnummer: number;

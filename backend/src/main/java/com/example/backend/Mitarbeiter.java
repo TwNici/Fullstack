@@ -15,8 +15,8 @@ public class Mitarbeiter {
     private String geschlecht;
     private String telefonnummer;
     private String ort;
-    private String strasse;
-    private String privatadresse;
+    private String initialPW;
+    private String rolle;
     private String geschaeftsadresse;
     private int stock;
     private int pultnummer;
