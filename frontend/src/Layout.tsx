@@ -1,9 +1,11 @@
-import { useNavigate } from 'react-router-dom';
+import { To, useNavigate} from 'react-router-dom';
 import './App.css';
 
-function Layout (){
+function Layout() {
     const navigate = useNavigate();
-
+    const handleChange = (event: { target: { value: To; }; }) => {
+        navigate(event.target.value);
+    };
     const mitarbeiternav = () => {
         navigate("/createmitarbeiter");
     };
@@ -34,7 +36,13 @@ function Layout (){
                         Profil anpassen
                     </button>
                 </div>
-            <div id="uppercanvas"><h4>Adressbuch</h4> </div>
+            <div id="uppercanvas"><h4>Adressbuch</h4> <h6 id="Profillist">
+                <select onChange={handleChange} className="adressbuchbutton" id={"dropdownLAYOUT"}>
+                    <option value="">Profil</option>
+                    <option value="/edit">Profil bearbeiten</option>
+                    <option value="/Login">Logout</option>
+
+                </select></h6></div>
             <div className={"circles"}></div>
             <div className={"circles2"}></div>
             <div className={"circles3"}></div>

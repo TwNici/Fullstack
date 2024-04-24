@@ -3,7 +3,8 @@ import {Route, Routes} from "react-router-dom";
 import Createmitarbeiter from "./createmitarbeiter.tsx";
 import Profilanpassen from "./profilanpassen.tsx";
 import Erweitertesuche from "./erweitertesuche.tsx";
-import Layout from "./Layout.tsx";
+import Loginpage from "./Loginpage.tsx";
+import Editprofil from "./Editprofil.tsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -30,12 +31,13 @@ const App = () => {
 
     return (
         <div>
-            <Layout />
             <Routes>
                 <Route path="/" element={<Adressbuch />} />
                 <Route path="/createmitarbeiter" element={<Createmitarbeiter />} />
                 <Route path="/profilanpassen" element={< Profilanpassen/>} />
                 <Route path="/erweitertesuche" element={< Erweitertesuche/>} />
+                <Route path="/Login" element={< Loginpage/>} />
+                <Route path="/edit" element={< Editprofil/>} />
             </Routes>
         </div>
     );

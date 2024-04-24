@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import React, {useRef, useState} from "react";
 import {FormInputType} from "./App.tsx";
+import Layout from "./Layout.tsx";
 
 
 function ProfilAnpassen() {
@@ -77,6 +78,7 @@ function ProfilAnpassen() {
     }
 
     return (<>
+            <Layout />
         <form id={"input-form"} onSubmit={(e) => {
             e.preventDefault();
             handleSubmit();

@@ -1,5 +1,6 @@
 
 import {useState} from "react";
+import Layout from "./Layout.tsx";
 
 type suchType = {
     criteria: string;
@@ -58,6 +59,7 @@ function Erweitertesuche() {
                 <div id="treffertexterweiterte">Treffer: </div>
 
             </div>
+            <Layout />
             <div id="datencanvas">
 
                         <div id={"mdatentext"}>

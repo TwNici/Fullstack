@@ -2,6 +2,7 @@ import React, {useRef, useState} from "react";
 import './App.css';
 import axios from "axios";
 import {FormInputType} from "./App.tsx";
+import Layout from "./Layout.tsx";
 
 
 
@@ -81,7 +82,9 @@ function CreateMitarbeiter() {
     };
 
         return (
+
             <form onSubmit={handleSubmit}>
+                <Layout />
                 <div>
                     <div id={"labels"} className={"inputfelder"}>
                         <div id={"mitarbeitertexttitel"}><h1>Mitarbeiter eintragen</h1></div>
@@ -133,7 +136,7 @@ function CreateMitarbeiter() {
                         </div>
                         <div>
                             <label>Stock:</label>
-                            <input id="stock" name="stock" required value={form.stock}
+                            <input id="stock" name="stock" type={"number"} maxLength={8} required value={form.stock}
                                    onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
                         </div>
                         <div>

@@ -2,6 +2,7 @@ import axios from 'axios';
 import './App.css';
 import { InterfaceDaten } from './InterfaceDaten.tsx';
 import { useEffect, useState } from "react";
+import Layout from "./Layout.tsx";
 
 
 function DatenAnzeigen() {
@@ -32,13 +33,15 @@ function DatenAnzeigen() {
     useEffect(() => {
         const gefiltert = mitarbeiter.filter(m =>
             m.name.toLowerCase().includes(suchbegriff.toLowerCase()) ||
-            m.nachname.toLowerCase().includes(suchbegriff.toLowerCase())
+            m.nachname.toLowerCase().includes(suchbegriff.toLowerCase()) ||
+            m.userid.toLowerCase().includes(suchbegriff.toLowerCase())
         );
         setGefilterteMitarbeiter(gefiltert);
     }, [suchbegriff, mitarbeiter]);
 
     return (
         <div>
+            <Layout />
             <div id="suchleistencanvas">
                 <input id="suchleiste" placeholder="Mitarbeiter Suchen..." type={"search"} value={suchbegriff} onChange={(e) => setSuchbegriff(e.target.value)}/>
                 <div id="treffertext">Treffer: {gefilterteMitarbeiter.length}</div>

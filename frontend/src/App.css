@@ -283,6 +283,61 @@
         display: none;
     }
 
+#dropdownLAYOUT{
+    left: 87vw;
+    top: -0.5vh;
+    position: absolute;
+}
+.canvas {
+    margin: 5px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    position: absolute;
+}
+#editdatencanvasPW {
+    width: 35vw;
+    height: 20vh;
+    left: 18vw;
+    top: 65vh;
+}
 
+#editdatencanvasPICTURE {
+    width: 11vw;
+    height: 8.3vh;
+    left: 18vw;
+    top: 45vh;
+    padding: 0.4vw;
+}
 
+#showeditPicture {
+    width: 7vw;
+    height: 15vh;
+    left: 18vw;
+    top: 20vh;
+}
+
+#showeditProfil{
+    width: 40vw;
+    height: 35vh;
+    left: 38vw;
+    top: 20vh;
+}
+#InputFelderEdit1 {
+    top: 6vh;
+    left: 11vw;
+    position: absolute;
+    width: 11vw;
+}
+    #InputFelderEdit2 {
+        top: 10vh;
+        left: 11vw;
+        position: absolute;
+        width: 11vw;
+
+    }
+#PWresetPOS{
+    position: absolute;
+    left: 13vw;
+}
 }
