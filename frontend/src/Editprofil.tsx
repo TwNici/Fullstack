@@ -1,6 +1,36 @@
 import Layout from "./Layout.tsx";
+import {useEffect, useState} from "react";
+import {FormInputType, roleType} from "./App.tsx";
+import axios, {AxiosResponse} from "axios";
 
 function Editprofil() {
+
+    const [formData, setFormData] = useState<FormInputType>({
+            name: "",
+            nachname: "",
+            geschlecht: "",
+            geschaeftsadresse: "",
+            rolle: roleType.USER,
+            initialPW: "",
+            ort: "",
+            gebaeude: "",
+            bildUrl: "",
+            telefonnummer: "",
+
+        }
+    )
+
+    const userid = localStorage.getItem("userid")
+
+    useEffect(() => {
+        localStorage.setItem("userid", "JUAN1")
+        axios.get(`/api/mitarbeiter/${userid}`).then((res: AxiosResponse<FormInputType>) => {
+            setFormData({
+                name: res.data.name, nachname: res.data.nachname, geschlecht: res.data.geschlecht, geschaeftsadresse: res.data.geschaeftsadresse, rolle: res.data.rolle, initialPW: res.data.initialPW, ort: res.data.ort, gebaeude: res.data.gebaeude, bildUrl: res.data.bildUrl, newUserid: res.data.userid, stock: res.data.stock, userid: undefined, telefonnummer: res.data.telefonnummer, pultnummer: res.data.pultnummer
+            });
+        })
+    }, []);
+
     return(
         <div>
             <Layout />
@@ -16,7 +46,7 @@ function Editprofil() {
                 <input  id="dragDropEdit" type="file" name="bildUrl" required />
             </div>
 
-            <div id="showeditPicture" className="canvas"></div>
+            <img src={formData.bildUrl} id="showeditPicture" className="canvas"/>
             <div id="showeditProfil" className="canvas" ></div>
         </div>
     );

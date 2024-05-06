@@ -1,9 +1,8 @@
 package com.example.backend;
 
+import com.example.backend.User.Role;
 import jakarta.persistence.*;
 import lombok.Data;
-
-import java.lang.reflect.Type;
 
 @Data
 @Entity
@@ -16,7 +15,7 @@ public class Mitarbeiter {
     private String telefonnummer;
     private String ort;
     private String initialPW;
-    private String rolle;
+    private Role rolle;
     private String geschaeftsadresse;
     private int stock;
     private int pultnummer;

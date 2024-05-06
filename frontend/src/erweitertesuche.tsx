@@ -16,6 +16,16 @@ function Erweitertesuche() {
         userdata: "",
     })
 
+    const [isNumber, setIsNumber] = useState<boolean>(false)
+
+    const handleNumChange = (value: string) => {
+        if (value === "Stock" || value === "Pultnummer"){
+            setIsNumber(true);
+        } else {
+            setIsNumber(false);
+        }
+    }
+
     const handleChange = (name: string, value: string) => {
         setSuche({
             ...suche,
@@ -26,22 +36,28 @@ function Erweitertesuche() {
     return (
         <div>
             <div id="suchleistencanvas">
+
+                {/*}<form onSubmit={}>{*/}
                 <input name={"criteria"} id="suchleiste" placeholder="Suchkriterium..." type={"search"} onChange={(e) => {
                     e.preventDefault();
                     handleChange(e.target.name, e.target.value);
                 }}/>
+                {/*}</form>{*/}
+
+
                 <select id="operator" name="operator" onChange={(e) => {
                     e.preventDefault();
                     handleChange(e.target.name, e.target.value)}}>
                     <option value="=">=</option>
-                    <option value=">"> {">"} </option>
-                    <option value=">="> {">="} </option>
-                    <option value="<"> {"<"} </option>
-                    <option value="<=">{"<="}</option>
+                    {isNumber && <option value=">"> {">"} </option>}
+                    {isNumber && <option value=">="> {">="} </option>}
+                    {isNumber && <option value="<"> {"<"} </option>}
+                    {isNumber && <option value="<=">{"<="}</option>}
                     <option value="≠">≠</option>
                 </select>
                 <select id="userdata" name="userdata" onChange={(e) => {
                     e.preventDefault();
+                    handleNumChange(e.target.value)
                     handleChange(e.target.name, e.target.value);}}>
                     <option value="Nachname">Nachname</option>
                     <option value="Vorname"> Vorname</option>

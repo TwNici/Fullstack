@@ -7,11 +7,15 @@ import Loginpage from "./Loginpage.tsx";
 import Editprofil from "./Editprofil.tsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+export enum roleType {
+    ADMIN = "ADMIN",
+    USER = "USER",
+}
 
 
 export type FormInputType = {
     initialPW: string;
-    rolle: string;
+    rolle: roleType;
     stock?: number;
     geschaeftsadresse: string;
     ort: string;

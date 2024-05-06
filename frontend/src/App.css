@@ -340,4 +340,55 @@
     position: absolute;
     left: 13vw;
 }
+
+    #AdressbuchBild {
+        width: 15vw;
+        height: 15vh;
+        top: 20vh;
+        left: 45.7vw;
+        background-image: url('/public/AdressbuchB.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+    }
+
+
+    #AdressbuchCanvas {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+
+    }
+
+    .LoginInputfelder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        grid-template-columns: auto minmax(auto, 1fr);
+        gap: 20px;
+        width: 15vw;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+
+
+    }
+
+    #rolleCreatemitabeiter {
+    top: 20.1vw;
+    position: absolute;
+        height: 2.7vh;
+    width: 10vw;
+    left: 22.9vw;
+
+}
+
+
+
+
+
+
+
 }

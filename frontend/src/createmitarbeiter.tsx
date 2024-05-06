@@ -1,9 +1,8 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import './App.css';
 import axios from "axios";
-import {FormInputType} from "./App.tsx";
+import {FormInputType, roleType} from "./App.tsx";
 import Layout from "./Layout.tsx";
-
 
 
 function CreateMitarbeiter() {
@@ -13,7 +12,7 @@ function CreateMitarbeiter() {
         nachname: "",
         geschlecht: "",
         geschaeftsadresse: "",
-        rolle: "",
+        rolle: roleType.USER,
         initialPW: "",
         ort: "",
         gebaeude: "",
@@ -45,7 +44,7 @@ function CreateMitarbeiter() {
                     nachname: "",
                     geschlecht: "",
                     geschaeftsadresse: "",
-                    rolle: "",
+                    rolle: roleType.USER,
                     initialPW: "",
                     ort: "",
                     gebaeude: "",
@@ -79,6 +78,9 @@ function CreateMitarbeiter() {
         }
     };
 
+    useEffect(() => {
+    }, []);
+
         return (
 
             <form onSubmit={handleSubmit}>
@@ -98,7 +100,7 @@ function CreateMitarbeiter() {
                         </div>
                         <div>
                             <label>Geschlecht:</label>
-                            <input id="geschlecht" name="geschlecht" required value={form.geschlecht}
+                            <input id="geschlecht" name="geschlecht" maxLength={1} required value={form.geschlecht}
                                    onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
                         </div>
                         <div>
@@ -123,8 +125,10 @@ function CreateMitarbeiter() {
                         </div>
                         <div>
                             <label>Rolle:</label>
-                            <input id="rolle" name="rolle" required value={form.rolle}
-                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
+                            <select id={"rolleCreatemitabeiter"} name={"rolle"} onChange={(e) => { onChangeValues(e.target.name, e.target.value); }}>
+                                <option value={roleType.USER}>User</option>
+                                <option value={roleType.ADMIN}>Admin</option>
+                            </select>
                         </div>
                         <div>
                             <label>Geschäfts Adresse:</label>

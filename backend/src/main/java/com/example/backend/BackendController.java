@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
 import java.util.Base64;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -16,6 +17,11 @@ public class BackendController {
     @PostMapping("/mitarbeiter")
     public Mitarbeiter createMitarbeiter(@RequestBody Mitarbeiter mitarbeiter) {
         return service.createMitarbeiter(mitarbeiter);
+    }
+
+    @GetMapping("/mitarbeiter/extended")
+    public Optional<List<Mitarbeiter>> getExtendedMitarbeiter(@RequestBody ExtendedSearch search) {
+        return service.getExtendedMitarbeiter(search);
     }
 
     @PutMapping("/mitarbeiter/{userId}")

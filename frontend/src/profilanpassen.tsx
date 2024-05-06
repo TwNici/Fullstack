@@ -1,8 +1,7 @@
-
 import axios from 'axios';
 import './App.css';
 import React, {useRef, useState} from "react";
-import {FormInputType} from "./App.tsx";
+import {FormInputType, roleType} from "./App.tsx";
 import Layout from "./Layout.tsx";
 
 
@@ -14,7 +13,7 @@ function ProfilAnpassen() {
         nachname: "",
         geschlecht: "",
         geschaeftsadresse: "",
-        rolle: "",
+        rolle: roleType.USER,
         initialPW: "",
         ort: "",
         gebaeude: "",
@@ -25,8 +24,7 @@ function ProfilAnpassen() {
         newUserid: "",
     });
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
+    const handleInputChange = (name: string, value: string) => {
         setFormData(prevState => ({
             ...prevState,
             [name]: value
@@ -97,51 +95,56 @@ function ProfilAnpassen() {
                 <div id={"mitarbeitertexttitel"}><h1>Mitarbeiter anpassen</h1></div>
                 <div>
                     <label>UserID</label>
-                    <input placeholder={"Neue User ID"} id="newUserid" name="newUserid" value={formData.newUserid}  onChange={handleInputChange} />
+                    <input placeholder={"Neue User ID"} id="newUserid" name="newUserid" value={formData.newUserid}  onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
                 </div>
                 <div>
                     <label>Vorname:</label>
-                    <input  id="name" name="name" value={formData.name} onChange={handleInputChange}/>
+                    <input  id="name" name="name" value={formData.name} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
                 </div>
                 <div>
                     <label>Nachname:</label>
-                    <input  id="nachname" name="nachname" value={formData.nachname} onChange={handleInputChange}/>
+                    <input  id="nachname" name="nachname" value={formData.nachname} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
                 </div>
                 <div>
                     <label>Geschlecht:</label>
-                    <input  id="geschlecht" /* type={"checkbox"} */ name="geschlecht" value={formData.geschlecht} onChange={handleInputChange}/>
+                    <input  id="geschlecht" name="geschlecht" value={formData.geschlecht} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}  maxLength={1} />
                 </div>
+
                 <div>
                     <label>Telefonnummer:</label>
-                    <input  id="tele"  type={"tel"} pattern="[+][0-9]{2}[0-9]{2}[0-9]{3}[0-9]{4}" required name="telefonnummer" value={formData.telefonnummer} onChange={handleInputChange}/>
+                    <input  id="tele"  type={"tel"} pattern="[+][0-9]{2}[0-9]{2}[0-9]{3}[0-9]{4}" required name="telefonnummer" value={formData.telefonnummer} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
                 </div>
                 <div>
                     <label>Ort:</label>
-                    <input  id="ort" name="ort" value={formData.ort} onChange={handleInputChange}/>
+                    <input  id="ort" name="ort" value={formData.ort} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
                 </div>
                 <div>
                     <label>Initial Passwort:</label>
-                    <input  id="initialPW" name="initialPW" value={formData.initialPW} onChange={handleInputChange}/>
+                    <input  id="initialPW" name="initialPW" value={formData.initialPW} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
                 </div>
                 <div>
-                    <label>Rolle</label>
-                    <input  id="rolle" name="rolle" value={formData.rolle} onChange={handleInputChange}/>
+                    <label>Rolle:</label>
+                    <select id={"rolleCreatemitabeiter"} name={"rolle"} value={formData.rolle} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}>
+                        <option value={roleType.USER}>User</option>
+                        <option value={roleType.ADMIN}>Admin</option>
+                    </select>
                 </div>
+
                 <div>
                     <label>Geschäfts Adresse:</label>
-                    <input  id="geschaeftsadresse" name="geschaeftsadresse" value={formData.geschaeftsadresse} onChange={handleInputChange}/>
+                    <input  id="geschaeftsadresse" name="geschaeftsadresse" value={formData.geschaeftsadresse} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
                 </div>
                 <div>
                     <label>Stock:</label>
-                    <input  id="stock" name="stock" type={"number"} value={formData.stock} onChange={handleInputChange}/>
+                    <input  id="stock" name="stock" type={"number"} value={formData.stock} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
                 </div>
                 <div>
                     <label>Pultnummer:</label>
-                    <input type="number" id="pultnummer" name="pultnummer" value={formData.pultnummer} onChange={handleInputChange}/>
+                    <input type="number" id="pultnummer" name="pultnummer" value={formData.pultnummer} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
                 </div>
                 <div>
                     <label>Gebäude:</label>
-                    <input  id="gebaeude" name="gebaeude" value={formData.gebaeude} onChange={handleInputChange}/>
+                    <input  id="gebaeude" name="gebaeude" value={formData.gebaeude} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
                 </div>
                 <div>
                     <label htmlFor="dragDrop" className="adressbuchbutton">Bild Hochladen / PNG</label>

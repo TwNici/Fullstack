@@ -11,7 +11,6 @@ function DatenAnzeigen() {
     const [gefilterteMitarbeiter, setGefilterteMitarbeiter] = useState<InterfaceDaten[]>([]);
 
     const formatBase64Image = (data: string): string => {
-        console.log(data);
         if (data && !data.startsWith('data:image')) {
             return `data:image/png;base64,${data}`;
         }
@@ -21,7 +20,6 @@ function DatenAnzeigen() {
     useEffect(() => {
         axios.get<InterfaceDaten[]>('/api/mitarbeiter')
             .then(response => {
-                console.log(response.data);
                 setMitarbeiter(response.data);
                 setGefilterteMitarbeiter(response.data);
             })
@@ -54,9 +52,9 @@ function DatenAnzeigen() {
                             <p>{mitarbeiter.name} {mitarbeiter.nachname} ({mitarbeiter.userid})</p>
                             <p>Tele: {mitarbeiter.telefonnummer}</p>
                             <p>Ort: {mitarbeiter.ort}</p>
-                            <p>Geschlächt: {mitarbeiter.geschlecht}</p>
+                            <p>Geschlecht: {mitarbeiter.geschlecht}</p>
                             <p>Rolle: {mitarbeiter.rolle}</p>
-                            <p>PW: {mitarbeiter.initialPW}</p>
+
                         </div>
                     </div>
                 ))}

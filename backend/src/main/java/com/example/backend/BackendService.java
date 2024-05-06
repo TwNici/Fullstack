@@ -3,6 +3,7 @@ package com.example.backend;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -30,4 +31,17 @@ public class BackendService {
     public void deleteMitarbeiter(String userId) {
         repo.deleteById(userId);
     }
+
+    public Optional<List<Mitarbeiter>> getExtendedMitarbeiter(ExtendedSearch search) {
+        List<Mitarbeiter> allMitarbeiter = repo.findAll();
+        Optional<List<Mitarbeiter>> toReturn = null;
+
+        for (Mitarbeiter m: allMitarbeiter) {
+
+        }
+
+        return null;
+        }
+
 }
+
