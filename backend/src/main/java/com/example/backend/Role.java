@@ -1,4 +1,4 @@
-package com.example.backend.User;
+package com.example.backend;
 
 public enum Role {
     ADMIN,

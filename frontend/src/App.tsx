@@ -16,19 +16,18 @@ export enum roleType {
 export type FormInputType = {
     initialPW: string;
     rolle: roleType;
-    stock?: number;
+    stock: number;
     geschaeftsadresse: string;
     ort: string;
-    userid?: string;
-    pultnummer?: number;
+    userid: string;
+    pultnummer: number;
     gebaeude: string;
     telefonnummer: string;
-    id?: number;
     name: string;
     nachname: string;
     geschlecht: string;
     bildUrl: string;
-    newUserid?: string;
+    newUserid: string;
 };
 
 const App = () => {

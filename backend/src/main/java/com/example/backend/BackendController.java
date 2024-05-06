@@ -1,10 +1,13 @@
 package com.example.backend;
 
+import com.example.backend.auth.AuthenticationRequest;
+import com.example.backend.auth.AuthenticationResponse;
+import com.example.backend.auth.RegisterRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
-import java.util.List;
 import org.springframework.http.ResponseEntity;
-import java.util.Base64;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -13,6 +16,20 @@ import java.util.Optional;
 public class BackendController {
 
     private final BackendService service;
+
+    @PostMapping("/register")
+    public ResponseEntity<AuthenticationResponse> register(
+            @RequestBody RegisterRequest request
+    ) {
+        return ResponseEntity.ok(service.register(request));
+    }
+
+    @PostMapping("/authenticate")
+    public ResponseEntity<AuthenticationResponse> authenticate(
+            @RequestBody AuthenticationRequest request
+    ) {
+        return ResponseEntity.ok(service.authenticate(request));
+    }
 
     @PostMapping("/mitarbeiter")
     public Mitarbeiter createMitarbeiter(@RequestBody Mitarbeiter mitarbeiter) {
