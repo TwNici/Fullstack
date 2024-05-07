@@ -8,6 +8,7 @@ import Layout from "./Layout.tsx";
 function CreateMitarbeiter() {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [form, setForm] = useState<FormInputType>({
+        pultnummer: 0, stock: 0, userid: "",
         name: "",
         nachname: "",
         geschlecht: "",
@@ -17,7 +18,7 @@ function CreateMitarbeiter() {
         ort: "",
         gebaeude: "",
         bildUrl: "",
-        telefonnummer: "",
+        telefonnummer: ""
 
     });
 
@@ -40,6 +41,7 @@ function CreateMitarbeiter() {
                     fileInputRef.current.value = '';
                 }
                 setForm({
+                    pultnummer: 0, stock: 0, userid: "",
                     name: "",
                     nachname: "",
                     geschlecht: "",
@@ -49,7 +51,7 @@ function CreateMitarbeiter() {
                     ort: "",
                     gebaeude: "",
                     bildUrl: "",
-                    telefonnummer: "",
+                    telefonnummer: ""
                 });
             })
             .catch(error => {

@@ -9,6 +9,7 @@ function ProfilAnpassen() {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [userId, setUserId] = useState<string>("");
     const [formData, setFormData] = useState<FormInputType>({
+        pultnummer: 0,
         name: "",
         nachname: "",
         geschlecht: "",
@@ -20,8 +21,7 @@ function ProfilAnpassen() {
         bildUrl: "",
         telefonnummer: "",
         stock: 0,
-        userid: "",
-        newUserid: "",
+        userid: ""
     });
 
     const handleInputChange = (name: string, value: string) => {
@@ -33,14 +33,7 @@ function ProfilAnpassen() {
 
 
     const handleSubmit = () => {
-        axios.put(`/api/mitarbeiter/${formData.userid}`, {name: formData.name, nachname: formData.nachname,
-            geschlecht: formData.geschlecht, geschaeftsadresse: formData.geschaeftsadresse, rolle: formData.rolle,
-            initialPW: formData.initialPW,
-            ort: formData.ort,
-            gebaeude: formData.gebaeude,
-            bildUrl: formData.bildUrl,
-            telefonnummer: formData.telefonnummer, stock: formData.stock,
-            userid: formData.newUserid})
+        axios.put(`/api/mitarbeiter`, formData)
             .then(response => {
                 console.log('Updated successfully:', response.data);
             })
@@ -70,21 +63,19 @@ function ProfilAnpassen() {
     const handleGetUser = () => {
         axios.get(`/api/mitarbeiter/${userId}`).then((res) => {
             setFormData({
-                name: res.data.name, nachname: res.data.nachname, geschlecht: res.data.geschlecht, geschaeftsadresse: res.data.geschaeftsadresse, rolle: res.data.rolle, initialPW: res.data.InitialPW, ort: res.data.ort, gebaeude: res.data.gebaeude, bildUrl: res.data.bildUrl, newUserid: res.data.userid, stock: res.data.stock, userid: undefined, telefonnummer: res.data.telefonnummer, pultnummer: res.data.pultnummer
+                name: res.data.name, nachname: res.data.nachname, geschlecht: res.data.geschlecht, geschaeftsadresse: res.data.geschaeftsadresse, rolle: res.data.rolle, initialPW: res.data.InitialPW, ort: res.data.ort, gebaeude: res.data.gebaeude, bildUrl: res.data.bildUrl, stock: res.data.stock, userid: res.data.userid, telefonnummer: res.data.telefonnummer, pultnummer: res.data.pultnummer
             });
         })
     }
-
     return (<>
             <Layout />
             <form id={"search-form"} onSubmit={(e) => {
                 e.preventDefault()
                 handleGetUser()
             }}>
-                <div id="searchID">
-                    <label>Mitarbeiter auswählen:</label>
-                    <input placeholder={"USERID"} onChange={(e) => {setUserId(e.target.value)}} />
-                </div>
+            <div>
+                <button id={"searchUserIDButton"} className={"adressbuchbutton"}>Suchen</button>
+            </div>
             </form>
         <form id={"input-form"} onSubmit={(e) => {
             e.preventDefault()
@@ -94,8 +85,8 @@ function ProfilAnpassen() {
 
                 <div id={"mitarbeitertexttitel"}><h1>Mitarbeiter anpassen</h1></div>
                 <div>
-                    <label>UserID</label>
-                    <input placeholder={"Neue User ID"} id="newUserid" name="newUserid" value={formData.newUserid}  onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
+                <label>Mitarbeiter auswählen:</label>
+                    <input placeholder={"USERID"} onChange={(e) => {setUserId(e.target.value)}} />
                 </div>
                 <div>
                     <label>Vorname:</label>

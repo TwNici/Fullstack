@@ -1,14 +1,14 @@
 import axios from 'axios';
 import './App.css';
-import { InterfaceDaten } from './InterfaceDaten.tsx';
 import { useEffect, useState } from "react";
 import Layout from "./Layout.tsx";
+import {FormInputType} from "./App.tsx";
 
 
 function DatenAnzeigen() {
-    const [mitarbeiter, setMitarbeiter] = useState<InterfaceDaten[]>([]);
+    const [mitarbeiter, setMitarbeiter] = useState<FormInputType[]>([]);
     const [suchbegriff, setSuchbegriff] = useState('');
-    const [gefilterteMitarbeiter, setGefilterteMitarbeiter] = useState<InterfaceDaten[]>([]);
+    const [gefilterteMitarbeiter, setGefilterteMitarbeiter] = useState<FormInputType[]>([]);
 
     const formatBase64Image = (data: string): string => {
         if (data && !data.startsWith('data:image')) {
@@ -18,7 +18,7 @@ function DatenAnzeigen() {
     };
 
     useEffect(() => {
-        axios.get<InterfaceDaten[]>('/api/mitarbeiter')
+        axios.get<FormInputType[]>('/api/mitarbeiter')
             .then(response => {
                 setMitarbeiter(response.data);
                 setGefilterteMitarbeiter(response.data);

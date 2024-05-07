@@ -1,5 +1,5 @@
 import Adressbuch from './Adressbuch.tsx';
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useNavigate} from "react-router-dom";
 import Createmitarbeiter from "./createmitarbeiter.tsx";
 import Profilanpassen from "./profilanpassen.tsx";
 import Erweitertesuche from "./erweitertesuche.tsx";
@@ -27,10 +27,30 @@ export type FormInputType = {
     nachname: string;
     geschlecht: string;
     bildUrl: string;
-    newUserid: string;
 };
 
+export type UserInfo = {
+    rolle: roleType;
+    stock: number;
+    geschaeftsadresse: string;
+    ort: string;
+    userid: string;
+    pultnummer: number;
+    gebaeude: string;
+    telefonnummer: string;
+    name: string;
+    nachname: string;
+    geschlecht: string;
+    bildUrl: string;
+}
+
+export type AuthenticationResponse = {
+    token: string;
+}
+
 const App = () => {
+
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -39,7 +59,7 @@ const App = () => {
                 <Route path="/createmitarbeiter" element={<Createmitarbeiter />} />
                 <Route path="/profilanpassen" element={< Profilanpassen/>} />
                 <Route path="/erweitertesuche" element={< Erweitertesuche/>} />
-                <Route path="/Login" element={< Loginpage/>} />
+                <Route path="/Login" element={<Loginpage navigate={navigate}/>}  />
                 <Route path="/edit" element={< Editprofil/>} />
             </Routes>
         </div>

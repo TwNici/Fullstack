@@ -26,8 +26,8 @@ public class BackendService {
         return repo.save(mitarbeiter);
     }
 
-    public Mitarbeiter updateMitarbeiter(String userId, Mitarbeiter mitarbeiterDetails) {
-        repo.deleteById(userId);
+    public Mitarbeiter updateMitarbeiter(Mitarbeiter mitarbeiterDetails) {
+        repo.deleteById(mitarbeiterDetails.getUserid());
         return repo.save(mitarbeiterDetails);
     }
 
@@ -47,12 +47,12 @@ public class BackendService {
         List<Mitarbeiter> allMitarbeiter = repo.findAll();
         Optional<List<Mitarbeiter>> toReturn = null;
 
-        for (Mitarbeiter m: allMitarbeiter) {
+        for (Mitarbeiter m : allMitarbeiter) {
 
         }
 
         return null;
-        }
+    }
 
     public AuthenticationResponse register(RegisterRequest request) {
         var user = Mitarbeiter.builder()
@@ -69,6 +69,7 @@ public class BackendService {
                 .rolle(Role.USER)
                 .build();
         repo.save(user);
+
         var jtwToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jtwToken)
@@ -82,12 +83,28 @@ public class BackendService {
                         request.getPassword()
                 )
         );
-        var user = repo.findById(request.getUserid());
+        var user = repo.findById(request.getUserid())
+                .orElseThrow();
         var jtwToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jtwToken)
                 .build();
     }
 
-}
 
+    public boolean updateMitarbeiterPassword(String userid, String password) {
+        Optional<Mitarbeiter> toUpdate = repo.findById(userid);
+
+        if (toUpdate.isPresent()) {
+            Mitarbeiter actualMitarbeiter = toUpdate.get();
+            actualMitarbeiter.setInitialPW(password);
+            repo.deleteById(userid);
+            repo.save(actualMitarbeiter);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+}

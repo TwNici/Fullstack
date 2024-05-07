@@ -17,6 +17,7 @@ public class BackendController {
 
     private final BackendService service;
 
+
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
             @RequestBody RegisterRequest request
@@ -41,9 +42,14 @@ public class BackendController {
         return service.getExtendedMitarbeiter(search);
     }
 
-    @PutMapping("/mitarbeiter/{userId}")
-    public Mitarbeiter updateMitarbeiter(@PathVariable String userId, @RequestBody Mitarbeiter mitarbeiter) {
-        return service.updateMitarbeiter(userId, mitarbeiter);
+    @PutMapping("/mitarbeiter")
+    public Mitarbeiter updateMitarbeiter( @RequestBody Mitarbeiter mitarbeiter) {
+        return service.updateMitarbeiter(mitarbeiter);
+    }
+
+    @PutMapping("/mitarbeiter/password")
+    public boolean updateMitarbeiterPassword( @RequestBody String userid, String password){
+        return service.updateMitarbeiterPassword(userid, password);
     }
 
     @GetMapping("/mitarbeiter")
