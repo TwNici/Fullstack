@@ -1,28 +1,49 @@
+/*------------------------------------------------------------------NOT MOBILE FIRST----------------------------------------------------------------------- */
+html {
+    scrollbar-color: white black;
+}
+input::placeholder {
+    color: black;
+}
+
+h4:hover{
+    color: skyblue;
+    transition: all 0.3s ease;
+}
+/*------------------------------------------------------------------MOBILE FIRST--------------------------------------------------------------------------- */
 @media (min-width: 1000px) {
+    /*------------------------------------------------------------------ID'S------------------------------------------------------------------------------ */
+
     #uppercanvas {
         width: 98vw;
         height: 11vh;
         background-color: white;
-        position: absolute;
+        position: fixed;
         left: 0vw;
         top: 0.5vw;
-        border-radius: 10px 10px 10px 0;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
         padding: 1vh;
+        z-index: 20;
 
 
+    }
+    #DivCanvasDel{
+        width: 82.7vw;
+        height: 20vh;
+        background-color: white;
+        position: fixed;
+        left: 15.9vw;
+        top: -0.7vw;
+        z-index: 4;
     }
 
     #suchleistencanvas {
         width: 80vw;
         height: 6vh;
         background-color: white;
-        position: absolute;
+        position: fixed;
         left: 16vw;
         top: 7vw;
-        border-radius: 10px;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-
+        z-index: 10;
 
     }
 
@@ -33,40 +54,10 @@
         height: 88vh;
         top: 11.3vh;
         background-color: white;
-        position: absolute;
+        position: fixed;
         margin-left: 0%;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-        border-radius: 0 0 10px 10px;
-    }
 
-    .adressbuchbutton {
-        border-radius: 8px;
-        border: 1px solid transparent;
-        padding: 0.6em 1.2em;
-        font-size: 0.8em;
-        font-weight: 500;
-        font-family: inherit;
-        color: white;
-        background-color: black;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        margin-top: 2vh;
-        width: 10vw;
-
-    }
-    .adressbuchbutton:hover {
-        color: lightskyblue;
-    }
-
-    .adressbuchbutton:active {
-        transform: translateY(3px);
-    }
-
-    .button-vertical {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
+        z-index: 5;
     }
 
     #labels {
@@ -91,25 +82,21 @@
 
 
     #mdatentext {
-    left: 6.6vw;
+        left: 6.6vw;
         top: 1vh;
-    position: absolute;
-        border-radius: 10px;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+        position: absolute;
         padding: 0.3vw;
         width: 13vw;
         height: 20vh;
         max-width: 13vw;
         max-height: 20vh;
-}
+    }
 
 
     #mdatentext2 {
         left: 6.6vw;
         top: 0.5vh;
         position: absolute;
-        border-radius: 10px;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
         padding: 0.3vw;
         width: 13vw;
         height: 21.5vh;
@@ -121,8 +108,6 @@
         left: 23.6vw;
         top: 1vh;
         position: absolute;
-        border-radius: 10px;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
         padding: 0.3vw;
         width: 13vw;
         height: 20vh;
@@ -130,19 +115,366 @@
         max-height: 20vh;
     }
 
+    #inputfeldauswahl{
+        position: absolute;
 
-    .canvas-container {
+    }
+
+    #mitarbeitertexttitel {
+        width: 23vw;
+        height: 8vh;
+        background-color: white;
+        position: absolute;
+        left: 8.5vw;
+        top: 1vw;
+        padding: 1.2vw;
+
+
+
+    }
+    #suchleiste{
+        width: 30vw;
+        border-color: Black;
+        top: 1.5vh;
+        left: 0.5vw;
+        position: absolute;
+
+
+
+    }
+    #rolleCreatemitabeiter {
+        top: 20.1vw;
+        position: absolute;
+        height: 2.7vh;
+        width: 10vw;
+        left: 22.9vw;
+
+    }
+
+
+
+    #editSaveButtonIMG {
+        left: 3vw;
+        top: 3vw;
+        width: 5vw;
+        height: 2vw;
+        position: absolute;
+
+    }
+
+
+    #editSaveButtonPW {
+        left: 13.5vw;
+        top: 7vw;
+        width: 6vw;
+        width: 6vw;
+        height: 2vw;
+        position: absolute;
+    }
+
+    #searchUserIDButton{
+        width: 4vw;
+        height: 3.2vh;
+        left: 18.65vw;
+        top: 5vw;
+        position: absolute;
+    }
+
+    #suchenButtonAdressbuch {
+        position: absolute;
+        left: 31vw;
+        top: -0.4vw;
+        padding-left: -1vw;
+        width: 3.5vw;
+
+
+    }
+
+    #canvasDatenFromContainer {
+        left: 15.5vw;
+        top: 13vh;
+        width: 82.5vw;
+        height: 86.5vh;
+        background: white;
+        position: relative;
+        overflow: hidden;
+
+
+
+    }
+    #AllDatenCanvasPICTURE {
+        left: 1vw;
+        top: 2.5vh;
+        width: 12.5vw;
+        height: 34vh;
+        background: white;
+        position: absolute;
+
+
+
+    }
+    #mdatentextINFOS1 {
+        left: 14.6vw;
+        top: 2.5vh;
+        position: absolute;
+
+        padding: 0.3vw;
+        width: 33vw;
+        height: 34vh;
+        max-width: 33vw;
+        max-height: 35vh;
+    }
+
+    #mdatentextINFOS2 {
+        left: 33.6vw;
+        top: 0vh;
+        position: absolute;
+
+        padding: 0.3vw;
+        width: 33vw;
+        height: 34vh;
+        max-width: 33vw;
+        max-height: 35vh;
+    }
+    #editdatencanvasPW {
+        width: 35vw;
+        height: 20vh;
+        left: 18vw;
+        top: 65vh;
+    }
+
+    #editdatencanvasPICTURE {
+        width: 11vw;
+        height: 13.3vh;
+        left: 18vw;
+        top: 45vh;
+        padding: 0.4vw;
+    }
+
+
+
+
+    #showeditPicture {
+        width: 7vw;
+        height: 15vh;
+        left: 18vw;
+        top: 20vh;
+    }
+
+    #showeditProfil{
+        width: 40vw;
+        height: 24vh;
+        left: 38vw;
+        top: 20vh;
+    }
+    #InputFelderEdit1 {
+        top: 6vh;
+        left: 11vw;
+        position: absolute;
+        width: 11vw;
+    }
+    #InputFelderEdit2 {
+        top: 10vh;
+        left: 11vw;
+        position: absolute;
+        width: 11vw;
+
+    }
+    #PWresetPOS{
+        position: absolute;
+        left: 13vw;
+    }
+
+    #AdressbuchBild {
+        width: 15vw;
+        height: 15vh;
+        top: 20vh;
+        left: 45.7vw;
+        background-image: url('/public/AdressbuchB.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+    }
+
+
+    #AdressbuchCanvas {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+
+    }
+    #dropdownLAYOUT{
+        left: 87vw;
+        top: -0.5vh;
+        position: absolute;
+    }
+
+    #treffertext {
+        position: absolute;
+        left: 70vw;
+        top: 1vw;
+        width: 9vw;
+        height: 2.5vh;
+        background-color: Black;
+        color: white;
+        padding-left: 1vw;
+
+    }
+
+    #treffertext:hover {
+        color: skyblue;
+        transition: all 0.3s ease;
+    }
+
+
+
+
+
+    #operator {
+        position: absolute;
+        left: 35vw;
+        top: 1vw;
+        width: 3.5vw;
+        height: 2.5vh;
+        border-color: black;
+    }
+
+    #userdata {
+        position: absolute;
+        left: 43vw;
+        top: 1vw;
+        width: 15vw;
+        height: 2.5vh;
+        border-color: black;
+    }
+
+
+    #datencanvas {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: auto;
+        width: 90vw;
+        position: relative;
+        left: -5vw;
+        z-index: 3;
+
+    }
+
+    #search-form {
+        z-index: 8;
+        position: fixed;
+        top: 200px;
+        left: 500px
+    }
+
+
+
+
+    #BildAdressbuch {
+        left: -6vw;
+        top: 0.5vw;
+        position: absolute;
+
+
+    }
+
+    #canvas-delete-user {
+        display: grid;
+        grid-template-columns: auto minmax(auto, 1fr);
+        gap: 20px;
+        width: 20vw;
+        height: 30vh;
+        background-color: white;
+        left: 75vw;
+        top: 15vh;
+        position: absolute;
+        z-index: 20;
+
+    }
+
+    #delete-mitarbeiter-btn {
+        left: 5vw;
+        top: 20vh;
+        position: absolute;
+    }
+
+
+    #delete-mitarbeiter-h2-text{
+        left: 2.5vw;
+        position: absolute;
+    }
+
+    #delete-mitarbeiter-inputfeld{
+        top: 15vh;
+        left: 2.5vw;
+        width: 15vw;
+        position: absolute;
+    }
+
+    #delete-mitarbeiter-canvas{
+
+    }
+/*------------------------------------------------------------------CLASSES------------------------------------------------------------------------------ */
+
+
+
+    .btn-layout {
+    border: 1px solid transparent;
+        padding: 0.6em 1.2em;
+        font-size: 0.8em;
+        font-weight: 500;
+        font-family: inherit;
+        color: white;
+        background-color: black;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 2vh;
+        width: 10vw;
+        z-index: 15;
+
+    }
+    .btn-layout:hover {
+        color: lightskyblue;
+    }
+
+    .btn-layout:active {
+        transform: translateY(3px);
+    }
+
+    .btn-layout-vertical {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+
+
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 82vw;
+        margin: auto;
+        position: relative;
+        left: 16vw;
+        top: 11vw;
+    }
+
+    .canvas-container  {
         max-width: 20.3vw;
         max-height: 25vh;
         width: 20.3vw;
         height: 25vh;
         margin: 5px;
         background-color: white;
-        border-radius: 10px;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-        position: relative;
-        left: 16vw;
-        top: 11vw;
+
+
     }
 
 
@@ -164,38 +496,18 @@
         display: block;
     }
 
-    canvas {
-        border-radius: 10px;
-        position: absolute;
-    }
 
 
-    #mitarbeitertexttitel {
-        width: 23vw;
-        height: 8vh;
-        background-color: white;
-        position: absolute;
-        left: 8.5vw;
-        top: 1vw;
-        padding: 1.2vw;
-        border-radius: 10px;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 
 
-    }
 
-    #inputfeldauswahl{
-        position: absolute;
 
-    }
-    .inputfelder {
+    .inputfelder-canvas {
         display: grid;
         grid-template-columns: auto minmax(auto, 1fr);
         gap: 20px;
         width: 40vw;
         background-color: white;
-        border-radius: 10px;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 
     }
 
@@ -213,8 +525,8 @@
     position: fixed;
     left: 65vw;
     top: 40vw;
-    box-shadow: 5px 5px 15px;
     z-index: 3;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 
 }
     .circles2 {
@@ -225,9 +537,8 @@
         position: fixed;
         left: 60vw;
         top: 35vw;
-        box-shadow: 5px 5px 15px;
         z-index: 2;
-
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 
     }
     .circles3 {
@@ -238,176 +549,22 @@
         position: fixed;
         left: 55vw;
         top: 30vw;
-        box-shadow: 5px 5px 15px;
         z-index: 1;
-
-    }
-
-
-
-    #suchleiste{
-    width: 30vw;
-        border-radius: 10px;
-        border-color: Black;
-        top: 1.5vh;
-        left: 0.5vw;
-        position: absolute;
-
-
-
-    }
-
-    #treffertext {
-        position: absolute;
-        left: 75vw;
-        top: 1vw;
-        width: 3.5vw;
-        height: 2.5vh;
-        border-radius: 10px;
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+
     }
-
-    #treffertexterweiterte {
-        position: absolute;
-        left: 61vw;
-        top: 0.85vw;
-        width: 3.5vw;
-        height: 2.5vh;
-        border-radius: 10px;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    }
-
-
-    #operator {
-        position: absolute;
-        left: 35vw;
-        top: 1vw;
-        width: 3.5vw;
-        height: 2.5vh;
-        border-radius: 10px;
-        border-color: black;
-    }
-
-    #userdata {
-        position: absolute;
-        left: 43vw;
-        top: 1vw;
-        width: 15vw;
-        height: 2.5vh;
-        border-radius: 10px;
-        border-color: black;
-    }
-
-
-#datencanvas {
-    display: flex;
-    flexWrap: wrap;
-}
-
-#search-form {
-    z-index: 8;
-    position: fixed;
-    top: 200px;
-    left: 500px
-}
-
-
-
-
-    #BildAdressbuch {
-        left: -6vw;
-        top: 0.5vw;
-        position: absolute;
-        border-radius: 10px;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    }
-
-
 
     input[type="file"] {
         display: none;
     }
 
-#dropdownLAYOUT{
-    left: 87vw;
-    top: -0.5vh;
-    position: absolute;
-}
+
 .canvas {
     margin: 5px;
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
     position: absolute;
 }
-#editdatencanvasPW {
-    width: 35vw;
-    height: 20vh;
-    left: 18vw;
-    top: 65vh;
-}
 
-#editdatencanvasPICTURE {
-    width: 11vw;
-    height: 13.3vh;
-    left: 18vw;
-    top: 45vh;
-    padding: 0.4vw;
-}
-
-
-
-
-#showeditPicture {
-    width: 7vw;
-    height: 15vh;
-    left: 18vw;
-    top: 20vh;
-}
-
-#showeditProfil{
-    width: 40vw;
-    height: 24vh;
-    left: 38vw;
-    top: 20vh;
-}
-#InputFelderEdit1 {
-    top: 6vh;
-    left: 11vw;
-    position: absolute;
-    width: 11vw;
-}
-    #InputFelderEdit2 {
-        top: 10vh;
-        left: 11vw;
-        position: absolute;
-        width: 11vw;
-
-    }
-#PWresetPOS{
-    position: absolute;
-    left: 13vw;
-}
-
-    #AdressbuchBild {
-        width: 15vw;
-        height: 15vh;
-        top: 20vh;
-        left: 45.7vw;
-        background-image: url('/public/AdressbuchB.png');
-        background-repeat: no-repeat;
-        background-size: contain;
-        position: absolute;
-    }
-
-
-    #AdressbuchCanvas {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-
-    }
 
     .LoginInputfelder {
         display: flex;
@@ -418,111 +575,17 @@
         gap: 20px;
         width: 15vw;
         background-color: white;
-        border-radius: 10px;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-
-
-    }
-
-    #rolleCreatemitabeiter {
-    top: 20.1vw;
-    position: absolute;
-        height: 2.7vh;
-    width: 10vw;
-    left: 22.9vw;
-
-}
 
 
 
-    #editSaveButtonIMG {
-        left: 3vw;
-        top: 3vw;
-        width: 5vw;
-        height: 2vw;
-        position: absolute;
 
     }
 
-
-#editSaveButtonPW {
-    left: 13.5vw;
-    top: 7vw;
-    width: 6vw;
-    width: 6vw;
-    height: 2vw;
-    position: absolute;
-}
-
-#searchUserIDButton{
-    width: 4vw;
-    height: 3.2vh;
-    left: 18.65vw;
-    top: 5vw;
-    position: absolute;
-}
-
-#suchenButtonAdressbuch {
-    position: absolute;
-    left: 31vw;
-    top: -0.4vw;
-    padding-left: -2vw;
-    width: 3.5vw;
-
-    border-radius: 10px;
+.shadow-and-radius {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-
+    border-radius: 10px;
 }
 
-    #canvasDatenFromContainer {
-        left: 15.5vw;
-        top: 13vh;
-        width: 82.5vw;
-        height: 86.5vh;
-        background: white;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 
-
-    }
-    #AllDatenCanvasPICTURE {
-        left: 1vw;
-        top: 2.5vh;
-        width: 12.5vw;
-        height: 34vh;
-        background: white;
-        position: absolute;
-        border-radius: 10px;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-
-
-    }
-    #mdatentextINFOS1 {
-        left: 14.6vw;
-        top: 2.5vh;
-        position: absolute;
-        border-radius: 10px;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-        padding: 0.3vw;
-        width: 33vw;
-        height: 34vh;
-        max-width: 33vw;
-        max-height: 35vh;
-    }
-
-    #mdatentextINFOS2 {
-        left: 33.6vw;
-        top: 0vh;
-        position: absolute;
-        border-radius: 10px;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-        padding: 0.3vw;
-        width: 33vw;
-        height: 34vh;
-        max-width: 33vw;
-        max-height: 35vh;
-    }
 
 }

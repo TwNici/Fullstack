@@ -5,6 +5,8 @@ import {FormInputType, roleType} from "./App.tsx";
 import Layout from "./Layout.tsx";
 
 
+
+
 function ProfilAnpassen() {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [userId, setUserId] = useState<string>("");
@@ -38,6 +40,14 @@ function ProfilAnpassen() {
                 console.log('Updated successfully:', response.data);
             })
             .catch(error => console.error('Error updating user data:', error));
+    };
+
+    const deleteSubmit = () => {
+        axios.delete(`/mitarbeiter`, formData)
+            .then(response => {
+                console.log(' successfully:', response.data);
+            })
+            .catch(error => console.error('Error:', error));
     };
 
     const fileToBase64 = (file: File): Promise<string> => {
@@ -74,16 +84,16 @@ function ProfilAnpassen() {
                 handleGetUser()
             }}>
             <div>
-                <button id={"searchUserIDButton"} className={"adressbuchbutton"}>Suchen</button>
+                <button id={"searchUserIDButton"} className={"btn-layout shadow-and-radius"}>Suchen</button>
             </div>
             </form>
         <form id={"input-form"} onSubmit={(e) => {
             e.preventDefault()
             handleSubmit();
             }}>
-            <div id={"labels"} className={"inputfelder"}>
+            <div id={"labels"} className={"inputfelder-canvas shadow-and-radius"}>
 
-                <div id={"mitarbeitertexttitel"}><h1>Mitarbeiter anpassen</h1></div>
+                <div id={"mitarbeitertexttitel"} className={"shadow-and-radius"}><h1>Mitarbeiter anpassen</h1></div>
                 <div>
                 <label>Mitarbeiter auswählen:</label>
                     <input placeholder={"USERID"} onChange={(e) => {setUserId(e.target.value)}} />
@@ -138,13 +148,28 @@ function ProfilAnpassen() {
                     <input  id="gebaeude" name="gebaeude" value={formData.gebaeude} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}} maxLength={5} />
                 </div>
                 <div>
-                    <label htmlFor="dragDrop" className="adressbuchbutton">Bild Hochladen / PNG</label>
+                    <label htmlFor="dragDrop" className="btn-layout shadow-and-radius">Bild Hochladen / PNG</label>
                     <input ref={fileInputRef} id="dragDrop" type="file" name="bildUrl" required onChange={handleFileChange} />
                 </div>
-                <button type={"submit"} className="adressbuchbutton">Mitarbeiter speichern</button>
+                <button type={"submit"} className="btn-layout shadow-and-radius">Mitarbeiter speichern</button>
             </div>
         </form>
+            <div className={"shadow-and-radius"} id={"canvas-delete-user"}>
+                <form id={"input-form"} onSubmit={(e) => {
+                    e.preventDefault()
+                    deleteSubmit();
+                }}>
+                <div>
+                    <div id={"delete-mitarbeiter-canvas"} className={"shadow-and-radius"}>
+                    <h2 id={"delete-mitarbeiter-h2-text"}>Mitarbeiter Löschen</h2>
+                    <input placeholder={"USERID"} id={"delete-mitarbeiter-inputfeld"} />
+                    <button type={"submit"} id={"delete-mitarbeiter-btn"} className="btn-layout shadow-and-radius">Mitarbeiter Löschen</button>
+                    </div>
+                </div>
+                </form>
+            </div>
         </>
+
     );
 }
     export default ProfilAnpassen

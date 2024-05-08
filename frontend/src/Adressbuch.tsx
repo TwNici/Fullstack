@@ -50,25 +50,27 @@ function DatenAnzeigen() {
     return (
         <div>
             <Layout />
-            <div id="suchleistencanvas">
+            <div id={"DivCanvasDel"}></div>
+            <div id="suchleistencanvas" className={"shadow-and-radius"}>
                 <form onSubmit={handleSubmit}>
                     <input
                         id="suchleiste"
+                        className={"shadow-and-radius"}
                         type="search"
                         placeholder="Mitarbeiter Suchen..."
                         value={suchbegriff}
                         onChange={(e) => setSuchbegriff(e.target.value)}
                         aria-label="Suche nach Mitarbeitern"
                     />
-                    <button id={"suchenButtonAdressbuch"} className={"adressbuchbutton"} type="submit">Suchen</button>
+                    <button id={"suchenButtonAdressbuch"} className={"btn-layout shadow-and-radius"} type="submit">Suchen</button>
                 </form>
-                <div id="treffertext">Treffer: {gefilterteMitarbeiter.length}</div>
+                <div id="treffertext" className={"shadow-and-radius"}>Treffer: {gefilterteMitarbeiter.length}</div>
             </div>
             <div id="datencanvas">
                 {gefilterteMitarbeiter.map((mitarbeiter, index) => (
-                    <div className="canvas-container" key={index}>
-                        <div id={"mdatentext"}>
-                            {mitarbeiter.bildUrl && <img onClick={AdressbuchBildClick} src={formatBase64Image(mitarbeiter.bildUrl)} id="BildAdressbuch" alt="BILD"/>}
+                    <div className="canvas-container flex-container shadow-and-radius" key={index}>
+                        <div id={"mdatentext"} className={"shadow-and-radius"}>
+                            {mitarbeiter.bildUrl && <img onClick={AdressbuchBildClick} src={formatBase64Image(mitarbeiter.bildUrl)} className={"shadow-and-radius"} id="BildAdressbuch" alt="BILD"/>}
                             <p>{mitarbeiter.name} {mitarbeiter.nachname} ({mitarbeiter.userid})</p>
                             <p>Tele: {mitarbeiter.telefonnummer}</p>
                             <p>Ort: {mitarbeiter.ort}</p>

@@ -88,8 +88,8 @@ function CreateMitarbeiter() {
             <form onSubmit={handleSubmit}>
                 <Layout />
                 <div>
-                    <div id={"labels"} className={"inputfelder"}>
-                        <div id={"mitarbeitertexttitel"}><h1>Mitarbeiter eintragen</h1></div>
+                    <div id={"labels"} className={"inputfelder-canvas shadow-and-radius"}>
+                        <div id={"mitarbeitertexttitel"} className={"shadow-and-radius"}><h1>Mitarbeiter eintragen</h1></div>
                         <div>
                             <label>Vorname:</label>
                             <input id="name" name="name" required value={form.name}
@@ -154,10 +154,10 @@ function CreateMitarbeiter() {
                                    onChange={(e) => onChangeValues(e.target.name, e.target.value)} maxLength={5}/>
                         </div>
                         <div>
-                            <label htmlFor="dragDrop" className="adressbuchbutton">Bild Hochladen / PNG</label>
+                            <label htmlFor="dragDrop" className="btn-layout shadow-and-radius">Bild Hochladen / PNG</label>
                             <input ref={fileInputRef} id="dragDrop" type="file" name="bildUrl" required onChange={handleFileChange}/>
                         </div>
-                        <button type="submit" className="adressbuchbutton">Mitarbeiter speichern</button>
+                        <button type="submit" className="btn-layout shadow-and-radius">Mitarbeiter speichern</button>
                     </div>
                 </div>
             </form>

@@ -84,7 +84,7 @@ function Editprofil() {
     return(
         <div>
             <Layout />
-            <div id="editdatencanvasPW" className="canvas">
+            <div id="editdatencanvasPW" className="canvas shadow-and-radius">
                 <div className="InputfelderDesign" >
                 <form onSubmit={(e) => {e.preventDefault()
                     handlePwSubmit(); }}>
@@ -95,25 +95,25 @@ function Editprofil() {
                 }}/>
                 </form>
                     <input id="InputFelderEdit2" placeholder="Neues Passwort Widerholen" type="Password" />
-                    <button className={"adressbuchbutton"} id={"editSaveButtonPW"} type={"submit"}>Save</button>
+                    <button className={"btn-layout shadow-and-radius"} id={"editSaveButtonPW"} type={"submit"}>Save</button>
                 </div>
 
             </div>
-            <div id="editdatencanvasPICTURE" className="canvas">
+            <div id="editdatencanvasPICTURE" className="canvas shadow-and-radius">
                 <form onSubmit={(e) => {e.preventDefault()
                     handleSubmit(); }}>
-                <label htmlFor="dragDropEdit" className="adressbuchbutton">Bild Hochladen / PNG</label>
+                <label htmlFor="dragDropEdit" className="btn-layout shadow-and-radius">Bild Hochladen / PNG</label>
                     <input ref={fileInputRef} id="dragDropEdit" type="file" name="bildUrl" required onChange={handleFileChange} />
-                <button className={"adressbuchbutton"} id={"editSaveButtonIMG"} type={"submit"}>Save</button>
+                <button className={"btn-layout shadow-and-radius"} id={"editSaveButtonIMG"} type={"submit"}>Save</button>
                 </form>
             </div>
 
-            <img src={formData.bildUrl} id="showeditPicture" className="canvas"/>
-            <div id="showeditProfil" className="canvas" >
+            <img src={formData.bildUrl} id="showeditPicture" className="canvas shadow-and-radius"/>
+            <div id="showeditProfil" className="canvas shadow-and-radius" >
 
                     <div className="canvas-container2">
-                        <div id={"mdatentext"}>
-                            {formData.bildUrl && <img src={formatBase64Image(formData.bildUrl)} id="BildAdressbuch" alt="BILD"/>}
+                        <div id={"mdatentext"} className={"shadow-and-radius"}>
+                            {formData.bildUrl && <img src={formatBase64Image(formData.bildUrl)} className={"shadow-and-radius"} id="BildAdressbuch" alt="BILD"/>}
                             <p>{formData.name} {formData.nachname} ({formData.userid})</p>
                             <p>Tele: {formData.telefonnummer}</p>
                             <p>Geschlecht: {formData.geschlecht}</p>
@@ -122,7 +122,7 @@ function Editprofil() {
 
                         </div>
 
-                        <div id={"mdatentext3"}>
+                        <div id={"mdatentext3"} className={"shadow-and-radius"}>
                             <p>Geschäfts Adresse: {formData.geschaeftsadresse} </p>
                             <p>Stock: {formData.stock}</p>
                             <p>Pultnummer: {formData.pultnummer}</p>

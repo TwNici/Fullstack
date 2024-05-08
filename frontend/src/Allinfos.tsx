@@ -41,10 +41,10 @@ function AllInfos() {
             <Layout />
 
 
-            <div id="canvasDatenFromContainer">
-                <img src={formData.bildUrl} id="AllDatenCanvasPICTURE"/>
-                <div id="canvas-container3">
-                    <div id={"mdatentextINFOS1"}>
+            <div id="canvasDatenFromContainer" className={"shadow-and-radius"}>
+                <img src={formData.bildUrl} id="AllDatenCanvasPICTURE" className={"shadow-and-radius"}/>
+                <div id="canvas-container3" >
+                    <div id={"mdatentextINFOS1"} className={"shadow-and-radius"}>
                         <h5>Personen Daten</h5>
                         <p>{formData.name} {formData.nachname} ({formData.userid})</p>
                         <p>Tele: {formData.telefonnummer}</p>
@@ -53,7 +53,7 @@ function AllInfos() {
                         <p>Rolle: {formData.rolle}</p>
 
 
-                        <div id={"mdatentextINFOS2"}>
+                        <div id={"mdatentextINFOS2"} className={"shadow-and-radius"}>
                             <h5>Arbeitsort</h5>
                             <p>Geschäfts Adresse: {formData.geschaeftsadresse} </p>
                             <p>Stock: {formData.stock}</p>
