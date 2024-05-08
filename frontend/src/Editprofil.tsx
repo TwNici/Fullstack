@@ -112,18 +112,21 @@ function Editprofil() {
             <div id="showeditProfil" className="canvas" >
 
                     <div className="canvas-container2">
-                        <div id={"mdatentext"}>
+                        <div id={"mdatentext2"}>
                             {formData.bildUrl && <img src={formatBase64Image(formData.bildUrl)} id="BildAdressbuch" alt="BILD"/>}
+                            <h5>User Infos</h5>
                             <p>{formData.name} {formData.nachname} ({formData.userid})</p>
                             <p>Tele: {formData.telefonnummer}</p>
-                            <p>Ort: {formData.ort}</p>
                             <p>Geschlecht: {formData.geschlecht}</p>
                             <p>Rolle: {formData.rolle}</p>
+                        </div>
+                        <div id={"mdatentext3"}>
+                            <h5>Arbeits Infos</h5>
+                            <p>Ort: {formData.ort}</p>
                             <p>Geschäfts Adresse: {formData.geschaeftsadresse} </p>
                             <p>Stock: {formData.stock}</p>
                             <p>Pultnummer: {formData.pultnummer}</p>
                             <p>Gebäude: {formData.gebaeude}</p>
-
                         </div>
                     </div>
             </div>

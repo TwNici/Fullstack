@@ -93,17 +93,17 @@ function CreateMitarbeiter() {
                         <div>
                             <label>Vorname:</label>
                             <input id="name" name="name" required value={form.name}
-                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
+                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)} maxLength={16}/>
                         </div>
                         <div>
                             <label>Nachname:</label>
                             <input id="nachname" name="nachname" required value={form.nachname}
-                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
+                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)}maxLength={16}/>
                         </div>
                         <div>
                             <label>Geschlecht:</label>
-                            <input id="geschlecht" name="geschlecht" maxLength={1} required value={form.geschlecht}
-                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
+                            <input id="geschlecht" name="geschlecht" required value={form.geschlecht}
+                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)} maxLength={1}/>
                         </div>
                         <div>
                             <label>Telefonnummer:</label>
@@ -113,12 +113,12 @@ function CreateMitarbeiter() {
                         <div>
                             <label>UserID:</label>
                             <input id="userid" name="userid" required value={form.userid}
-                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
+                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)} maxLength={5}/>
                         </div>
                         <div>
                             <label>Ort:</label>
                             <input id="ort" name="ort" required value={form.ort}
-                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
+                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)} maxLength={11}/>
                         </div>
                         <div>
                             <label>Initial Passwort:</label>
@@ -136,22 +136,22 @@ function CreateMitarbeiter() {
                             <label>Geschäfts Adresse:</label>
                             <input id="geschaeftsadresse" name="geschaeftsadresse" required
                                    value={form.geschaeftsadresse}
-                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
+                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)} maxLength={16}/>
                         </div>
                         <div>
                             <label>Stock:</label>
-                            <input id="stock" name="stock" type={"number"} maxLength={8} required value={form.stock}
-                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
+                            <input id="stock" name="stock" type={"number"} required value={form.stock}
+                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)} maxLength={2}/>
                         </div>
                         <div>
                             <label>Pultnummer:</label>
                             <input id="pultnummer" type="number" name="pultnummer" required value={form.pultnummer}
-                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
+                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)} maxLength={5}/>
                         </div>
                         <div>
                             <label>Gebäude:</label>
                             <input id="gebaeude" name="gebaeude" required value={form.gebaeude}
-                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
+                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)} maxLength={5}/>
                         </div>
                         <div>
                             <label htmlFor="dragDrop" className="adressbuchbutton">Bild Hochladen / PNG</label>

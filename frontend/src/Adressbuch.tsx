@@ -28,20 +28,32 @@ function DatenAnzeigen() {
             });
     }, []);
 
-    useEffect(() => {
+    const handleSubmit = (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
         const gefiltert = mitarbeiter.filter(m =>
             m.name.toLowerCase().includes(suchbegriff.toLowerCase()) ||
             m.nachname.toLowerCase().includes(suchbegriff.toLowerCase()) ||
             m.userid.toLowerCase().includes(suchbegriff.toLowerCase())
         );
         setGefilterteMitarbeiter(gefiltert);
-    }, [suchbegriff, mitarbeiter]);
+    };
+
 
     return (
         <div>
             <Layout />
             <div id="suchleistencanvas">
-                <input id="suchleiste" placeholder="Mitarbeiter Suchen..." type={"search"} value={suchbegriff} onChange={(e) => setSuchbegriff(e.target.value)}/>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        id="suchleiste"
+                        type="search"
+                        placeholder="Mitarbeiter Suchen..."
+                        value={suchbegriff}
+                        onChange={(e) => setSuchbegriff(e.target.value)}
+                        aria-label="Suche nach Mitarbeitern"
+                    />
+                    <button id={"suchenButtonAdressbuch"} className={"adressbuchbutton"} type="submit">Suchen</button>
+                </form>
                 <div id="treffertext">Treffer: {gefilterteMitarbeiter.length}</div>
             </div>
             <div id="datencanvas">
@@ -54,6 +66,7 @@ function DatenAnzeigen() {
                             <p>Ort: {mitarbeiter.ort}</p>
                             <p>Geschlecht: {mitarbeiter.geschlecht}</p>
                             <p>Rolle: {mitarbeiter.rolle}</p>
+
 
                         </div>
                     </div>

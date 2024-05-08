@@ -54,6 +54,9 @@
         width: 10vw;
 
     }
+    .adressbuchbutton:hover {
+        color: lightskyblue;
+    }
 
     .adressbuchbutton:active {
         transform: translateY(3px);
@@ -87,15 +90,6 @@
     }
 
 
-
-
-
-
-
-
-
-
-
     #mdatentext {
     left: 6.6vw;
         top: 0.5vh;
@@ -103,10 +97,44 @@
         border-radius: 10px;
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
         padding: 0.3vw;
+        width: 13vw;
+        height: 20vh;
+        max-width: 13vw;
+        max-height: 20vh;
 }
 
+
+    #mdatentext2 {
+        left: 6.6vw;
+        top: 0.5vh;
+        position: absolute;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+        padding: 0.3vw;
+        width: 13vw;
+        height: 21.5vh;
+        max-width: 13vw;
+        max-height: 21.5vh;
+    }
+
+    #mdatentext3 {
+        left: 23.6vw;
+        top: 0.5vh;
+        position: absolute;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+        padding: 0.3vw;
+        width: 13vw;
+        height: 21.5vh;
+        max-width: 13vw;
+        max-height: 21.5vh;
+    }
+
+
     .canvas-container {
-        width: 15vw;
+        max-width: 20.3vw;
+        max-height: 25vh;
+        width: 20.3vw;
         height: 25vh;
         margin: 5px;
         background-color: white;
@@ -117,11 +145,14 @@
         top: 11vw;
     }
 
+
+
     .canvas-container img {
-        max-width: 100px;
-        max-height: 100px;
-        min-width: 80px;
-        min-height: 100px;
+
+        width: 5.5vw;
+        height: 7.5vw;
+        max-width: 5.5vw;
+       max-height: 8vw;
         display: block;
     }
 
@@ -168,12 +199,13 @@
 
     }
 
-
     input {
         width: 100%;
     }
 
-.circles {
+
+
+    .circles {
     border-radius: 50%;
     width: 60vw;
     height: 90vh;
@@ -227,8 +259,8 @@
 
     #treffertext {
         position: absolute;
-        left: 31vw;
-        top: 0.85vw;
+        left: 75vw;
+        top: 1vw;
         width: 3.5vw;
         height: 2.5vh;
         border-radius: 10px;
@@ -285,8 +317,6 @@
     #BildAdressbuch {
         left: -6vw;
         top: 0.5vw;
-        maxWidth: 100px;
-        maxHeight: 100px;
         position: absolute;
         border-radius: 10px;
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
@@ -334,7 +364,7 @@
 
 #showeditProfil{
     width: 40vw;
-    height: 36.6vh;
+    height: 24vh;
     left: 38vw;
     top: 20vh;
 }
@@ -427,6 +457,18 @@
     left: 18.65vw;
     top: 5vw;
     position: absolute;
+}
+
+#suchenButtonAdressbuch {
+    position: absolute;
+    left: 31vw;
+    top: -0.4vw;
+    padding-left: -2vw;
+    width: 3.5vw;
+
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+
 }
 
 }

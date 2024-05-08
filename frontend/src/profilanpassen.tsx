@@ -90,11 +90,11 @@ function ProfilAnpassen() {
                 </div>
                 <div>
                     <label>Vorname:</label>
-                    <input  id="name" name="name" value={formData.name} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
+                    <input  id="name" name="name" value={formData.name} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}} maxLength={16}/>
                 </div>
                 <div>
                     <label>Nachname:</label>
-                    <input  id="nachname" name="nachname" value={formData.nachname} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
+                    <input  id="nachname" name="nachname" value={formData.nachname} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}} maxLength={16}/>
                 </div>
                 <div>
                     <label>Geschlecht:</label>
@@ -107,7 +107,7 @@ function ProfilAnpassen() {
                 </div>
                 <div>
                     <label>Ort:</label>
-                    <input  id="ort" name="ort" value={formData.ort} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
+                    <input  id="ort" name="ort" value={formData.ort} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}} maxLength={11}/>
                 </div>
                 <div>
                     <label>Initial Passwort:</label>
@@ -123,19 +123,19 @@ function ProfilAnpassen() {
 
                 <div>
                     <label>Geschäfts Adresse:</label>
-                    <input  id="geschaeftsadresse" name="geschaeftsadresse" value={formData.geschaeftsadresse} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
+                    <input  id="geschaeftsadresse" name="geschaeftsadresse" value={formData.geschaeftsadresse} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}} maxLength={16} />
                 </div>
                 <div>
                     <label>Stock:</label>
-                    <input  id="stock" name="stock" type={"number"} value={formData.stock} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
+                    <input  id="stock" name="stock" type={"number"} value={formData.stock} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}} maxLength={2}/>
                 </div>
                 <div>
                     <label>Pultnummer:</label>
-                    <input type="number" id="pultnummer" name="pultnummer" value={formData.pultnummer} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
+                    <input type="number" id="pultnummer" name="pultnummer" value={formData.pultnummer} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}} maxLength={5}/>
                 </div>
                 <div>
                     <label>Gebäude:</label>
-                    <input  id="gebaeude" name="gebaeude" value={formData.gebaeude} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
+                    <input  id="gebaeude" name="gebaeude" value={formData.gebaeude} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}} maxLength={5} />
                 </div>
                 <div>
                     <label htmlFor="dragDrop" className="adressbuchbutton">Bild Hochladen / PNG</label>

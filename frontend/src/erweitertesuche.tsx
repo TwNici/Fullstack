@@ -78,9 +78,7 @@ function Erweitertesuche() {
             <Layout />
             <div id="datencanvas">
 
-                        <div id={"mdatentext"}>
 
-                        </div>
                     </div>
 
             </div>
