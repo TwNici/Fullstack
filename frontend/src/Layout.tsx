@@ -19,6 +19,8 @@ function Layout() {
         navigate("/profilanpassen");
     };
 
+
+
     return (
         <div>
 
@@ -36,7 +38,7 @@ function Layout() {
                         Profil anpassen
                     </button>
                 </div>
-            <div id="uppercanvas"><h4>Adressbuch</h4> <h6 id="Profillist">
+            <div id="uppercanvas"><h4 onClick={suchenav}>Adressbuch</h4> <h6 id="Profillist">
                 <select onChange={handleChange} className="adressbuchbutton" id={"dropdownLAYOUT"}>
                     <option value="">Profil</option>
                     <option value="/edit">Profil bearbeiten</option>

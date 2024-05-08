@@ -5,6 +5,7 @@ import Profilanpassen from "./profilanpassen.tsx";
 import Erweitertesuche from "./erweitertesuche.tsx";
 import Loginpage from "./Loginpage.tsx";
 import Editprofil from "./Editprofil.tsx";
+import AllInfos from "./Allinfos.tsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export enum roleType {
@@ -61,6 +62,7 @@ const App = () => {
                 <Route path="/erweitertesuche" element={< Erweitertesuche/>} />
                 <Route path="/Login" element={<Loginpage navigate={navigate}/>}  />
                 <Route path="/edit" element={< Editprofil/>} />
+                <Route path="/allinfos" element={<AllInfos />} />
             </Routes>
         </div>
     );

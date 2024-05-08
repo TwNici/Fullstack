@@ -3,6 +3,7 @@ import './App.css';
 import { useEffect, useState } from "react";
 import Layout from "./Layout.tsx";
 import {FormInputType} from "./App.tsx";
+import { useNavigate } from 'react-router-dom';
 
 
 function DatenAnzeigen() {
@@ -39,6 +40,13 @@ function DatenAnzeigen() {
     };
 
 
+        const navigate = useNavigate();
+
+    const AdressbuchBildClick = () => {
+        navigate("/AllInfos");
+
+    };
+
     return (
         <div>
             <Layout />
@@ -60,7 +68,7 @@ function DatenAnzeigen() {
                 {gefilterteMitarbeiter.map((mitarbeiter, index) => (
                     <div className="canvas-container" key={index}>
                         <div id={"mdatentext"}>
-                            {mitarbeiter.bildUrl && <img src={formatBase64Image(mitarbeiter.bildUrl)} id="BildAdressbuch" alt="BILD"/>}
+                            {mitarbeiter.bildUrl && <img onClick={AdressbuchBildClick} src={formatBase64Image(mitarbeiter.bildUrl)} id="BildAdressbuch" alt="BILD"/>}
                             <p>{mitarbeiter.name} {mitarbeiter.nachname} ({mitarbeiter.userid})</p>
                             <p>Tele: {mitarbeiter.telefonnummer}</p>
                             <p>Ort: {mitarbeiter.ort}</p>
