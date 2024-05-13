@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Layout from "./Layout.tsx";
 import {FormInputType} from "./App.tsx";
 import { useNavigate } from 'react-router-dom';
+import "./CSS/AdressbuchSide.css"
 
 
 function DatenAnzeigen() {
@@ -60,7 +61,7 @@ function DatenAnzeigen() {
                         placeholder="Mitarbeiter Suchen..."
                         value={suchbegriff}
                         onChange={(e) => setSuchbegriff(e.target.value)}
-                        aria-label="Suche nach Mitarbeitern"
+
                     />
                     <button id={"suchenButtonAdressbuch"} className={"btn-layout shadow-and-radius"} type="submit">Suchen</button>
                 </form>

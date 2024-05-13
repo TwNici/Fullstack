@@ -74,5 +74,7 @@ public class BackendController {
     @DeleteMapping("/mitarbeiter/{userId}")
     public void deleteMitarbeiter(@PathVariable String userId) {
         service.deleteMitarbeiter(userId);
+
     }
+
 }

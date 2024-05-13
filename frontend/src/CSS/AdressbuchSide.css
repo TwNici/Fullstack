@@ -1,0 +1,115 @@
+/*------------------------------------------------------------------NOT MOBILE FIRST----------------------------------------------------------------------- */
+
+
+.canvas-container  {
+    max-width: 20.3vw;
+    max-height: 25vh;
+    height: 25vh;
+    margin: 5px;
+    background-color: white;
+
+
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 20vw;
+    left: 140px;
+    top: 200.5px;
+    margin: auto;
+    position: relative;
+}
+
+
+
+#DivCanvasDel{
+    width: 82.7vw;
+    height: 20vh;
+    background-color: white;
+    position: fixed;
+    left: 15.9vw;
+    top: -0.7vw;
+    z-index: 4;
+}
+
+
+
+#suchleistencanvas {
+    width: 80vw;
+    height: 6vh;
+    background-color: white;
+    position: fixed;
+    left: 16vw;
+    top: 7vw;
+    z-index: 10;
+
+}
+
+#suchleiste{
+    width: 30vw;
+    border-color: Black;
+    top: 1.5vh;
+    left: 0.5vw;
+    position: absolute;
+
+
+
+}
+
+#suchenButtonAdressbuch {
+    position: absolute;
+    left: 31vw;
+    top: -0.4vw;
+    padding-left: -1vw;
+    width: 3.5vw;
+
+
+}
+
+#treffertext {
+    position: absolute;
+    left: 70vw;
+    top: 1vw;
+    width: 9vw;
+    height: 2.5vh;
+    background-color: Black;
+    color: white;
+    padding-left: 1vw;
+
+}
+
+#datencanvas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+    margin: auto;
+    width: 84vw;
+    position: relative;
+    z-index: 3;
+}
+
+
+#mdatentext {
+    left: 6.6vw;
+    top: 1vh;
+    position: absolute;
+    padding: 0.3vw;
+    width: 13vw;
+    height: 20vh;
+    max-width: 13vw;
+    max-height: 20vh;
+}
+
+#BildAdressbuch {
+    left: -6vw;
+    top: 0.5vw;
+    position: absolute;
+
+
+}

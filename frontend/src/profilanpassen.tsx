@@ -6,8 +6,8 @@ import Layout from "./Layout.tsx";
 
 
 
-
 function ProfilAnpassen() {
+    const [userIdToDel, setUserIdToDel] = useState<string>("")
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [userId, setUserId] = useState<string>("");
     const [formData, setFormData] = useState<FormInputType>({
@@ -42,13 +42,16 @@ function ProfilAnpassen() {
             .catch(error => console.error('Error updating user data:', error));
     };
 
-    const deleteSubmit = () => {
-        axios.delete(`/mitarbeiter`, formData)
+    const deleteSubmit = (userId: string) => {
+        axios.delete(`/api/mitarbeiter/${userId}`)
             .then(response => {
-                console.log(' successfully:', response.data);
+                console.log('Deleted successfully:', response.data);
             })
             .catch(error => console.error('Error:', error));
+
     };
+
+
 
     const fileToBase64 = (file: File): Promise<string> => {
         return new Promise((resolve, reject) => {
@@ -157,12 +160,13 @@ function ProfilAnpassen() {
             <div className={"shadow-and-radius"} id={"canvas-delete-user"}>
                 <form id={"input-form"} onSubmit={(e) => {
                     e.preventDefault()
-                    deleteSubmit();
+                    deleteSubmit(userIdToDel);
+
                 }}>
                 <div>
                     <div id={"delete-mitarbeiter-canvas"} className={"shadow-and-radius"}>
                     <h2 id={"delete-mitarbeiter-h2-text"}>Mitarbeiter Löschen</h2>
-                    <input placeholder={"USERID"} id={"delete-mitarbeiter-inputfeld"} />
+                    <input placeholder={"USERID"} id={"delete-mitarbeiter-inputfeld"} onChange={(e) => setUserIdToDel(e.target.value)} />
                     <button type={"submit"} id={"delete-mitarbeiter-btn"} className="btn-layout shadow-and-radius">Mitarbeiter Löschen</button>
                     </div>
                 </div>

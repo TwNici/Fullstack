@@ -3,7 +3,7 @@ import './App.css';
 import axios from "axios";
 import {FormInputType, roleType} from "./App.tsx";
 import Layout from "./Layout.tsx";
-
+import "./CSS/CreateMitarbeiterSide.css"
 
 function CreateMitarbeiter() {
     const fileInputRef = useRef<HTMLInputElement>(null);

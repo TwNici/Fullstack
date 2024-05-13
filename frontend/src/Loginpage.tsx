@@ -2,6 +2,7 @@ import {NavigateFunction} from "react-router-dom";
 import {useState} from "react";
 import axios, {AxiosResponse} from "axios";
 import {AuthenticationResponse} from "./App.tsx";
+import './CSS/LoginSide.css';
 
 
 type LoginProps = {
@@ -41,7 +42,7 @@ export default function Login(navigate: LoginProps) {
     return <>
         <div id="AdressbuchCanvas">
             <form className="LoginInputfelder shadow-and-radius" onSubmit={(e) => {e.preventDefault(); handleSubmit()}}>
-                <div id="AdressbuchBild"></div>
+                <div id="AdressbuchBild" />
                 <label htmlFor="EmailLogin">UserID:</label>
                 <input  id="EmailLogin" type="text" name="userid" required onChange={(e) => {e.preventDefault(); HandleChange(e.target.name, e.target.value)}}/>
 

@@ -1,0 +1,115 @@
+/*------------------------------------------------------------------NOT MOBILE FIRST----------------------------------------------------------------------- */
+
+/*------------------------------------------------------------------CLASSES------------------------------------------------------------------------------ */
+
+
+
+.LoginInputfelder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    background-color: white;
+}
+/*------------------------------------------------------------------ID'S------------------------------------------------------------------------------ */
+
+#AdressbuchBild {
+    background-image: url('/public/AdressbuchB.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: fixed;
+    width: 60vw;
+    height: 20vh;
+    top: 15vh;
+    left: 20vw;
+}
+
+#AdressbuchCanvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+}
+
+
+
+/*------------------------------------------------------------------MOBILE FIRST--------------------------------------------------------------------------- */
+
+@media (min-width: 375px) and (max-width: 500px) {
+
+
+    .btn-layout {
+        width: 25vw;
+
+    }
+    .LoginInputfelder {
+        width: 75vw;
+    }
+    #AdressbuchCanvas {
+        left: 14%;
+        top: 43%;
+    }
+
+    #AdressbuchBild {
+        width: 30vw;
+        left: 40%;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 800px) {
+    .btn-layout {
+        width: 25vw;
+
+    }
+    .LoginInputfelder {
+        width: 45vw;
+        left: 30%;
+        top: 40%;
+        position: fixed;
+    }
+    #AdressbuchCanvas {
+        left: 14%;
+        top: 43%;
+    }
+    #AdressbuchBild {
+        width: 30vw;
+        left: 40%;
+        position: fixed;
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1024px) {
+    #AdressbuchBild {
+        width: 15vw;
+        left: 42%;
+    }
+
+    .btn-layout {
+        width: 20vw;
+    }
+    .LoginInputfelder {
+        left: 36%;
+        top: 45%;
+        width: 25vw;
+        position: fixed;
+    }
+}
+
+@media (min-width: 1025px){
+    #AdressbuchBild {
+        top: 20vh;
+        left: 42.7vw;
+    }
+
+    .LoginInputfelder {
+        width: 25vw;
+        left: 35%;
+        top: 45%;
+        position: fixed;
+    }
+    .btn-layout{
+        width: 10vw;
+    }
+}

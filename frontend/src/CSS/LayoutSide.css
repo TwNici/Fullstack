@@ -1,0 +1,81 @@
+.btn-layout {
+    margin-top: 2vh;
+    width: 10vw;
+
+
+
+}
+
+.btn-layout-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.circles {
+    border-radius: 50%;
+    width: 60vw;
+    height: 90vh;
+    background-color: black;
+    position: fixed;
+    left: 65vw;
+    top: 40vw;
+    z-index: 3;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+
+}
+.circles2 {
+    border-radius: 50%;
+    width: 70vw;
+    height: 90vh;
+    background-color: whitesmoke;
+    position: fixed;
+    left: 60vw;
+    top: 35vw;
+    z-index: 2;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+
+}
+.circles3 {
+    border-radius: 50%;
+    width: 80vw;
+    height: 110vh;
+    background-color: white;
+    position: fixed;
+    left: 55vw;
+    top: 30vw;
+    z-index: 1;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+
+}
+
+#leftcanvas {
+    width: 15vw;
+    height: 88vh;
+    top: 11.3vh;
+    background-color: white;
+    position: fixed;
+    margin-left: 0%;
+
+    z-index: 5;
+}
+
+#uppercanvas {
+    width: 98vw;
+    height: 11vh;
+    background-color: white;
+    position: fixed;
+    left: 0vw;
+    top: 0.5vw;
+    padding: 1vh;
+    z-index: 20;
+
+
+}
+
+#dropdownLAYOUT{
+    left: 87vw;
+    top: -0.5vh;
+    position: absolute;
+}

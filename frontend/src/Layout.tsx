@@ -1,5 +1,6 @@
 import { To, useNavigate} from 'react-router-dom';
 import './App.css';
+import "./CSS/LayoutSide.css"
 
 function Layout() {
     const navigate = useNavigate();
@@ -18,7 +19,9 @@ function Layout() {
     const profilanpassennav = () => {
         navigate("/profilanpassen");
     };
-
+    const CoopGPT = () => {
+        navigate("/CoopGPT");
+    };
 
 
     return (
@@ -36,6 +39,9 @@ function Layout() {
                     </button>
                     <button className="btn-layout shadow-and-radius" onClick={profilanpassennav}>
                         Profil anpassen
+                    </button>
+                     <button className="btn-layout shadow-and-radius" onClick={CoopGPT}>
+                        Frage Coop GPT
                     </button>
                 </div>
             <div id="uppercanvas" className={"shadow-and-radius"}><h4 onClick={suchenav}>Adressbuch</h4> <h6 id="Profillist">

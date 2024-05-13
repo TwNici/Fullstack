@@ -1,4 +1,4 @@
-/*------------------------------------------------------------------NOT MOBILE FIRST----------------------------------------------------------------------- */
+/*------------------------------------------------------------------Overall----------------------------------------------------------------------- */
 html {
     scrollbar-color: white black;
 }
@@ -10,55 +10,52 @@ h4:hover{
     color: skyblue;
     transition: all 0.3s ease;
 }
-/*------------------------------------------------------------------MOBILE FIRST--------------------------------------------------------------------------- */
-@media (min-width: 1000px) {
-    /*------------------------------------------------------------------ID'S------------------------------------------------------------------------------ */
 
-    #uppercanvas {
-        width: 98vw;
-        height: 11vh;
-        background-color: white;
-        position: fixed;
-        left: 0vw;
-        top: 0.5vw;
-        padding: 1vh;
-        z-index: 20;
+input[type="file"] {
+    display: none;
+}
+
+.canvas {
+    margin: 5px;
+    background-color: white;
+    position: absolute;
+}
+.shadow-and-radius {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+.btn-layout {
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 0.8em;
+    font-weight: 500;
+    font-family: inherit;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 2vh;
+    z-index: 15;
+}
+.btn-layout:hover {
+    color: skyblue;
+    transition: all 0.3s ease;
+}
+.btn-layout:active {
+    transform: translateY(3px);
+}
+#treffertext:hover {
+    color: skyblue;
+    transition: all 0.3s ease;
+}
 
 
-    }
-    #DivCanvasDel{
-        width: 82.7vw;
-        height: 20vh;
-        background-color: white;
-        position: fixed;
-        left: 15.9vw;
-        top: -0.7vw;
-        z-index: 4;
-    }
-
-    #suchleistencanvas {
-        width: 80vw;
-        height: 6vh;
-        background-color: white;
-        position: fixed;
-        left: 16vw;
-        top: 7vw;
-        z-index: 10;
-
-    }
+/*------------------------------------------------------------------Overall - end----------------------------------------------------------------------- */
 
 
 
-    #leftcanvas {
-        width: 15vw;
-        height: 88vh;
-        top: 11.3vh;
-        background-color: white;
-        position: fixed;
-        margin-left: 0%;
 
-        z-index: 5;
-    }
+
 
     #labels {
         left: 49vh;
@@ -81,16 +78,7 @@ h4:hover{
     }
 
 
-    #mdatentext {
-        left: 6.6vw;
-        top: 1vh;
-        position: absolute;
-        padding: 0.3vw;
-        width: 13vw;
-        height: 20vh;
-        max-width: 13vw;
-        max-height: 20vh;
-    }
+
 
 
     #mdatentext2 {
@@ -132,16 +120,7 @@ h4:hover{
 
 
     }
-    #suchleiste{
-        width: 30vw;
-        border-color: Black;
-        top: 1.5vh;
-        left: 0.5vw;
-        position: absolute;
 
-
-
-    }
     #rolleCreatemitabeiter {
         top: 20.1vw;
         position: absolute;
@@ -180,15 +159,7 @@ h4:hover{
         position: absolute;
     }
 
-    #suchenButtonAdressbuch {
-        position: absolute;
-        left: 31vw;
-        top: -0.4vw;
-        padding-left: -1vw;
-        width: 3.5vw;
 
-
-    }
 
     #canvasDatenFromContainer {
         left: 15.5vw;
@@ -285,47 +256,19 @@ h4:hover{
         left: 13vw;
     }
 
-    #AdressbuchBild {
-        width: 15vw;
-        height: 15vh;
-        top: 20vh;
-        left: 45.7vw;
-        background-image: url('/public/AdressbuchB.png');
-        background-repeat: no-repeat;
-        background-size: contain;
-        position: absolute;
-    }
 
 
-    #AdressbuchCanvas {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
 
-    }
-    #dropdownLAYOUT{
-        left: 87vw;
-        top: -0.5vh;
-        position: absolute;
-    }
 
-    #treffertext {
-        position: absolute;
-        left: 70vw;
-        top: 1vw;
-        width: 9vw;
-        height: 2.5vh;
-        background-color: Black;
-        color: white;
-        padding-left: 1vw;
+#left {
+    position: absolute;
+    left: 40%;
+    top: 20%;
+}
 
-    }
 
-    #treffertext:hover {
-        color: skyblue;
-        transition: all 0.3s ease;
-    }
+
+
 
 
 
@@ -350,18 +293,7 @@ h4:hover{
     }
 
 
-    #datencanvas {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: flex-start;
-        margin: auto;
-        width: 90vw;
-        position: relative;
-        left: -5vw;
-        z-index: 3;
 
-    }
 
     #search-form {
         z-index: 8;
@@ -373,13 +305,7 @@ h4:hover{
 
 
 
-    #BildAdressbuch {
-        left: -6vw;
-        top: 0.5vw;
-        position: absolute;
 
-
-    }
 
     #canvas-delete-user {
         display: grid;
@@ -421,61 +347,13 @@ h4:hover{
 
 
 
-    .btn-layout {
-    border: 1px solid transparent;
-        padding: 0.6em 1.2em;
-        font-size: 0.8em;
-        font-weight: 500;
-        font-family: inherit;
-        color: white;
-        background-color: black;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        margin-top: 2vh;
-        width: 10vw;
-        z-index: 15;
-
-    }
-    .btn-layout:hover {
-        color: lightskyblue;
-    }
-
-    .btn-layout:active {
-        transform: translateY(3px);
-    }
-
-    .btn-layout-vertical {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-    }
 
 
 
 
-    .flex-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: flex-start;
-        width: 82vw;
-        margin: auto;
-        position: relative;
-        left: 16vw;
-        top: 11vw;
-    }
-
-    .canvas-container  {
-        max-width: 20.3vw;
-        max-height: 25vh;
-        width: 20.3vw;
-        height: 25vh;
-        margin: 5px;
-        background-color: white;
 
 
-    }
+
 
 
 
@@ -511,81 +389,17 @@ h4:hover{
 
     }
 
-    input {
-        width: 100%;
-    }
-
-
-
-    .circles {
-    border-radius: 50%;
-    width: 60vw;
-    height: 90vh;
-    background-color: black;
-    position: fixed;
-    left: 65vw;
-    top: 40vw;
-    z-index: 3;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-
-}
-    .circles2 {
-        border-radius: 50%;
-        width: 70vw;
-        height: 90vh;
-        background-color: whitesmoke;
-        position: fixed;
-        left: 60vw;
-        top: 35vw;
-        z-index: 2;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-
-    }
-    .circles3 {
-        border-radius: 50%;
-        width: 80vw;
-        height: 110vh;
-        background-color: white;
-        position: fixed;
-        left: 55vw;
-        top: 30vw;
-        z-index: 1;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-
-    }
-
-    input[type="file"] {
-        display: none;
-    }
-
-
-.canvas {
-    margin: 5px;
-    background-color: white;
-    position: absolute;
-}
-
-
-    .LoginInputfelder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        grid-template-columns: auto minmax(auto, 1fr);
-        gap: 20px;
-        width: 15vw;
-        background-color: white;
 
 
 
 
-    }
-
-.shadow-and-radius {
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-}
 
 
 
-}
+
+
+
+
+
+
+
