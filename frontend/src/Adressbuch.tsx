@@ -32,11 +32,15 @@ function DatenAnzeigen() {
 
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
-        const gefiltert = mitarbeiter.filter(m =>
-            m.name.toLowerCase().includes(suchbegriff.toLowerCase()) ||
-            m.nachname.toLowerCase().includes(suchbegriff.toLowerCase()) ||
-            m.userid.toLowerCase().includes(suchbegriff.toLowerCase())
-        );
+        const gefiltert = mitarbeiter.filter(m => {
+            const fullName = `${m.name.toLowerCase()} ${m.nachname.toLowerCase()}`;
+            return (
+                fullName.includes(suchbegriff.toLowerCase()) ||
+                m.name.toLowerCase().includes(suchbegriff.toLowerCase()) ||
+                m.nachname.toLowerCase().includes(suchbegriff.toLowerCase()) ||
+                m.userid.toLowerCase().includes(suchbegriff.toLowerCase())
+            );
+        });
         setGefilterteMitarbeiter(gefiltert);
     };
 

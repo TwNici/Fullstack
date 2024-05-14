@@ -37,7 +37,7 @@
 
 /*------------------------------------------------------------------MOBILE FIRST--------------------------------------------------------------------------- */
 
-@media (min-width: 375px) and (max-width: 500px) {
+@media (min-width: 344px) and (max-width: 500px) {
 
 
     .btn-layout {
@@ -80,7 +80,7 @@
     }
 }
 
-@media (min-width: 801px) and (max-width: 1024px) {
+@media (min-width: 801px) and (max-width: 1024px) and (max-height: 1180px){
     #AdressbuchBild {
         width: 15vw;
         left: 42%;
@@ -93,6 +93,27 @@
         left: 36%;
         top: 45%;
         width: 25vw;
+        position: fixed;
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1024px) and (min-height: 1280px){
+    #AdressbuchBild {
+        width: 25vw;
+        left: 41%;
+        top: 30%;
+    }
+
+    .btn-layout {
+        width: 20vw;
+        top: 70%;
+        position: absolute;
+    }
+    .LoginInputfelder {
+        left: 35%;
+        top: 48%;
+        width: 35vw;
+        height: 40vw;
         position: fixed;
     }
 }
