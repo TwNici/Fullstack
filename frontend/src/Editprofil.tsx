@@ -2,6 +2,7 @@ import Layout from "./Layout.tsx";
 import React, {useEffect, useRef, useState} from "react";
 import {roleType, UserInfo} from "./App.tsx";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 
 
@@ -79,7 +80,14 @@ function Editprofil() {
             //todo
         } )
     }
+    const navigate = useNavigate();
+    const AdressbuchBildClick = () => {
+        navigate("/AllInfos");
 
+    };
+    const showPicture = () => {
+
+    }
 
     return(
         <div>
@@ -108,12 +116,12 @@ function Editprofil() {
                 </form>
             </div>
 
-            <img src={formData.bildUrl} id="showeditPicture" className="canvas shadow-and-radius"/>
+            <img src={formData.bildUrl} onClick={showPicture} id="showeditPicture" className="canvas shadow-and-radius"/>
             <div id="showeditProfil" className="canvas shadow-and-radius" >
 
                     <div className="canvas-container2">
                         <div id={"mdatentext"} className={"shadow-and-radius"}>
-                            {formData.bildUrl && <img src={formatBase64Image(formData.bildUrl)} className={"shadow-and-radius"} id="BildAdressbuch" alt="BILD"/>}
+                            {formData.bildUrl && <img src={formatBase64Image(formData.bildUrl)} onClick={AdressbuchBildClick} className={"shadow-and-radius"} id="BildAdressbuch" alt="BILD"/>}
                             <p>{formData.name} {formData.nachname} ({formData.userid})</p>
                             <p>Tele: {formData.telefonnummer}</p>
                             <p>Geschlecht: {formData.geschlecht}</p>

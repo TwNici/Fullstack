@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
 
+
+import React, { useState } from 'react';
+import "./CSS/CoopGPT.css";
 import './App.css';
 import axios from "axios";
+import Layout from "./Layout";
 
+
+
+
+ const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
 const App: React.FC = () => {
     const [model, setModel] = useState<string>('gpt-3.5-turbo');
     const [userQuery, setUserQuery] = useState<string>('');
@@ -20,7 +27,12 @@ const App: React.FC = () => {
 
         try {
             setLoading(true);
-            const response = await axios.post('/api/openai', data);
+            const response = await axios.post('https://api.openai.com/v1/chat/completions', data, {
+                headers: {
+                    'Authorization': `Bearer ${OPENAI_API_KEY}`,
+                    'Content-Type': 'application/json'
+                }
+            });
             setResponse(response.data.choices[0].message.content);
         } catch (error: unknown) {
             if (axios.isAxiosError(error)) {
@@ -37,29 +49,32 @@ const App: React.FC = () => {
 
     return (
         <div className="App">
+            <Layout />
             <header className="App-header">
-                <h1>Coop GPT</h1>
-                <div>
-                    <label htmlFor="modelSelect">Modell</label>
-                    <select id="modelSelect" value={model} onChange={e => setModel(e.target.value)}>
-                        <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
-                        <option value="gpt-4">GPT-4</option>
-                    </select>
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        id="userQuery"
-                        placeholder="Stelle deine Frage"
-                        value={userQuery}
-                        onChange={e => setUserQuery(e.target.value)}
-                    />
-                </div>
-                <button onClick={fetchData} disabled={loading}>
-                    {loading ? 'Laden...' : 'Frage Coop'}
-                </button>
-                <div id="response">
-                    <pre>{response}</pre>
+                <div id={"positionCoopGpt"} className={"shadow-and-radius"}>
+                    <h1 id={"h1titleCoopGpt"} className={"shadow-and-radius"}>Coop GPT</h1>
+
+                    <div>
+                        <select className={"shadow-and-radius btn-layout"} id="modelSelect" value={model} onChange={e => setModel(e.target.value)}>
+                            <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                            <option value="gpt-4">GPT-4</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input
+                            type="text"
+                            id="userQuery"
+                            placeholder="Stelle deine Frage"
+                            value={userQuery}
+                            onChange={e => setUserQuery(e.target.value)}
+                        />
+                    </div>
+                    <button id={"btnPositionQuestion"} className={"btn-layout shadow-and-radius"} onClick={fetchData} disabled={loading}>
+                        {loading ? 'Laden...' : 'Frage Coop'}
+                    </button>
+                    <div id="response" className={"shadow-and-radius"}>
+                        <pre>{response}</pre>
+                    </div>
                 </div>
             </header>
         </div>

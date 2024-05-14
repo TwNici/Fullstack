@@ -1,3 +1,10 @@
+:root {
+    --background-color: ;
+    --circle-color1: ;
+    --circle-color2: ;
+}
+
+
 .btn-layout {
     margin-top: 2vh;
     width: 10vw;
@@ -5,6 +12,11 @@
 
 
 }
+
+
+
+
+
 
 .btn-layout-vertical {
     display: flex;
@@ -29,7 +41,7 @@
     border-radius: 50%;
     width: 70vw;
     height: 90vh;
-    background-color: whitesmoke;
+    background-color: var(--circle-color1);
     position: fixed;
     left: 60vw;
     top: 35vw;
@@ -41,7 +53,7 @@
     border-radius: 50%;
     width: 80vw;
     height: 110vh;
-    background-color: white;
+    background-color: var(--circle-color2);
     position: fixed;
     left: 55vw;
     top: 30vw;
@@ -52,9 +64,9 @@
 
 #leftcanvas {
     width: 15vw;
-    height: 88vh;
-    top: 11.3vh;
-    background-color: white;
+    height: 86vh;
+    top: 13vh;
+    background-color: var(--background-color);
     position: fixed;
     margin-left: 0%;
 
@@ -64,8 +76,8 @@
 #uppercanvas {
     width: 98vw;
     height: 11vh;
-    background-color: white;
     position: fixed;
+    background-color: var(--background-color);
     left: 0vw;
     top: 0.5vw;
     padding: 1vh;
@@ -79,3 +91,10 @@
     top: -0.5vh;
     position: absolute;
 }
+
+#darkmodeCheckbox {
+    left: 89.5%;
+    top: 60%;
+    position: absolute;
+}
+

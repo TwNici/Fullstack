@@ -14,7 +14,6 @@ export enum roleType {
     USER = "USER",
 }
 
-
 export type FormInputType = {
     initialPW: string;
     rolle: roleType;
@@ -30,6 +29,8 @@ export type FormInputType = {
     geschlecht: string;
     bildUrl: string;
 };
+
+
 
 export type UserInfo = {
     rolle: roleType;
@@ -53,6 +54,7 @@ export type AuthenticationResponse = {
 const App = () => {
 
     const navigate = useNavigate();
+
 
     return (
         <div>

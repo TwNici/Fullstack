@@ -1,89 +1,167 @@
-
-import {useState} from "react";
+import axios from 'axios';
+import { useEffect, useState } from "react";
 import Layout from "./Layout.tsx";
+import { FormInputType } from "./App.tsx";
+import "./CSS/ErweitertesucheSide.css";
+import { useNavigate } from "react-router-dom";
 
 type suchType = {
     criteria: string;
     operator: string;
-    userdata: string;
-}
+    userdata: keyof FormInputType;
+};
 
 function Erweitertesuche() {
-
     const [suche, setSuche] = useState<suchType>({
         criteria: "",
-        operator: "",
-        userdata: "",
-    })
+        operator: "=",
+        userdata: "nachname"
+    });
+    const [isNumber, setIsNumber] = useState<boolean>(false);
+    const [mitarbeiter, setMitarbeiter] = useState<FormInputType[]>([]);
+    const [gefilterteMitarbeiter, setGefilterteMitarbeiter] = useState<FormInputType[]>([]);
 
-    const [isNumber, setIsNumber] = useState<boolean>(false)
+    useEffect(() => {
+        axios.get<FormInputType[]>('/api/mitarbeiter')
+            .then(response => {
+                setMitarbeiter(response.data);
+                setGefilterteMitarbeiter(response.data);
+            })
+            .catch(error => {
+                console.error('Error backend', error);
+            });
+    }, []);
 
-    const handleNumChange = (value: string) => {
-        if (value === "Stock" || value === "Pultnummer"){
+    const handleNumChange = (value: keyof FormInputType) => {
+        if (value === "stock" || value === "pultnummer") {
             setIsNumber(true);
         } else {
             setIsNumber(false);
         }
-    }
+    };
 
     const handleChange = (name: string, value: string) => {
         setSuche({
             ...suche,
             [name]: value
-        })
-    }
+        });
+    };
+
+    const handleSubmit = (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+        const { criteria, operator, userdata } = suche;
+        const gefiltert = mitarbeiter.filter(m => {
+            let data: string | number = m[userdata];
+
+            if (isNumber && !isNaN(Number(data))) {
+                data = Number(data);
+            } else {
+                data = data.toString().toLowerCase();
+            }
+            const criteriaLower = criteria.toLowerCase();
+
+            switch (operator) {
+                case '=':
+                    return data === criteriaLower;
+                case '≠':
+                    return data !== criteriaLower;
+                case '>':
+                    return data > criteriaLower;
+                case '>=':
+                    return data >= criteriaLower;
+                case '<':
+                    return data < criteriaLower;
+                case '<=':
+                    return data <= criteriaLower;
+                default:
+                    return false;
+            }
+        });
+        setGefilterteMitarbeiter(gefiltert);
+    };
+
+    const navigate = useNavigate();
+
+    const AdressbuchBildClick = () => {
+        navigate("/AllInfos");
+    };
 
     return (
         <div>
+            <Layout />
             <div id={"DivCanvasDel"}></div>
             <div id="suchleistencanvas" className={"shadow-and-radius"}>
-
-                {/*}<form onSubmit={}>{*/}
-                <input name={"criteria"} className={"shadow-and-radius"} id="suchleiste" placeholder="Suchkriterium..." type={"search"} onChange={(e) => {
-                    e.preventDefault();
-                    handleChange(e.target.name, e.target.value);
-                }}/>
-                {/*}</form>{*/}
-
-
-                <select id="operator" name="operator" className={"shadow-and-radius"} onChange={(e) => {
-                    e.preventDefault();
-                    handleChange(e.target.name, e.target.value)}}>
-                    <option value="=">=</option>
-                    {isNumber && <option value=">"> {">"} </option>}
-                    {isNumber && <option value=">="> {">="} </option>}
-                    {isNumber && <option value="<"> {"<"} </option>}
-                    {isNumber && <option value="<=">{"<="}</option>}
-                    <option value="≠">≠</option>
-                </select>
-                <select className={"shadow-and-radius"} id="userdata" name="userdata" onChange={(e) => {
-                    e.preventDefault();
-                    handleNumChange(e.target.value)
-                    handleChange(e.target.name, e.target.value);}}>
-                    <option value="Nachname">Nachname</option>
-                    <option value="Vorname"> Vorname</option>
-                    <option value="UserID"> UserID</option>
-                    <option value="Geschlecht"> Geschlecht </option>
-                    <option value="Telefon">Telefon</option>
-                    <option value="Ort">Ort</option>
-                    <option value="Strasse">Strasse</option>
-                    <option value="Privat Adresse">Privat Adresse</option>
-                    <option value="Geschäfts Adresse">Geschäfts Adresse</option>
-                    <option value="Stock">Stock</option>
-                    <option value="Pultnummer">Pultnummer</option>
-                    <option value="Gebäude">Gebäude</option>
-                </select>
-                <div id="treffertext" className={"shadow-and-radius"}>Treffer: </div>
-
+                <form onSubmit={handleSubmit}>
+                    <input
+                        name="criteria"
+                        className={"shadow-and-radius"}
+                        id="suchleiste"
+                        placeholder="Suchkriterium..."
+                        type="search"
+                        onChange={(e) => {
+                            e.preventDefault();
+                            handleChange(e.target.name, e.target.value);
+                        }}
+                    />
+                    <select
+                        id="operator"
+                        name="operator"
+                        className={"shadow-and-radius"}
+                        onChange={(e) => {
+                            e.preventDefault();
+                            handleChange(e.target.name, e.target.value);
+                        }}
+                    >
+                        <option value="=">=</option>
+                        {isNumber && <option value=">">{">"}</option>}
+                        {isNumber && <option value=">=">{">="}</option>}
+                        {isNumber && <option value="<">{"<"}</option>}
+                        {isNumber && <option value="<=">{"<="}</option>}
+                        <option value="≠">≠</option>
+                    </select>
+                    <select
+                        className={"shadow-and-radius"}
+                        id="userdata"
+                        name="userdata"
+                        onChange={(e) => {
+                            e.preventDefault();
+                            handleNumChange(e.target.value as keyof FormInputType);
+                            handleChange(e.target.name, e.target.value);
+                        }}
+                    >
+                        <option value="nachname">Nachname</option>
+                        <option value="name">Vorname</option>
+                        <option value="userid">UserID</option>
+                        <option value="geschlecht">Geschlecht</option>
+                        <option value="telefonnummer">Telefon</option>
+                        <option value="ort">Ort</option>
+                        <option value="strasse">Strasse</option>
+                        <option value="privatAdresse">Privat Adresse</option>
+                        <option value="geschaeftsAdresse">Geschäfts Adresse</option>
+                        <option value="stock">Stock</option>
+                        <option value="pultnummer">Pultnummer</option>
+                        <option value="gebaeude">Gebäude</option>
+                    </select>
+                    <button id={"suchenButtonErweitert"} className={"btn-layout shadow-and-radius"} type="submit">Suchen</button>
+                </form>
+                <div id="treffertext" className={"shadow-and-radius"}>Treffer: {gefilterteMitarbeiter.length}</div>
             </div>
-            <Layout />
             <div id="datencanvas">
-
-
+                {gefilterteMitarbeiter.map((mitarbeiter, index) => (
+                    <div className="canvas-container flex-container shadow-and-radius" key={index}>
+                        <div id={"mdatentext"} className={"shadow-and-radius"}>
+                            {mitarbeiter.bildUrl && <img onClick={AdressbuchBildClick} src={mitarbeiter.bildUrl} className={"shadow-and-radius"} id="BildAdressbuch" alt="BILD" />}
+                            <p>{mitarbeiter.name} {mitarbeiter.nachname} ({mitarbeiter.userid})</p>
+                            <p>Tele: {mitarbeiter.telefonnummer}</p>
+                            <p>Ort: {mitarbeiter.ort}</p>
+                            <p>Geschlecht: {mitarbeiter.geschlecht}</p>
+                            <p>Rolle: {mitarbeiter.rolle}</p>
+                        </div>
                     </div>
-
+                ))}
             </div>
+        </div>
     );
-
 }
-export default Erweitertesuche
+
+export default Erweitertesuche;

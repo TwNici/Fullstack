@@ -17,25 +17,22 @@ input[type="file"] {
 
 .canvas {
     margin: 5px;
-    background-color: white;
+
     position: absolute;
 }
-.shadow-and-radius {
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-}
+
 .btn-layout {
     border: 1px solid transparent;
     padding: 0.6em 1.2em;
     font-size: 0.8em;
     font-weight: 500;
     font-family: inherit;
-    color: white;
     background-color: black;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 2vh;
     z-index: 15;
+    color: white;
 }
 .btn-layout:hover {
     color: skyblue;
@@ -50,11 +47,90 @@ input[type="file"] {
 }
 
 
+.shadow-and-radius {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+
+.dark-mode .shadow-and-radius {
+    background-color: #464c5c;
+    color: white;
+}
+
+.shadow-and-radius-dark {
+    background-color: #464c5c;
+    color: white;
+}
+
+
+
+/*-------------------------------------------------------------------Switch-------------------------------------------------------------------------------*/
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #1d2129;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #1d2129;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
 /*------------------------------------------------------------------Overall - end----------------------------------------------------------------------- */
-
-
-
-
 
 
     #labels {
@@ -111,7 +187,6 @@ input[type="file"] {
     #mitarbeitertexttitel {
         width: 23vw;
         height: 8vh;
-        background-color: white;
         position: absolute;
         left: 8.5vw;
         top: 1vw;
@@ -169,6 +244,7 @@ input[type="file"] {
         background: white;
         position: relative;
         overflow: hidden;
+        background-color: var(--background-color);
 
 
 
@@ -188,7 +264,7 @@ input[type="file"] {
         left: 14.6vw;
         top: 2.5vh;
         position: absolute;
-
+        background-color: var(--background-color);
         padding: 0.3vw;
         width: 33vw;
         height: 34vh;
@@ -200,7 +276,7 @@ input[type="file"] {
         left: 33.6vw;
         top: 0vh;
         position: absolute;
-
+        background-color: var(--background-color);
         padding: 0.3vw;
         width: 33vw;
         height: 34vh;
@@ -260,11 +336,7 @@ input[type="file"] {
 
 
 
-#left {
-    position: absolute;
-    left: 17%;
-    top: 20%;
-}
+
 
 
 
@@ -313,7 +385,6 @@ input[type="file"] {
         gap: 20px;
         width: 20vw;
         height: 30vh;
-        background-color: white;
         left: 75vw;
         top: 15vh;
         position: absolute;
@@ -340,10 +411,11 @@ input[type="file"] {
         position: absolute;
     }
 
-    #delete-mitarbeiter-canvas{
 
-    }
+
+
 /*------------------------------------------------------------------CLASSES------------------------------------------------------------------------------ */
+
 
 
 
@@ -385,7 +457,6 @@ input[type="file"] {
         grid-template-columns: auto minmax(auto, 1fr);
         gap: 20px;
         width: 40vw;
-        background-color: white;
 
     }
 
