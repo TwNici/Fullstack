@@ -110,3 +110,24 @@
 
 
 }
+
+#operator {
+    position: absolute;
+    left: 35vw;
+    top: 1vw;
+    width: 3.5vw;
+    height: 2.5vh;
+    border-color: black;
+    color: var(--text-color-daten);
+
+}
+
+#userdata {
+    position: absolute;
+    left: 43vw;
+    top: 1vw;
+    width: 15vw;
+    height: 2.5vh;
+    border-color: black;
+    color: var(--text-color-daten);
+}

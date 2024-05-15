@@ -34,7 +34,7 @@ function CreateMitarbeiter() {
     const handleSubmit = (ev: React.FormEvent) => {
         ev.preventDefault();
 
-        axios.post("/api/mitarbeiter", form)
+        axios.post("/api/auth/register", form)
             .then(response => {
                 console.log('Mitarbeiter gespeichert:', response.data);
                 if (fileInputRef.current) {

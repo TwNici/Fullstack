@@ -17,6 +17,10 @@
     width: 42%;
     top: 93%;
     position: absolute;
+
+}
+#userQuery::placeholder {
+    color: var(--text-color-daten);
 }
 
 #modelSelect {
@@ -31,6 +35,7 @@
     width: 47%;
     padding-left: 10%;
     position: absolute;
+    color: var(--text-color-daten);
 }
 
 #response {
@@ -39,4 +44,6 @@
     width: 46%;
     padding-left: 15%;
     position: absolute;
+    color: var(--text-color-daten);
 }
+

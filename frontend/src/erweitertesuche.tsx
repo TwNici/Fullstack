@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, {AxiosResponse} from 'axios';
 import { useEffect, useState } from "react";
 import Layout from "./Layout.tsx";
 import { FormInputType } from "./App.tsx";
@@ -22,8 +22,12 @@ function Erweitertesuche() {
     const [gefilterteMitarbeiter, setGefilterteMitarbeiter] = useState<FormInputType[]>([]);
 
     useEffect(() => {
-        axios.get<FormInputType[]>('/api/mitarbeiter')
-            .then(response => {
+        axios.get('/api/user/mitarbeiter', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwt")}`
+            }
+        })
+            .then((response: AxiosResponse<FormInputType[]>) => {
                 setMitarbeiter(response.data);
                 setGefilterteMitarbeiter(response.data);
             })

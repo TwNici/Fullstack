@@ -1,9 +1,39 @@
 /*------------------------------------------------------------------Overall----------------------------------------------------------------------- */
+:root {
+    --input-fields: ;
+    --text-color: ;
+    --background-color: ;
+    --background-color-elements: ;
+    --background-color-buttons: ;
+    --text-color-daten: ;
+}
+
+
+html {
+    background-color: var(--background-color-elements);
+}
+
+div {
+    background-color: var(--background-color-elements);
+}
+
+input {
+    background-color: var(--input-fields);
+    color: var(--text-color-daten);
+    border-radius: 10px;
+
+}
+
+
 html {
     scrollbar-color: white black;
 }
 input::placeholder {
     color: black;
+}
+
+h4 {
+    color: var(--text-color-daten);
 }
 
 h4:hover{
@@ -27,12 +57,13 @@ input[type="file"] {
     font-size: 0.8em;
     font-weight: 500;
     font-family: inherit;
-    background-color: black;
+    background-color: var(--background-color-buttons);
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 2vh;
     z-index: 15;
-    color: white;
+
+
 }
 .btn-layout:hover {
     color: skyblue;
@@ -41,33 +72,74 @@ input[type="file"] {
 .btn-layout:active {
     transform: translateY(3px);
 }
-#treffertext:hover {
-    color: skyblue;
-    transition: all 0.3s ease;
-}
+
 
 
 .shadow-and-radius {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+    color: var(--text-color);
 }
 
-
-.dark-mode .shadow-and-radius {
-    background-color: #464c5c;
-    color: white;
-}
 
 .shadow-and-radius-dark {
     background-color: #464c5c;
     color: white;
 }
 
+.inputfelder-canvas {
+    display: grid;
+    grid-template-columns: auto minmax(auto, 1fr);
+    gap: 20px;
+    width: 40vw;
 
+}
+.canvas-container img {
+
+    width: 5.5vw;
+    height: 7.5vw;
+    max-width: 5.5vw;
+    max-height: 8vw;
+    display: block;
+}
+
+.canvas-container2 img {
+    max-width: 100px;
+    max-height: 100px;
+    display: block;
+}
+label {
+    color: var(--text-color-daten);
+}
+
+select {
+    border-radius: 10px;
+    border-width: 2px;
+    background-color: var(--background-color-elements);
+}
+
+.btn-layout:hover {
+    color: lightskyblue;
+}
+
+.btn-layout:active {
+    transform: translateY(3px);
+}
+
+.btn-layout-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+input {
+    width: 100%;
+}
 
 /*-------------------------------------------------------------------Switch-------------------------------------------------------------------------------*/
 
-/* The switch - the box around the slider */
+
 .switch {
     position: relative;
     display: inline-block;
@@ -75,14 +147,14 @@ input[type="file"] {
     height: 34px;
 }
 
-/* Hide default HTML checkbox */
+
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-/* The slider */
+
 .slider {
     position: absolute;
     cursor: pointer;
@@ -121,7 +193,7 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-/* Rounded sliders */
+
 .slider.round {
     border-radius: 34px;
 }
@@ -130,347 +202,13 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
+
+
 /*------------------------------------------------------------------Overall - end----------------------------------------------------------------------- */
 
 
-    #labels {
-        left: 49vh;
-        top: 15vh;
-        position: absolute;
-        font-size: 1.0em;
-        padding: 13vh;
-        z-index: 5;
-
-    }
-
-    #labels2 {
-        left: 49vh;
-        top: 15vh;
-        position: absolute;
-        font-size: 1.0em;
-        padding: 5vh;
-        z-index: 5;
-
-    }
-
-
-
-
-
-    #mdatentext2 {
-        left: 6.6vw;
-        top: 0.5vh;
-        position: absolute;
-        padding: 0.3vw;
-        width: 13vw;
-        height: 21.5vh;
-        max-width: 13vw;
-        max-height: 21.5vh;
-    }
-
-    #mdatentext3 {
-        left: 23.6vw;
-        top: 1vh;
-        position: absolute;
-        padding: 0.3vw;
-        width: 13vw;
-        height: 20vh;
-        max-width: 13vw;
-        max-height: 20vh;
-    }
-
-    #inputfeldauswahl{
-        position: absolute;
-
-    }
-
-    #mitarbeitertexttitel {
-        width: 23vw;
-        height: 8vh;
-        position: absolute;
-        left: 8.5vw;
-        top: 1vw;
-        padding: 1.2vw;
-
-
-
-    }
-
-    #rolleCreatemitabeiter {
-        top: 20.1vw;
-        position: absolute;
-        height: 2.7vh;
-        width: 10vw;
-        left: 22.9vw;
-
-    }
-
-
-
-    #editSaveButtonIMG {
-        left: 3vw;
-        top: 3vw;
-        width: 5vw;
-        height: 2vw;
-        position: absolute;
-
-    }
-
-
-    #editSaveButtonPW {
-        left: 13.5vw;
-        top: 7vw;
-        width: 6vw;
-        width: 6vw;
-        height: 2vw;
-        position: absolute;
-    }
-
-    #searchUserIDButton{
-        width: 4vw;
-        height: 3.2vh;
-        left: 18.65vw;
-        top: 5vw;
-        position: absolute;
-    }
-
-
-
-    #canvasDatenFromContainer {
-        left: 15.5vw;
-        top: 13vh;
-        width: 82.5vw;
-        height: 86.5vh;
-        background: white;
-        position: relative;
-        overflow: hidden;
-        background-color: var(--background-color);
-
-
-
-    }
-    #AllDatenCanvasPICTURE {
-        left: 1vw;
-        top: 2.5vh;
-        width: 12.5vw;
-        height: 34vh;
-        background: white;
-        position: absolute;
-
-
-
-    }
-    #mdatentextINFOS1 {
-        left: 14.6vw;
-        top: 2.5vh;
-        position: absolute;
-        background-color: var(--background-color);
-        padding: 0.3vw;
-        width: 33vw;
-        height: 34vh;
-        max-width: 33vw;
-        max-height: 35vh;
-    }
-
-    #mdatentextINFOS2 {
-        left: 33.6vw;
-        top: 0vh;
-        position: absolute;
-        background-color: var(--background-color);
-        padding: 0.3vw;
-        width: 33vw;
-        height: 34vh;
-        max-width: 33vw;
-        max-height: 35vh;
-    }
-    #editdatencanvasPW {
-        width: 35vw;
-        height: 20vh;
-        left: 18vw;
-        top: 65vh;
-    }
-
-    #editdatencanvasPICTURE {
-        width: 11vw;
-        height: 13.3vh;
-        left: 18vw;
-        top: 45vh;
-        padding: 0.4vw;
-    }
-
-
-
-
-    #showeditPicture {
-        width: 7vw;
-        height: 15vh;
-        left: 18vw;
-        top: 20vh;
-    }
-
-    #showeditProfil{
-        width: 40vw;
-        height: 24vh;
-        left: 38vw;
-        top: 20vh;
-    }
-    #InputFelderEdit1 {
-        top: 6vh;
-        left: 11vw;
-        position: absolute;
-        width: 11vw;
-    }
-    #InputFelderEdit2 {
-        top: 10vh;
-        left: 11vw;
-        position: absolute;
-        width: 11vw;
-
-    }
-    #PWresetPOS{
-        position: absolute;
-        left: 13vw;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #operator {
-        position: absolute;
-        left: 35vw;
-        top: 1vw;
-        width: 3.5vw;
-        height: 2.5vh;
-        border-color: black;
-    }
-
-    #userdata {
-        position: absolute;
-        left: 43vw;
-        top: 1vw;
-        width: 15vw;
-        height: 2.5vh;
-        border-color: black;
-    }
-
-
-
-
-    #search-form {
-        z-index: 8;
-        position: fixed;
-        top: 200px;
-        left: 500px
-    }
-
-
-
-
-
-
-    #canvas-delete-user {
-        display: grid;
-        grid-template-columns: auto minmax(auto, 1fr);
-        gap: 20px;
-        width: 20vw;
-        height: 30vh;
-        left: 75vw;
-        top: 15vh;
-        position: absolute;
-        z-index: 20;
-
-    }
-
-    #delete-mitarbeiter-btn {
-        left: 5vw;
-        top: 20vh;
-        position: absolute;
-    }
-
-
-    #delete-mitarbeiter-h2-text{
-        left: 2.5vw;
-        position: absolute;
-    }
-
-    #delete-mitarbeiter-inputfeld{
-        top: 15vh;
-        left: 2.5vw;
-        width: 15vw;
-        position: absolute;
-    }
 
 
 
 
 /*------------------------------------------------------------------CLASSES------------------------------------------------------------------------------ */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    .canvas-container img {
-
-        width: 5.5vw;
-        height: 7.5vw;
-        max-width: 5.5vw;
-       max-height: 8vw;
-        display: block;
-    }
-
-
-
-    .canvas-container2 img {
-        max-width: 100px;
-        max-height: 100px;
-        display: block;
-    }
-
-
-
-
-
-
-
-    .inputfelder-canvas {
-        display: grid;
-        grid-template-columns: auto minmax(auto, 1fr);
-        gap: 20px;
-        width: 40vw;
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

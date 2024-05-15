@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, {AxiosResponse} from 'axios';
 import './App.css';
 import { useEffect, useState } from "react";
 import Layout from "./Layout.tsx";
@@ -6,8 +6,10 @@ import {FormInputType} from "./App.tsx";
 import { useNavigate } from 'react-router-dom';
 import "./CSS/AdressbuchSide.css"
 
-
-function DatenAnzeigen() {
+type AdressbuchProps = {
+    "setUserId": React.Dispatch<React.SetStateAction<string>>;
+}
+function Adressbuch({setUserId}: AdressbuchProps ) {
     const [mitarbeiter, setMitarbeiter] = useState<FormInputType[]>([]);
     const [suchbegriff, setSuchbegriff] = useState('');
     const [gefilterteMitarbeiter, setGefilterteMitarbeiter] = useState<FormInputType[]>([]);
@@ -20,9 +22,14 @@ function DatenAnzeigen() {
     };
 
     useEffect(() => {
-        axios.get<FormInputType[]>('/api/mitarbeiter')
-            .then(response => {
+        axios.get('/api/user/mitarbeiter', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwt")}`
+            }
+        })
+            .then((response: AxiosResponse<FormInputType[]>) => {
                 setMitarbeiter(response.data);
+                console.log(response.data)
                 setGefilterteMitarbeiter(response.data);
             })
             .catch(error => {
@@ -47,9 +54,9 @@ function DatenAnzeigen() {
 
         const navigate = useNavigate();
 
-    const AdressbuchBildClick = () => {
+    const AdressbuchBildClick = (userId: string) => {
+        setUserId(userId);
         navigate("/AllInfos");
-
     };
 
     return (
@@ -72,10 +79,10 @@ function DatenAnzeigen() {
                 <div id="treffertext" className={"shadow-and-radius"}>Treffer: {gefilterteMitarbeiter.length}</div>
             </div>
             <div id="datencanvas">
-                {gefilterteMitarbeiter.map((mitarbeiter, index) => (
+                {Array.isArray(gefilterteMitarbeiter) &&  gefilterteMitarbeiter.map((mitarbeiter, index) => (
                     <div className="canvas-container flex-container shadow-and-radius" key={index}>
                         <div id={"mdatentext"} className={"shadow-and-radius"}>
-                            {mitarbeiter.bildUrl && <img onClick={AdressbuchBildClick} src={formatBase64Image(mitarbeiter.bildUrl)} className={"shadow-and-radius"} id="BildAdressbuch" alt="BILD"/>}
+                            {mitarbeiter.bildUrl && <img onClick={() => {AdressbuchBildClick(mitarbeiter.userid)}} src={formatBase64Image(mitarbeiter.bildUrl)} className={"shadow-and-radius"} id="BildAdressbuch" alt="BILD"/>}
                             <p>{mitarbeiter.name} {mitarbeiter.nachname} ({mitarbeiter.userid})</p>
                             <p>Tele: {mitarbeiter.telefonnummer}</p>
                             <p>Ort: {mitarbeiter.ort}</p>
@@ -91,4 +98,4 @@ function DatenAnzeigen() {
     );
 }
 
-export default DatenAnzeigen;
+export default Adressbuch;

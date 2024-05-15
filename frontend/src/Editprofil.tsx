@@ -3,6 +3,7 @@ import React, {useEffect, useRef, useState} from "react";
 import {roleType, UserInfo} from "./App.tsx";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import "./CSS/EditProfileSide.css"
 
 
 
@@ -29,8 +30,11 @@ function Editprofil() {
 
 
     useEffect(() => {
-        localStorage.setItem("userid", "JUAN2")
-        axios.get("/api/mitarbeiter/" + formData.userid).then((res) => {
+        axios.get("/api/user/mitarbeiter/specific", {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwt")}`
+            }
+        }).then((res) => {
                 setFormData({
                     name: res.data.name, nachname: res.data.nachname, geschlecht: res.data.geschlecht, geschaeftsadresse: res.data.geschaeftsadresse, rolle: res.data.rolle, ort: res.data.ort, gebaeude: res.data.gebaeude, bildUrl: res.data.bildUrl, stock: res.data.stock, userid: res.data.userid, telefonnummer: res.data.telefonnummer, pultnummer: res.data.pultnummer
                 });
@@ -48,7 +52,11 @@ function Editprofil() {
 
     const handleSubmit = () => {
         console.log(formData)
-        axios.put("/api/mitarbeiter", formData )
+        axios.put("/api/user/mitarbeiter", formData, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwt")}`
+            }
+        } )
             .then(response => {
                 console.log('Updated:', response.data);
             })
@@ -76,7 +84,7 @@ function Editprofil() {
     };
 
     const handlePwSubmit = () => {
-        axios.put("/api/mitarbeiter/password", (localStorage.getItem("userid"), passwordData)).then(() => {
+        axios.put("/api/user/mitarbeiter/password", (localStorage.getItem("userid"), passwordData)).then(() => {
             //todo
         } )
     }

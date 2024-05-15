@@ -2,8 +2,13 @@ import Layout from './Layout';
 import {useEffect,  useState} from "react";
 import {roleType, UserInfo} from "./App.tsx";
 import axios from "axios";
+import "./CSS/AllinfosSide.css"
 
-function AllInfos() {
+type AllInfoProps = {
+    "userId": string;
+}
+
+function AllInfos({userId}: AllInfoProps) {
     const [formData, setFormData] = useState<UserInfo>({
 
             name: "",
@@ -24,8 +29,11 @@ function AllInfos() {
 
 
     useEffect(() => {
-        localStorage.setItem("userid", "JUAN2")
-        axios.get("/api/mitarbeiter/" + formData.userid).then((res) => {
+        axios.get("/api/user/mitarbeiter/specific/" + userId, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwt")}`
+            }
+        }).then((res) => {
                 setFormData({
                     name: res.data.name, nachname: res.data.nachname, geschlecht: res.data.geschlecht, geschaeftsadresse: res.data.geschaeftsadresse, rolle: res.data.rolle, ort: res.data.ort, gebaeude: res.data.gebaeude, bildUrl: res.data.bildUrl, stock: res.data.stock, userid: res.data.userid, telefonnummer: res.data.telefonnummer, pultnummer: res.data.pultnummer
                 });

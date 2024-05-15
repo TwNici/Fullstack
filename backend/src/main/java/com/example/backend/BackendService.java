@@ -35,7 +35,8 @@ public class BackendService {
         return repo.findAll();
     }
 
-    public Mitarbeiter getMitarbeiterById(String userId) {
+    public Mitarbeiter getMitarbeiterById(String token) {
+        String userId = jwtService.extractUsername(token);
         return repo.findById(userId).orElseThrow();
     }
 
@@ -106,5 +107,9 @@ public class BackendService {
         }
     }
 
+
+    public Optional<Mitarbeiter> getMitarbeiterByUserId(String userid) {
+        return repo.findById(userid);
+    }
 
 }

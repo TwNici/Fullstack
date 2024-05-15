@@ -29,7 +29,7 @@ export default function Login(navigate: LoginProps) {
     }
 
     const handleSubmit = () => {
-        axios.post("/api/authenticate", formData).then(
+        axios.post("/api/auth/authenticate", formData).then(
             (res: AxiosResponse<AuthenticationResponse>) => {
                 if (res.data.token){
                     localStorage.setItem("jwt", res.data.token);

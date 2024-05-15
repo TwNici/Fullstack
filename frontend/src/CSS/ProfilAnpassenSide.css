@@ -1,3 +1,53 @@
 input {
     width: 100%;
 }
+
+#searchUserIDButton{
+    width: 4vw;
+    height: 3.2vh;
+    left: 45.5vw;
+    top: 15.5vw;
+    position: absolute;
+}
+
+#delete-mitarbeiter-btn {
+    left: 5vw;
+    top: 20vh;
+    position: absolute;
+}
+
+#delete-mitarbeiter-inputfeld{
+    top: 15vh;
+    left: 2.5vw;
+    width: 15vw;
+    position: absolute;
+}
+
+#delete-mitarbeiter-h2-text{
+    left: 2.5vw;
+    position: absolute;
+    color: var(--text-color-daten);
+}
+
+#delete-mitarbeiter-inputfeld::placeholder {
+    color: var(--text-color-daten);
+}
+
+#mitarbeiter-auswählen-profanpassung::placeholder {
+    color: var(--text-color-daten);
+
+}
+
+#canvas-delete-user {
+    display: grid;
+    grid-template-columns: auto minmax(auto, 1fr);
+    gap: 20px;
+    width: 20vw;
+    height: 30vh;
+    left: 75vw;
+    top: 15vh;
+    position: absolute;
+    z-index: 20;
+
+
+}

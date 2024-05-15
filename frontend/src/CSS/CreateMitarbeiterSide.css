@@ -1,3 +1,39 @@
 input {
     width: 100%;
 }
+
+
+#labels {
+    left: 49vh;
+    top: 15vh;
+    position: absolute;
+    font-size: 1.0em;
+    padding: 13vh;
+    z-index: 5;
+
+}
+
+
+
+#mitarbeitertexttitel {
+    width: 23vw;
+    height: 8vh;
+    position: absolute;
+    left: 8.5vw;
+    top: 1vw;
+    padding: 1.2vw;
+    color: var(--text-color-daten);;
+
+
+
+}
+
+#rolleCreatemitabeiter {
+    top: 20.1vw;
+    position: absolute;
+    height: 2.7vh;
+    width: 10vw;
+    left: 22.9vw;
+    color: var(--text-color-daten);
+
+}

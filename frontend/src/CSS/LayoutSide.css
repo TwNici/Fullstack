@@ -1,100 +1,193 @@
 :root {
-    --background-color: ;
-    --circle-color1: ;
-    --circle-color2: ;
+    --background-color: #fff;
+    --circle-color1: #f0f0f0;
+    --circle-color2: #e0e0e0;
+    --layout-canvas: #ddd;
+    --text-color-daten: #333;
+}
+
+body {
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 
 .btn-layout {
     margin-top: 2vh;
-    width: 10vw;
-
-
-
+    width: 80vw;
 }
-
-
-
-
-
 
 .btn-layout-vertical {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .circles {
     border-radius: 50%;
-    width: 60vw;
-    height: 90vh;
+    width: 100vw;
+    height: 100vw;
     background-color: black;
     position: fixed;
-    left: 65vw;
-    top: 40vw;
+    left: 0;
+    top: 40vh;
     z-index: 3;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-
 }
+
 .circles2 {
     border-radius: 50%;
-    width: 70vw;
-    height: 90vh;
+    width: 110vw;
+    height: 110vw;
     background-color: var(--circle-color1);
     position: fixed;
-    left: 60vw;
-    top: 35vw;
+    left: -5vw;
+    top: 35vh;
     z-index: 2;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-
 }
+
 .circles3 {
     border-radius: 50%;
-    width: 80vw;
-    height: 110vh;
+    width: 120vw;
+    height: 120vw;
     background-color: var(--circle-color2);
     position: fixed;
-    left: 55vw;
-    top: 30vw;
+    left: -10vw;
+    top: 30vh;
     z-index: 1;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-
 }
 
 #leftcanvas {
-    width: 15vw;
-    height: 86vh;
-    top: 13vh;
-    background-color: var(--background-color);
+    width: 100%;
+    height: 20vh;
+    top: auto;
+    bottom: 0;
+    background-color: var(--layout-canvas);
     position: fixed;
-    margin-left: 0%;
-
+    margin-left: 0;
     z-index: 5;
 }
 
 #uppercanvas {
-    width: 98vw;
-    height: 11vh;
+    width: 100%;
+    height: 8vh;
     position: fixed;
-    background-color: var(--background-color);
-    left: 0vw;
-    top: 0.5vw;
+    background-color: var(--layout-canvas);
+    left: 0;
+    top: 0;
     padding: 1vh;
     z-index: 20;
-
-
 }
 
-#dropdownLAYOUT{
-    left: 87vw;
-    top: -0.5vh;
+#dropdownLAYOUT {
+    left: 70%;
+    top: 2vh;
     position: absolute;
 }
 
 #darkmodeCheckbox {
-    left: 89.5%;
-    top: 60%;
+    left: 75%;
+    top: 50%;
     position: absolute;
 }
 
+#adressbuch-h4-title {
+    color: var(--text-color-daten);
+}
+
+@media (min-width: 768px) {
+    .btn-layout {
+        width: 40vw;
+    }
+
+    #leftcanvas {
+        width: 25vw;
+        height: 86vh;
+        top: 13vh;
+        bottom: auto;
+    }
+
+    #dropdownLAYOUT {
+        left: 80%;
+    }
+
+    #darkmodeCheckbox {
+        left: 85%;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .btn-layout {
+        width: 10vw;
+    }
+
+    .circles {
+        width: 60vw;
+        height: 90vh;
+        left: 65vw;
+        top: 40vw;
+    }
+
+    .circles2 {
+        width: 70vw;
+        height: 90vh;
+        left: 60vw;
+        top: 35vw;
+    }
+
+    .circles3 {
+        width: 80vw;
+        height: 110vh;
+        left: 55vw;
+        top: 30vw;
+    }
+
+    #leftcanvas {
+        width: 15vw;
+        height: 88vh;
+        top: 11.5vh;
+        bottom: auto;
+    }
+
+    #uppercanvas {
+        width: 98vw;
+        height: 11vh;
+    }
+
+    #dropdownLAYOUT {
+        left: 87vw;
+        top: 40%;
+    }
+
+    #darkmodeCheckbox {
+        left: 89%;
+        top: 25%;
+    }
+
+    #adressbuch-h4-title {
+        cursor: pointer;
+        left: 1%;
+        position: absolute;
+    }
+
+
+}
+
+
+
+#layout-profile-picture {
+    left: 93.5vw;
+    top: 5%;
+    position: absolute;
+    cursor: pointer;
+    height: 3vw;
+    width: 3vw;
+    border-radius: 100%;
+
+
+}
