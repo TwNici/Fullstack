@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./CSS/404Page.css"
 
 export default function NotFoundPage() {
     const navigate = useNavigate();
@@ -22,8 +23,8 @@ export default function NotFoundPage() {
     }, [navigate]);
 
     return (
-        <div style={{ textAlign: "center", marginTop: "20%" }}>
-            <h1>Page not Found</h1>
+        <div id={"content"} className={"shadow-and-radius "}>
+            <h1 className={"emoji-container"}>🔍 404 Not Found</h1>
             <p>You will be redirected to the main page in {counter} seconds.</p>
         </div>
     );

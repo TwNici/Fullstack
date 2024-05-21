@@ -22,9 +22,9 @@ export default function ForbiddenPage() {
     }, [navigate]);
 
     return (
-        <div style={{ textAlign: "center", marginTop: "20%" }}>
-            <h1>Access Denied</h1>
-            <p>You will be redirected to the login page in {counter} seconds.</p>
+        <div id={"content"} className={"shadow-and-radius "}>
+            <h1 className={"emoji-container"}>🚫 403 Access Denied</h1>
+            <p>You will be redirected to the main page in {counter} seconds.</p>
         </div>
     );
 }
