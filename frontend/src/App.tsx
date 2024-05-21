@@ -1,17 +1,17 @@
 import Adressbuch from './Adressbuch.tsx';
 import {Navigate, Route, Routes, useNavigate} from "react-router-dom";
 import Createmitarbeiter from "./createmitarbeiter.tsx";
-import Profilanpassen from "./profilanpassen.tsx";
-import Erweitertesuche from "./erweitertesuche.tsx";
+import AdvancedSearch from "./AdvancedSearch.tsx";
 import Loginpage from "./Loginpage.tsx";
-import Editprofil from "./Editprofil.tsx";
-import AllInfos from "./Allinfos.tsx";
+import EditUserProfile from "./EditUserProfile.tsx";
+import InfoOverview from "./InfoOverview.tsx";
 import CoopGPT from "./CoopGPT.tsx"
 import MobilefirstLayouttest from "./mobilefirstLayouttest.tsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFoundPage from "./404Page.tsx";
 import ForbiddenPage from "./403Page.tsx";
 import React, {createContext, useState} from "react";
+import AdjustProfile from "./AdjustProfile.tsx";
 
 export enum roleType {
     ADMIN = "ADMIN",
@@ -98,11 +98,11 @@ const App = () => {
                 <Route path="*" element={<NotFoundPage/>}/>
                 <Route path="/" element={<ProtectedRoute><Adressbuch/></ProtectedRoute>} />
                 <Route path="/createmitarbeiter" element={<ProtectedRoute><Createmitarbeiter /></ProtectedRoute>} />
-                <Route path="/profilanpassen" element={<ProtectedRoute>< Profilanpassen/></ProtectedRoute>} />
-                <Route path="/erweitertesuche" element={<ProtectedRoute>< Erweitertesuche/></ProtectedRoute>} />
+                <Route path="/AdjustProfile" element={<ProtectedRoute>< AdjustProfile/></ProtectedRoute>} />
+                <Route path="/AdvancedSearch" element={<ProtectedRoute>< AdvancedSearch/></ProtectedRoute>} />
                 <Route path="/Login" element={<Loginpage navigate={navigate}/>}  />
-                <Route path="/edit" element={<ProtectedRoute>< Editprofil/></ProtectedRoute>} />
-                <Route path="/allinfos" element={<ProtectedRoute><AllInfos/></ProtectedRoute>} />
+                <Route path="/EditUserProfile" element={<ProtectedRoute>< EditUserProfile/></ProtectedRoute>} />
+                <Route path="/InfoOverview" element={<ProtectedRoute><InfoOverview/></ProtectedRoute>} />
                 <Route path="/CoopGPT" element={<ProtectedRoute><CoopGPT /></ProtectedRoute>} />
                 <Route path="/mobilefirstLayouttest" element={<ProtectedRoute><MobilefirstLayouttest /></ProtectedRoute>} />
             </Routes>

@@ -54,7 +54,7 @@ function Adressbuch() {
 
     const AdressbuchBildClick = (userId: string) => {
         setUserId(userId);
-        navigate("/AllInfos");
+        navigate("/InfoOverview");
     };
 
     return (

@@ -2,9 +2,9 @@ import Layout from './Layout';
 import {useContext, useEffect, useState} from "react";
 import {roleType, UserContext, UserInfo} from "./App.tsx";
 import axios from "axios";
-import "./CSS/AllinfosSide.css"
+import "./CSS/InfoOverview.css"
 
-function AllInfos() {
+function InfoOverview() {
     const [formData, setFormData] = useState<UserInfo>({
 
             name: "",
@@ -76,4 +76,4 @@ function AllInfos() {
 
 
 
-export default AllInfos;
+export default InfoOverview;

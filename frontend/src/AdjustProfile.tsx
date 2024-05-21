@@ -1,13 +1,13 @@
 import axios from 'axios';
 import './App.css';
-import "./CSS/ProfilAnpassenSide.css"
+import "./CSS/AdjustProfile.css"
 import React, {useRef, useState} from "react";
 import {FormInputType, roleType} from "./App.tsx";
 import Layout from "./Layout.tsx";
 
 
 
-function ProfilAnpassen() {
+function AdjustProfile() {
     const [userIdToDel, setUserIdToDel] = useState<string>("")
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [userId, setUserId] = useState<string>("");
@@ -189,4 +189,4 @@ function ProfilAnpassen() {
 
     );
 }
-    export default ProfilAnpassen
+    export default AdjustProfile

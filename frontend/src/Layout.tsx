@@ -48,7 +48,7 @@ function Layout() {
 
     const AdressbuchBildClick = () => {
         setUserId(formData.userid);
-        navigate("/AllInfos");
+        navigate("/InfoOverview");
     };
 
     const navigate = useNavigate();
@@ -69,11 +69,11 @@ function Layout() {
     };
 
     const erweitertesuchenav = () => {
-        navigate("/erweitertesuche");
+        navigate("/AdvancedSearch");
     };
 
     const profilanpassennav = () => {
-        navigate("/profilanpassen");
+        navigate("/AdjustProfile");
     };
 
     const CoopGPT = () => {
@@ -138,7 +138,7 @@ function Layout() {
                 <h6 id="Profillist">
                     <select  onChange={handleChange} className="btn-layout shadow-and-radius" id={"dropdownLAYOUT"}>
                         <option value="">Profil</option>
-                        <option value="/edit">Profil bearbeiten</option>
+                        <option value="/EditUserProfile">Profil bearbeiten</option>
                         <option value="/Login">Logout</option>
                     </select>
 

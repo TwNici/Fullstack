@@ -2,11 +2,11 @@ import Layout from "./Layout.tsx";
 import React, {useEffect, useRef, useState} from "react";
 import {roleType, UserInfo} from "./App.tsx";
 import axios from "axios";
-import "./CSS/EditProfileSide.css"
+import "./CSS/EditUserProfile.css"
 
 
 
-function Editprofil() {
+function EditUserProfile() {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [ passwordData, setPasswordData] = useState<string>("");
     const [formData, setFormData] = useState<UserInfo>({
@@ -98,12 +98,10 @@ function Editprofil() {
                     handlePwSubmit(); }}>
 
                 <label><h5 id="PWresetPOS">Passwort Reset</h5></label>
-                <input id="InputFelderEdit1" placeholder="Neues Passwort" type="Password" onChange={(e) => {
-                    setPasswordData(e.target.value);
-                }}/>
+                <input id="InputFelderEdit1" placeholder="Neues Passwort" type="Password" onChange={handlePwSubmit}/>
+                    <button className={"btn-layout shadow-and-radius"} id={"editSaveButtonPW"} type={"submit"}>Save</button>
                 </form>
                     <input id="InputFelderEdit2" placeholder="Neues Passwort Widerholen" type="Password" />
-                    <button className={"btn-layout shadow-and-radius"} id={"editSaveButtonPW"} type={"submit"}>Save</button>
                 </div>
 
             </div>
@@ -144,4 +142,4 @@ function Editprofil() {
     );
 }
 
-export default Editprofil;
+export default EditUserProfile;

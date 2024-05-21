@@ -2,7 +2,7 @@ import axios, {AxiosResponse} from 'axios';
 import { useEffect, useState } from "react";
 import Layout from "./Layout.tsx";
 import { FormInputType } from "./App.tsx";
-import "./CSS/ErweitertesucheSide.css";
+import "./CSS/AdvancedSearch.css";
 import { useNavigate } from "react-router-dom";
 
 type suchType = {
@@ -11,7 +11,7 @@ type suchType = {
     userdata: keyof FormInputType;
 };
 
-function Erweitertesuche() {
+function AdvancedSearch() {
     const [suche, setSuche] = useState<suchType>({
         criteria: "",
         operator: "=",
@@ -87,7 +87,7 @@ function Erweitertesuche() {
     const navigate = useNavigate();
 
     const AdressbuchBildClick = () => {
-        navigate("/AllInfos");
+        navigate("/InfoOverview");
     };
 
     return (
@@ -168,4 +168,4 @@ function Erweitertesuche() {
     );
 }
 
-export default Erweitertesuche;
+export default AdvancedSearch;
