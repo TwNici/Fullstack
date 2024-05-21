@@ -27,7 +27,18 @@ public class BackendService {
     }
 
     public Mitarbeiter updateMitarbeiter(Mitarbeiter mitarbeiterDetails) {
+        if (mitarbeiterDetails.getBildUrl() == null) {
+            Optional<Mitarbeiter> found = repo.findById(mitarbeiterDetails.getUserid());
+            if (found.isEmpty()) return null;
+            mitarbeiterDetails.setBildUrl(found.get().getBildUrl());
+        }
+        if (mitarbeiterDetails.getInitialPW() == null){
+            Optional<Mitarbeiter> found = repo.findById(mitarbeiterDetails.getUserid());
+            if (found.isEmpty()) return null;
+            mitarbeiterDetails.setInitialPW(found.get().getInitialPW());
+        }
         repo.deleteById(mitarbeiterDetails.getUserid());
+        mitarbeiterDetails.setInitialPW(passwordEncoder.encode(mitarbeiterDetails.getInitialPW()));
         return repo.save(mitarbeiterDetails);
     }
 

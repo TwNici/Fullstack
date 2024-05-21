@@ -1,18 +1,16 @@
 import axios, {AxiosResponse} from 'axios';
 import './App.css';
-import { useEffect, useState } from "react";
+import {useContext, useEffect, useState} from "react";
 import Layout from "./Layout.tsx";
-import {FormInputType} from "./App.tsx";
+import {FormInputType, UserContext} from "./App.tsx";
 import { useNavigate } from 'react-router-dom';
 import "./CSS/AdressbuchSide.css"
 
-type AdressbuchProps = {
-    "setUserId": React.Dispatch<React.SetStateAction<string>>;
-}
-function Adressbuch({setUserId}: AdressbuchProps ) {
+function Adressbuch() {
     const [mitarbeiter, setMitarbeiter] = useState<FormInputType[]>([]);
     const [suchbegriff, setSuchbegriff] = useState('');
     const [gefilterteMitarbeiter, setGefilterteMitarbeiter] = useState<FormInputType[]>([]);
+    const {setUserId} = useContext(UserContext)
 
     const formatBase64Image = (data: string): string => {
         if (data && !data.startsWith('data:image')) {

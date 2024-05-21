@@ -1,14 +1,10 @@
 import Layout from './Layout';
-import {useEffect,  useState} from "react";
-import {roleType, UserInfo} from "./App.tsx";
+import {useContext, useEffect, useState} from "react";
+import {roleType, UserContext, UserInfo} from "./App.tsx";
 import axios from "axios";
 import "./CSS/AllinfosSide.css"
 
-type AllInfoProps = {
-    "userId": string;
-}
-
-function AllInfos({userId}: AllInfoProps) {
+function AllInfos() {
     const [formData, setFormData] = useState<UserInfo>({
 
             name: "",
@@ -26,6 +22,7 @@ function AllInfos({userId}: AllInfoProps) {
 
         }
     )
+    const {userId} = useContext(UserContext)
 
 
     useEffect(() => {

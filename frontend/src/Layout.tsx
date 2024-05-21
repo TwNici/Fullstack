@@ -1,13 +1,14 @@
 import { To, useNavigate } from 'react-router-dom';
 import './App.css';
 import "./CSS/LayoutSide.css";
-import { useEffect, useState } from "react";
-import {roleType, UserInfo} from "./App.tsx";
+import {useContext, useEffect, useState} from "react";
+import {roleType, UserContext, UserInfo} from "./App.tsx";
 import axios from "axios";
+
 
 function Layout() {
 
-
+    const {setUserId} = useContext(UserContext)
     const [formData, setFormData] = useState<UserInfo>({
 
             name: "",
@@ -46,8 +47,8 @@ function Layout() {
     };
 
     const AdressbuchBildClick = () => {
+        setUserId(formData.userid);
         navigate("/AllInfos");
-
     };
 
     const navigate = useNavigate();

@@ -165,7 +165,7 @@ function ProfilAnpassen() {
                 </div>
                 <div>
                     <label htmlFor="dragDrop" className="btn-layout shadow-and-radius">Bild Hochladen / PNG</label>
-                    <input ref={fileInputRef} id="dragDrop" type="file" name="bildUrl" required onChange={handleFileChange} />
+                    <input ref={fileInputRef} id="dragDrop" type="file" name="bildUrl" onChange={handleFileChange} />
                 </div>
                 <button type={"submit"} className="btn-layout shadow-and-radius">Mitarbeiter speichern</button>
             </div>

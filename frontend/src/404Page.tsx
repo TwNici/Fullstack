@@ -12,7 +12,7 @@ export default function NotFoundPage() {
                     return prevCounter - 1;
                 } else {
                     navigate("/");
-                    clearInterval(interval); // Clear interval to prevent memory leak
+                    clearInterval(interval);
                     return 0;
                 }
             });
