@@ -28,10 +28,10 @@
     left: 16.5vw;
     top: 13vh;
     width: 12.5vw;
-    height: 34vh;
+    height: 33.2vh;
     background: white;
     position: absolute;
-
+    object-fit: cover;
 
 
 }

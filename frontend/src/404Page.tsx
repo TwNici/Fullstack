@@ -23,7 +23,9 @@ export default function NotFoundPage() {
     }, [navigate]);
 
     return (
+
         <div id={"content"} className={"shadow-and-radius "}>
+
             <h1 className={"emoji-container"}>🔍 404 Not Found</h1>
             <p>You will be redirected to the main page in {counter} seconds.</p>
         </div>

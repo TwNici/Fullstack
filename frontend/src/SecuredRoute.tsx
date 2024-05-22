@@ -27,7 +27,7 @@ const SecuredRoute = ({ children }: { children: JSX.Element }) => {
     }
 
     if (role === "USER") {
-        return <Navigate to="/forbidden" replace />;
+        return <Navigate to="*" replace />;
     }
 
     return children;

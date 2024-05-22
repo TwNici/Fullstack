@@ -76,9 +76,6 @@ function Layout() {
         navigate("/AdjustProfile");
     };
 
-    const CoopGPT = () => {
-        navigate("/CoopGPT");
-    };
 
     const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -129,9 +126,7 @@ function Layout() {
                 <button className="btn-layout shadow-and-radius" onClick={profilanpassennav}>
                 Profil anpassen
                 </button></>}
-                <button className="btn-layout shadow-and-radius" onClick={CoopGPT}>
-                    Frage Coop GPT
-                </button>
+
             </div>
             <div id="uppercanvas" className={"shadow-and-radius "}>
                 <h4 id={"adressbuch-h4-title"} onClick={suchenav}>Adressbuch</h4>

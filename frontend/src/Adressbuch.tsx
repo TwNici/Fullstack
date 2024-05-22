@@ -87,8 +87,8 @@ function Adressbuch() {
             <div id="datencanvas">
                 {Array.isArray(gefilterteMitarbeiter) &&  gefilterteMitarbeiter.map((mitarbeiter, index) => (
                     <div className="canvas-container flex-container shadow-and-radius" key={index}>
-                        <div id={"mdatentext"} className={"shadow-and-radius"}>
-                            {mitarbeiter.bildUrl && <img onClick={() => {AdressbuchBildClick(mitarbeiter.userid)}} src={formatBase64Image(mitarbeiter.bildUrl)} className={"shadow-and-radius"} id="BildAdressbuch" alt="BILD"/>}
+                        <div id={"mdatentext"} className={"shadow-and-radius"} onClick={() => {AdressbuchBildClick(mitarbeiter.userid)}}>
+                            {mitarbeiter.bildUrl && <img  src={formatBase64Image(mitarbeiter.bildUrl)} className={"shadow-and-radius"} id="BildAdressbuch" alt="BILD"/>}
                             <p> <b>{mitarbeiter.name} {mitarbeiter.nachname} <i>({mitarbeiter.userid}) </i> </b></p>
                             <p>Tele: {mitarbeiter.telefonnummer}</p>
                             <p>Ort: {mitarbeiter.ort}</p>

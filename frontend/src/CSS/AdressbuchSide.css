@@ -120,6 +120,7 @@
     height: 20vh;
     max-width: 13vw;
     max-height: 20vh;
+    cursor: pointer;
     color: var(--text-color-daten);
 }
 
@@ -128,6 +129,7 @@
     top: 0.5vw;
     position: absolute;
     cursor: pointer;
+    object-fit: cover;
 
 
 }

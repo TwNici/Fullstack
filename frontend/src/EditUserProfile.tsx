@@ -93,7 +93,7 @@ function EditUserProfile() {
 
         } )
         } else{
-            
+            alert("Passwort stimmt nicht überein")
         }
     }
 
