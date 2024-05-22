@@ -29,8 +29,11 @@ public class UserController {
     }
 
     @PutMapping("/mitarbeiter/password")
-    public boolean updateMitarbeiterPassword( @RequestBody String userid, String password){
-        return service.updateMitarbeiterPassword(userid, password);
+    public boolean updateMitarbeiterPassword( @RequestBody String password, @RequestHeader("Authorization") String authorizationHeader) {
+        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+            String token = authorizationHeader.substring(7);
+            return service.updateMitarbeiterPassword(token, password);
+        } else return false;
     }
 
     @GetMapping("/mitarbeiter")
@@ -70,6 +73,15 @@ public class UserController {
     public void deleteMitarbeiter(@PathVariable String userId) {
         service.deleteMitarbeiter(userId);
 
+    }
+
+    @GetMapping("/getrole")
+    public Role getRole(@RequestHeader("Authorization") String authorizationHeader) {
+        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+            String token = authorizationHeader.substring(7);
+            return service.getRole(token);
+        }
+        else return null;
     }
 
 }

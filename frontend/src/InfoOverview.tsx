@@ -51,7 +51,7 @@ function InfoOverview() {
                 <div id="canvas-container3" >
                     <div id={"mdatentextINFOS1"} className={"shadow-and-radius"}>
                         <h5>Personen Daten</h5>
-                        <p>{formData.name} {formData.nachname} ({formData.userid})</p>
+                       <b> <p>{formData.name} {formData.nachname} <i>({formData.userid}) </i></p> </b>
                         <p>Tele: {formData.telefonnummer}</p>
                         <p>Ort: {formData.ort}</p>
                         <p>Geschlecht: {formData.geschlecht}</p>

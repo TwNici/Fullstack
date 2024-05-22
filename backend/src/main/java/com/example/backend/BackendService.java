@@ -78,7 +78,7 @@ public class BackendService {
                 .telefonnummer(request.getTelefonnummer())
                 .userid(request.getUserid())
                 .initialPW(passwordEncoder.encode(request.getInitialPW()))
-                .rolle(Role.USER)
+                .rolle(request.getRolle())
                 .build();
         repo.save(user);
 
@@ -104,7 +104,9 @@ public class BackendService {
     }
 
 
-    public boolean updateMitarbeiterPassword(String userid, String password) {
+    public boolean updateMitarbeiterPassword(String token, String password) {
+        String userid = jwtService.extractUsername(token);
+
         Optional<Mitarbeiter> toUpdate = repo.findById(userid);
 
         if (toUpdate.isPresent()) {
@@ -123,4 +125,9 @@ public class BackendService {
         return repo.findById(userid);
     }
 
+    public Role getRole(String token) {
+        String userid = jwtService.extractUsername(token);
+        Optional<Mitarbeiter> foundUser = repo.findById(userid);
+        return foundUser.map(Mitarbeiter::getRolle).orElse(null);
+    }
 }

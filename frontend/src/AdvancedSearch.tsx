@@ -155,7 +155,7 @@ function AdvancedSearch() {
                     <div className="canvas-container flex-container shadow-and-radius" key={index}>
                         <div id={"mdatentext"} className={"shadow-and-radius"}>
                             {mitarbeiter.bildUrl && <img onClick={AdressbuchBildClick} src={mitarbeiter.bildUrl} className={"shadow-and-radius"} id="BildAdressbuch" alt="BILD" />}
-                            <p>{mitarbeiter.name} {mitarbeiter.nachname} ({mitarbeiter.userid})</p>
+                           <b> <p>{mitarbeiter.name} {mitarbeiter.nachname} <i> ({mitarbeiter.userid}) </i> </p> </b>
                             <p>Tele: {mitarbeiter.telefonnummer}</p>
                             <p>Ort: {mitarbeiter.ort}</p>
                             <p>Geschlecht: {mitarbeiter.geschlecht}</p>

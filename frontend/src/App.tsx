@@ -12,6 +12,7 @@ import NotFoundPage from "./404Page.tsx";
 import ForbiddenPage from "./403Page.tsx";
 import React, {createContext, useState} from "react";
 import AdjustProfile from "./AdjustProfile.tsx";
+import SecuredRoute from "./SecuredRoute.tsx";
 
 export enum roleType {
     ADMIN = "ADMIN",
@@ -64,12 +65,6 @@ export const ProtectedRoute = ({children}: {
 
 };
 
-
-
-
-
-
-
 export type AuthenticationResponse = {
     token: string;
 }
@@ -97,8 +92,8 @@ const App = () => {
                 <Route path="/forbidden" element={<ForbiddenPage/>}/>
                 <Route path="*" element={<NotFoundPage/>}/>
                 <Route path="/" element={<ProtectedRoute><Adressbuch/></ProtectedRoute>} />
-                <Route path="/createmitarbeiter" element={<ProtectedRoute><Createmitarbeiter /></ProtectedRoute>} />
-                <Route path="/AdjustProfile" element={<ProtectedRoute>< AdjustProfile/></ProtectedRoute>} />
+                <Route path="/createmitarbeiter" element={<SecuredRoute><ProtectedRoute><Createmitarbeiter /></ProtectedRoute></SecuredRoute>} />
+                <Route path="/AdjustProfile" element={<SecuredRoute><ProtectedRoute>< AdjustProfile/></ProtectedRoute></SecuredRoute>} />
                 <Route path="/AdvancedSearch" element={<ProtectedRoute>< AdvancedSearch/></ProtectedRoute>} />
                 <Route path="/Login" element={<Loginpage navigate={navigate}/>}  />
                 <Route path="/EditUserProfile" element={<ProtectedRoute>< EditUserProfile/></ProtectedRoute>} />

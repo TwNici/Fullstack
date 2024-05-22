@@ -9,6 +9,7 @@ import "./CSS/EditUserProfile.css"
 function EditUserProfile() {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [ passwordData, setPasswordData] = useState<string>("");
+    const [ passwordData2, setPasswordData2] = useState<string>("");
     const [formData, setFormData] = useState<UserInfo>({
 
             name: "",
@@ -83,9 +84,25 @@ function EditUserProfile() {
     };
 
     const handlePwSubmit = () => {
-        axios.put("/api/user/mitarbeiter/password", (localStorage.getItem("userid"), passwordData)).then(() => {
-            //todo
+        if (passwordData === passwordData2){
+        axios.put("/api/user/mitarbeiter/password", passwordData, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwt")}`
+            }
+        }).then(() => {
+
         } )
+        } else{
+            
+        }
+    }
+
+    const handlePwChange = (value: string) => {
+        setPasswordData(value)
+    }
+
+    const handlePwChange2 = (value: string) => {
+        setPasswordData2(value)
     }
 
 
@@ -98,10 +115,10 @@ function EditUserProfile() {
                     handlePwSubmit(); }}>
 
                 <label><h5 id="PWresetPOS">Passwort Reset</h5></label>
-                <input id="InputFelderEdit1" placeholder="Neues Passwort" type="Password" onChange={handlePwSubmit}/>
+                <input id="InputFelderEdit1" placeholder="Neues Passwort" type="Password" onChange={(e) => handlePwChange(e.target.value)}/>
                     <button className={"btn-layout shadow-and-radius"} id={"editSaveButtonPW"} type={"submit"}>Save</button>
                 </form>
-                    <input id="InputFelderEdit2" placeholder="Neues Passwort Widerholen" type="Password" />
+                    <input id="InputFelderEdit2" placeholder="Neues Passwort Widerholen" type="Password" onChange={(e) => handlePwChange2(e.target.value)}/>
                 </div>
 
             </div>
@@ -114,7 +131,7 @@ function EditUserProfile() {
                 </form>
             </div>
 
-            <img src={formData.bildUrl}  id="showeditPicture" className="canvas shadow-and-radius"/>
+            <img src={formData.bildUrl}  id="showeditPicture" className="canvas shadow-and-radius" alt={""}/>
             <div id="showeditProfil" className="canvas shadow-and-radius" >
 
                     <div className="canvas-container2">

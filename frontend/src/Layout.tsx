@@ -8,7 +8,7 @@ import axios from "axios";
 
 function Layout() {
 
-    const {setUserId} = useContext(UserContext)
+    const { setUserId} = useContext(UserContext)
     const [formData, setFormData] = useState<UserInfo>({
 
             name: "",
@@ -123,12 +123,12 @@ function Layout() {
                 <button className="btn-layout shadow-and-radius" onClick={erweitertesuchenav}>
                     Erweiterte Suche
                 </button>
-                <button className="btn-layout shadow-and-radius" onClick={mitarbeiternav}>
+                {formData.rolle == roleType.ADMIN && <><button className="btn-layout shadow-and-radius" onClick={mitarbeiternav}>
                     Neue Mitarbeiter eintragen
                 </button>
                 <button className="btn-layout shadow-and-radius" onClick={profilanpassennav}>
-                    Profil anpassen
-                </button>
+                Profil anpassen
+                </button></>}
                 <button className="btn-layout shadow-and-radius" onClick={CoopGPT}>
                     Frage Coop GPT
                 </button>
