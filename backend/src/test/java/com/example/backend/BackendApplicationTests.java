@@ -39,7 +39,6 @@ class BackendApplicationTests {
 
     @Test
     void testRegisterMethod_shouldReturn() throws Exception {
-
         String jsonString = "{"
                 + "\"initialPW\": \"test\","
                 + "\"rolle\": \"USER\","
@@ -60,8 +59,23 @@ class BackendApplicationTests {
 
         String expectedResponse = objectMapper.writeValueAsString(Map.of("token", "test"));
         mockMvc.perform(post("/api/auth/register")
-                .content(jsonString)
-                .contentType("application/json"))
+                        .content(jsonString)
+                        .contentType("application/json"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().json(expectedResponse));
+    }
+
+    @Test
+    void testAuthenticateMethod_shouldReturn() throws Exception {
+        String jsonString = "{"
+                + "\"userid\": \"test\","
+                + "\"password\": \"test\""
+                + "}";
+
+        String expectedResponse = objectMapper.writeValueAsString(Map.of("token", "test"));
+        mockMvc.perform(post("/api/auth/authenticate")
+                        .content(jsonString)
+                        .contentType("application/json"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(expectedResponse));
     }
