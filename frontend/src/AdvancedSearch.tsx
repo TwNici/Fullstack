@@ -1,7 +1,7 @@
 import axios, {AxiosResponse} from 'axios';
-import { useEffect, useState } from "react";
+import {useContext, useEffect, useState} from "react";
 import Layout from "./Layout.tsx";
-import { FormInputType } from "./App.tsx";
+import {FormInputType, roleType, UserContext} from "./App.tsx";
 import "./CSS/AdvancedSearch.css";
 import { useNavigate } from "react-router-dom";
 
@@ -20,7 +20,8 @@ function AdvancedSearch() {
     const [isNumber, setIsNumber] = useState<boolean>(false);
     const [mitarbeiter, setMitarbeiter] = useState<FormInputType[]>([]);
     const [gefilterteMitarbeiter, setGefilterteMitarbeiter] = useState<FormInputType[]>([]);
-
+    const {setUserId} = useContext(UserContext)
+    const [rolle ] = useState<roleType>(roleType.USER);
     useEffect(() => {
         axios.get('/api/user/mitarbeiter', {
             headers: {
@@ -86,8 +87,15 @@ function AdvancedSearch() {
 
     const navigate = useNavigate();
 
-    const AdressbuchBildClick = () => {
+    const AdressbuchBildClick = (userId: string) => {
+        setUserId(userId);
         navigate("/InfoOverview");
+    };
+    const formatBase64Image = (data: string): string => {
+        if (data && !data.startsWith('data:image')) {
+            return `data:image/png;base64,${data}`;
+        }
+        return data;
     };
 
     return (
@@ -153,13 +161,15 @@ function AdvancedSearch() {
             <div id="datencanvas">
                 {gefilterteMitarbeiter.map((mitarbeiter, index) => (
                     <div className="canvas-container flex-container shadow-and-radius" key={index}>
-                        <div id={"mdatentext"} className={"shadow-and-radius"}>
-                            {mitarbeiter.bildUrl && <img onClick={AdressbuchBildClick} src={mitarbeiter.bildUrl} className={"shadow-and-radius"} id="BildAdressbuch" alt="BILD" />}
-                           <b> <p>{mitarbeiter.name} {mitarbeiter.nachname} <i> ({mitarbeiter.userid}) </i> </p> </b>
+                        <div id={"mdatentext"} className={"shadow-and-radius"} onClick={() => {AdressbuchBildClick(mitarbeiter.userid)}}>
+                            {mitarbeiter.bildUrl && <img  src={formatBase64Image(mitarbeiter.bildUrl)} className={"shadow-and-radius"} id="BildAdressbuch" alt="BILD"/>}
+                            <p> <b>{mitarbeiter.name} {mitarbeiter.nachname} <i>({mitarbeiter.userid}) </i> </b></p>
                             <p>Tele: {mitarbeiter.telefonnummer}</p>
                             <p>Ort: {mitarbeiter.ort}</p>
                             <p>Geschlecht: {mitarbeiter.geschlecht}</p>
-                            <p>Rolle: {mitarbeiter.rolle}</p>
+                            {rolle == roleType.ADMIN && <p>Rolle: {mitarbeiter.rolle}</p>}
+
+
                         </div>
                     </div>
                 ))}

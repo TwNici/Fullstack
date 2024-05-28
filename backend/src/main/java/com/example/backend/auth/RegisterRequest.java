@@ -26,6 +26,9 @@ public class RegisterRequest {
     private String bildUrl;
     private String newUserId;
     private String email;
+
+    public RegisterRequest(RegisterRequest build) {
+    }
 }
 
 /*{

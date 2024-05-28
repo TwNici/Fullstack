@@ -79,6 +79,8 @@ public class BackendService {
                 .userid(request.getUserid())
                 .initialPW(passwordEncoder.encode(request.getInitialPW()))
                 .rolle(request.getRolle())
+                .pultnummer(request.getPultnummer())
+                .stock(request.getStock())
                 .build();
         repo.save(user);
 
