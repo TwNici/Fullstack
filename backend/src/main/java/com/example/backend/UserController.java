@@ -28,8 +28,9 @@ public class UserController {
         return service.updateMitarbeiter(mitarbeiter);
     }
 
-    @PutMapping("/mitarbeiter/password")
-    public boolean updateMitarbeiterPassword( @RequestBody String password, @RequestHeader("Authorization") String authorizationHeader) {
+    @PostMapping("/mitarbeiter/password")
+    public boolean updateMitarbeiterPassword(@RequestBody String password, @RequestHeader("Authorization") String authorizationHeader) {
+        System.out.println(password);
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             String token = authorizationHeader.substring(7);
             return service.updateMitarbeiterPassword(token, password);

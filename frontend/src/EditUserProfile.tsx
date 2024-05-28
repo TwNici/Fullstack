@@ -85,7 +85,7 @@ function EditUserProfile() {
 
     const handlePwSubmit = () => {
         if (passwordData === passwordData2){
-        axios.put("/api/user/mitarbeiter/password", passwordData, {
+        axios.post("/api/user/mitarbeiter/password", passwordData, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem("jwt")}`
             }

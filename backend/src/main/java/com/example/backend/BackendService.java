@@ -113,7 +113,7 @@ public class BackendService {
 
         if (toUpdate.isPresent()) {
             Mitarbeiter actualMitarbeiter = toUpdate.get();
-            actualMitarbeiter.setInitialPW(password);
+            actualMitarbeiter.setInitialPW(passwordEncoder.encode(password));
             repo.deleteById(userid);
             repo.save(actualMitarbeiter);
             return true;
