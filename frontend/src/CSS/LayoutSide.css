@@ -147,6 +147,19 @@ body {
         top: 30vw;
     }
 
+    #list-option {
+        top: 45vw;
+        left: 8vw;
+        width: 6vw;
+        position: absolute;
+    }
+    #list-visitenkarte {
+        top: 45vw;
+        left: 1vw;
+        width: 6vw;
+        position: absolute;
+    }
+
     #leftcanvas {
         width: 15vw;
         height: 88vh;
@@ -177,6 +190,7 @@ body {
 
 
 }
+
 
 
 

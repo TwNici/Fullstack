@@ -38,7 +38,7 @@ public class Mitarbeiter implements UserDetails {
     @Id
     private String userid;
 
-    @Column(columnDefinition = "longtext")
+    @Column(columnDefinition = "text")
     private String bildUrl;
 
 

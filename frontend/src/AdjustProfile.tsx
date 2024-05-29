@@ -137,7 +137,7 @@ function AdjustProfile() {
                 </div>
                 <div>
                     <label>Initial Passwort:</label>
-                    <input  id="initialPW" name="initialPW" value={formData.initialPW} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
+                    <input  id="initialPW" name="initialPW" type={"Password"} value={formData.initialPW} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}}/>
                 </div>
                 <div>
                     <label>Rolle:</label>

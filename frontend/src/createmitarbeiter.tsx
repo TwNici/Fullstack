@@ -123,7 +123,7 @@ function CreateMitarbeiter() {
                         </div>
                         <div>
                             <label>Initial Passwort:</label>
-                            <input id="initialPW" name="initialPW" required value={form.initialPW}
+                            <input id="initialPW" name="initialPW" type={"Password"} required value={form.initialPW}
                                    onChange={(e) => onChangeValues(e.target.name, e.target.value)}/>
                         </div>
                         <div>

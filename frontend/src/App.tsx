@@ -5,13 +5,13 @@ import AdvancedSearch from "./AdvancedSearch.tsx";
 import Loginpage from "./Loginpage.tsx";
 import EditUserProfile from "./EditUserProfile.tsx";
 import InfoOverview from "./InfoOverview.tsx";
-import MobilefirstLayouttest from "./mobilefirstLayouttest.tsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFoundPage from "./404Page.tsx";
 import ForbiddenPage from "./403Page.tsx";
 import React, {createContext, useState} from "react";
 import AdjustProfile from "./AdjustProfile.tsx";
 import SecuredRoute from "./SecuredRoute.tsx";
+import Mitarbeiterlist from "./Mitarbeiterlist.tsx";
 
 export enum roleType {
     ADMIN = "ADMIN",
@@ -97,7 +97,7 @@ const App = () => {
                 <Route path="/Login" element={<Loginpage navigate={navigate}/>}  />
                 <Route path="/EditUserProfile" element={<ProtectedRoute>< EditUserProfile/></ProtectedRoute>} />
                 <Route path="/InfoOverview" element={<ProtectedRoute><InfoOverview/></ProtectedRoute>} />
-                <Route path="/mobilefirstLayouttest" element={<ProtectedRoute><MobilefirstLayouttest /></ProtectedRoute>} />
+                <Route path="/Mitarbeiterlist" element={<ProtectedRoute><Mitarbeiterlist/></ProtectedRoute>} />
             </Routes>
             </UserContext.Provider>
         </div>

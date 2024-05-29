@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpHeaders;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
@@ -16,11 +17,15 @@ import java.util.Map;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 class BackendApplicationTests {
+
+    private static final String token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzE2OTY1NDU5LCJleHAiOjE3MTY5NjU0NTk1NX0.Ru_R5ZS6IdrgmnUnhAihkwY8FDkv6-xAcSeyqPeRCDc";
+    //token needs to be renewed after the year ~ 7564
 
     @MockBean
     private JwtService jwtService;
@@ -38,7 +43,7 @@ class BackendApplicationTests {
     }
 
     @Test
-    void testRegisterMethod_shouldReturn() throws Exception {
+    void testRegisterMethod_shouldReturnTokenTest() throws Exception {
         String jsonString = "{"
                 + "\"initialPW\": \"test\","
                 + "\"rolle\": \"USER\","
@@ -66,7 +71,7 @@ class BackendApplicationTests {
     }
 
     @Test
-    void testAuthenticateMethod_shouldReturn() throws Exception {
+    void testAuthenticateMethod_shouldReturnTokenTest() throws Exception {
         String jsonString = "{"
                 + "\"userid\": \"test\","
                 + "\"password\": \"test\""
@@ -80,6 +85,15 @@ class BackendApplicationTests {
                 .andExpect(MockMvcResultMatchers.content().json(expectedResponse));
     }
 
+
+@Test
+    void testGetMitarbeiterRolle_shouldReturn() throws Exception {
+    mockMvc.perform(get("/api/user/getrole")
+            .header(HttpHeaders.AUTHORIZATION, "Bearer " + token))
+            .andExpect(MockMvcResultMatchers.status().isOk())
+            .andExpect(MockMvcResultMatchers.content().string("USER")
+    );
+}
 
 
 }

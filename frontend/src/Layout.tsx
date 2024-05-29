@@ -76,7 +76,9 @@ function Layout() {
         navigate("/AdjustProfile");
     };
 
-
+    const suchelist = () => {
+        navigate( "Mitarbeiterlist");
+    };
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
@@ -127,12 +129,17 @@ function Layout() {
                 Profil anpassen
                 </button></>}
 
+                <div>
+                    <button id="list-visitenkarte" className="btn-layout shadow-and-radius" onClick={suchenav}>Visitenkarte</button>
+                    <button id="list-option" className="btn-layout shadow-and-radius" onClick={suchelist}>Liste</button>
+                </div>
+
             </div>
             <div id="uppercanvas" className={"shadow-and-radius "}>
                 <h4 id={"adressbuch-h4-title"} onClick={suchenav}>Adressbuch</h4>
                 <h6 id="Profillist">
                     <select  onChange={handleChange} className="btn-layout shadow-and-radius" id={"dropdownLAYOUT"}>
-                        <option value="">Profil</option>
+                        <option value="">{formData.name} {formData.nachname}</option>
                         <option value="/EditUserProfile">Profil bearbeiten</option>
                         <option value="/Login">Logout</option>
                     </select>
@@ -143,6 +150,7 @@ function Layout() {
 
 
                     </div>
+
 
                 </h6>
                 <label className="switch" id="darkmodeCheckbox">
