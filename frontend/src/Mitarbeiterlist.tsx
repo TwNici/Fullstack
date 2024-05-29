@@ -59,7 +59,9 @@ function Mitarbeiterlist() {
         navigate("/InfoOverview");
     };
 
-
+    const suchenav = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        navigate(event.target.value);
+    };
 
     return (
         <div>
@@ -79,6 +81,10 @@ function Mitarbeiterlist() {
                     <button id={"suchenButtonAdressbuch"} className={"btn-layout shadow-and-radius"} type="submit">Suchen</button>
                 </form>
                 <div id="treffertext" className={"shadow-and-radius"}>Treffer: {gefilterteMitarbeiter.length}</div>
+                <select onChange={suchenav} id="optionset-list" className="btn-layout shadow-and-radius">
+                    <option>Liste</option>
+                    <option value="/">Visitenkarte</option>
+                </select>
             </div>
             <div id="mitarbeiterlist-infocanvas" className={"shadow-and-radius"}><b>NameㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤNachnameㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤUserIDㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤTelefonnummerㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤOrtㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤGeschlechtㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤRolle</b></div>
             <div id="datencanvas-mitabeiterlist">

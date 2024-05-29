@@ -64,7 +64,9 @@ function Adressbuch() {
         setUserId(userId);
         navigate("/InfoOverview");
     };
-
+    const suchenav = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        navigate(event.target.value);
+    };
     return (
         <div>
             <Layout />
@@ -83,6 +85,10 @@ function Adressbuch() {
                     <button id={"suchenButtonAdressbuch"} className={"btn-layout shadow-and-radius"} type="submit">Suchen</button>
                 </form>
                 <div id="treffertext" className={"shadow-and-radius"}>Treffer: {gefilterteMitarbeiter.length}</div>
+                <select onChange={suchenav} id="optionset-list" className="btn-layout shadow-and-radius">
+                    <option>Visitenkarte</option>
+                    <option value="/Mitarbeiterlist">List</option>
+                </select>
             </div>
             <div id="datencanvas">
                 {Array.isArray(gefilterteMitarbeiter) &&  gefilterteMitarbeiter.map((mitarbeiter, index) => (

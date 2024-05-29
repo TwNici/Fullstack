@@ -27,7 +27,7 @@
 
 #suchenButtonErweitert {
     position: absolute;
-    left: 61vw;
+    left: 53vw;
     top: -0.4vw;
     padding-left: 0.7%;
     width: 3.5vw;
@@ -37,7 +37,7 @@
 
 #operator {
     position: absolute;
-    left: 35vw;
+    left: 32vw;
     top: 1vw;
     width: 3.5vw;
     height: 2.5vh;
@@ -48,10 +48,15 @@
 
 #userdata {
     position: absolute;
-    left: 43vw;
+    left: 37vw;
     top: 1vw;
     width: 15vw;
     height: 2.5vh;
     border-color: black;
     color: var(--text-color-daten);
+}
+
+
+#optionset-list {
+    position: absolute;
 }

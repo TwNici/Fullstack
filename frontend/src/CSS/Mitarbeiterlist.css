@@ -4,9 +4,9 @@
     height: 25vh;
     margin: 5px;
     box-sizing: border-box;
-    display: flex; /* Ensure the container uses flexbox */
-    align-items: center; /* Align items vertically center */
-    justify-content: center; /* Center the text horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .flex-container-mitabeiterlist {
@@ -54,4 +54,10 @@
     color: var(--text-color-daten);
     padding-top: 1vw;
     padding-left: 0.7vw;
+}
+
+#optionset-list {
+    left: 74%;
+    top: -11%;
+    width: 8%;
 }

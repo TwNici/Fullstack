@@ -4,14 +4,14 @@ import Layout from "./Layout.tsx";
 import {FormInputType, roleType, UserContext} from "./App.tsx";
 import "./CSS/AdvancedSearch.css";
 import { useNavigate} from "react-router-dom";
-
+import "./CSS/Mitarbeiterlist.css"
 type suchType = {
     criteria: string;
     operator: string;
     userdata: keyof FormInputType;
 };
 
-function AdvancedSearch() {
+function MitarbeiterlistAdvanced() {
     const [suche, setSuche] = useState<suchType>({
         criteria: "",
         operator: "=",
@@ -87,19 +87,13 @@ function AdvancedSearch() {
 
     const navigate = useNavigate();
 
-    const AdressbuchBildClick = (userId: string) => {
-        setUserId(userId);
-        navigate("/InfoOverview");
-    };
-    const formatBase64Image = (data: string): string => {
-        if (data && !data.startsWith('data:image')) {
-            return `data:image/png;base64,${data}`;
-        }
-        return data;
-    };
 
     const suchenav = (event: React.ChangeEvent<HTMLSelectElement>) => {
         navigate(event.target.value);
+    };
+    const AdressbuchTextClick = (userId: string) => {
+        setUserId(userId);
+        navigate("/InfoOverview");
     };
 
     return (
@@ -161,23 +155,20 @@ function AdvancedSearch() {
                     <button id={"suchenButtonErweitert"} className={"btn-layout shadow-and-radius"} type="submit">Suchen</button>
                 </form>
                 <select onChange={suchenav} id="optionset-list" className="btn-layout shadow-and-radius">
-                    <option>Visitenkarte</option>
-                    <option value="/MitarbeiterlistAdvanced">Liste</option>
+                    <option>List</option>
+                    <option value="/AdvancedSearch">Visitenkarte</option>
                 </select>
 
                 <div id="treffertext" className={"shadow-and-radius"}>Treffer: {gefilterteMitarbeiter.length}</div>
-            </div>
-            <div id="datencanvas">
-                {gefilterteMitarbeiter.map((mitarbeiter, index) => (
-                    <div className="canvas-container flex-container shadow-and-radius" key={index}>
-                        <div id={"mdatentext"} className={"shadow-and-radius"} onClick={() => {AdressbuchBildClick(mitarbeiter.userid)}}>
-                            {mitarbeiter.bildUrl && <img  src={formatBase64Image(mitarbeiter.bildUrl)} className={"shadow-and-radius"} id="BildAdressbuch" alt="BILD"/>}
-                            <p> <b>{mitarbeiter.name} {mitarbeiter.nachname} <i>({mitarbeiter.userid}) </i> </b></p>
-                            <p>Tele: {mitarbeiter.telefonnummer}</p>
-                            <p>Ort: {mitarbeiter.ort}</p>
-                            <p>Geschlecht: {mitarbeiter.geschlecht}</p>
-                            {rolle == roleType.ADMIN && <p>Rolle: {mitarbeiter.rolle}</p>}
 
+            </div>
+            <div id="mitarbeiterlist-infocanvas" className={"shadow-and-radius"}><b>NameㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤNachnameㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤUserIDㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤTelefonnummerㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤOrtㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤGeschlechtㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤRolle</b></div>
+
+            <div id="datencanvas-mitabeiterlist">
+                {gefilterteMitarbeiter.map((mitarbeiter, index) => (
+                    <div className="canvas-container-mitabeiterlist flex-container-mitabeiterlist shadow-and-radius" key={index}>
+                        <div id={"mdatentext-mitabeiterlist"}  onClick={() => {AdressbuchTextClick(mitarbeiter.userid)}}>
+                            <p> <b>{mitarbeiter.name}ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ{mitarbeiter.nachname}ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ<i>({mitarbeiter.userid})ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</i>{mitarbeiter.telefonnummer}ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ{mitarbeiter.ort}ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ{mitarbeiter.geschlecht}ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</b>  {rolle == roleType.ADMIN && <b> {mitarbeiter.rolle}</b>}</p>
 
                         </div>
                     </div>
@@ -187,4 +178,4 @@ function AdvancedSearch() {
     );
 }
 
-export default AdvancedSearch;
+export default MitarbeiterlistAdvanced;

@@ -12,6 +12,7 @@ import React, {createContext, useState} from "react";
 import AdjustProfile from "./AdjustProfile.tsx";
 import SecuredRoute from "./SecuredRoute.tsx";
 import Mitarbeiterlist from "./Mitarbeiterlist.tsx";
+import MitarbeiterlistAdvanced from "./MitarbeiterlistAdvanced.tsx";
 
 export enum roleType {
     ADMIN = "ADMIN",
@@ -98,6 +99,7 @@ const App = () => {
                 <Route path="/EditUserProfile" element={<ProtectedRoute>< EditUserProfile/></ProtectedRoute>} />
                 <Route path="/InfoOverview" element={<ProtectedRoute><InfoOverview/></ProtectedRoute>} />
                 <Route path="/Mitarbeiterlist" element={<ProtectedRoute><Mitarbeiterlist/></ProtectedRoute>} />
+                <Route path="/MitarbeiterlistAdvanced" element={<ProtectedRoute><MitarbeiterlistAdvanced/></ProtectedRoute>} />
             </Routes>
             </UserContext.Provider>
         </div>

@@ -76,9 +76,7 @@ function Layout() {
         navigate("/AdjustProfile");
     };
 
-    const suchelist = () => {
-        navigate( "Mitarbeiterlist");
-    };
+
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
@@ -129,10 +127,7 @@ function Layout() {
                 Profil anpassen
                 </button></>}
 
-                <div>
-                    <button id="list-visitenkarte" className="btn-layout shadow-and-radius" onClick={suchenav}>Visitenkarte</button>
-                    <button id="list-option" className="btn-layout shadow-and-radius" onClick={suchelist}>Liste</button>
-                </div>
+
 
             </div>
             <div id="uppercanvas" className={"shadow-and-radius "}>
