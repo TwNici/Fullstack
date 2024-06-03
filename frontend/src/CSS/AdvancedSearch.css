@@ -1,30 +1,5 @@
 /*------------------------------------------------------------------NOT MOBILE FIRST----------------------------------------------------------------------- */
 
-
-.canvas-container  {
-    max-width: 20.3vw;
-    max-height: 25vh;
-    height: 25vh;
-    margin: 5px;
-
-
-}
-
-.flex-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    width: 20vw;
-    left: 140px;
-    top: 200.5px;
-    margin: auto;
-    position: relative;
-}
-
-
-
 #suchenButtonErweitert {
     position: absolute;
     left: 53vw;
