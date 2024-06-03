@@ -13,6 +13,7 @@ import AdjustProfile from "./AdjustProfile.tsx";
 import SecuredRoute from "./SecuredRoute.tsx";
 import Mitarbeiterlist from "./Mitarbeiterlist.tsx";
 import MitarbeiterlistAdvanced from "./MitarbeiterlistAdvanced.tsx";
+import Layout from "./Layout.tsx";
 
 export enum roleType {
     ADMIN = "ADMIN",
@@ -100,6 +101,7 @@ const App = () => {
                 <Route path="/InfoOverview" element={<ProtectedRoute><InfoOverview/></ProtectedRoute>} />
                 <Route path="/Mitarbeiterlist" element={<ProtectedRoute><Mitarbeiterlist/></ProtectedRoute>} />
                 <Route path="/MitarbeiterlistAdvanced" element={<ProtectedRoute><MitarbeiterlistAdvanced/></ProtectedRoute>} />
+                <Route path="/Layout" element={<ProtectedRoute><Layout/></ProtectedRoute>} />
             </Routes>
             </UserContext.Provider>
         </div>

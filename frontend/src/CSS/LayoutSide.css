@@ -13,7 +13,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-
 .btn-layout {
     margin-top: 2vh;
     width: 80vw;
@@ -99,6 +98,44 @@ body {
     color: var(--text-color-daten);
 }
 
+#layout-profile-picture {
+    width: 60px;
+    left: 95%;
+    top: 7px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+@media (min-width: 360px) {
+    .btn-layout {
+        width: 80vw;
+    }
+}
+
+@media (min-width: 375px) {
+    .btn-layout {
+        width: 75vw;
+    }
+}
+
+@media (min-width: 414px) {
+    .btn-layout {
+        width: 70vw;
+    }
+}
+
+@media (min-width: 540px) {
+    .btn-layout {
+        width: 60vw;
+    }
+}
+
 @media (min-width: 768px) {
     .btn-layout {
         width: 40vw;
@@ -120,10 +157,9 @@ body {
     }
 }
 
-
 @media (min-width: 1024px) {
     .btn-layout {
-        width: 10vw;
+        width: 30vw;
     }
 
     .circles {
@@ -153,6 +189,7 @@ body {
         width: 6vw;
         position: absolute;
     }
+
     #list-visitenkarte {
         top: 45vw;
         left: 1vw;
@@ -187,24 +224,28 @@ body {
         left: 1%;
         position: absolute;
     }
-
-
 }
 
-
-
-
-#layout-profile-picture  {
-    width: 60px;
-    left: 95%;
-    top: 7px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    object-fit: cover;
+@media (min-width: 1280px) {
+    .btn-layout {
+        width: 25vw;
+    }
 }
 
+@media (min-width: 1440px) {
+    .btn-layout {
+        width: 20vw;
+    }
+}
+
+@media (min-width: 1600px) {
+    .btn-layout {
+        width: 15vw;
+    }
+}
+
+@media (min-width: 1920px) {
+    .btn-layout {
+        width: 10vw;
+    }
+}
