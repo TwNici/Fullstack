@@ -1,9 +1,13 @@
 :root {
-    --background-color: #fff;
-    --circle-color1: #f0f0f0;
-    --circle-color2: #e0e0e0;
-    --layout-canvas: #ddd;
-    --text-color-daten: #333;
+    --background-color: white;
+    --text-color: black;
+    --circle-color1: whitesmoke;
+    --circle-color2: white;
+    --layout-canvas: white;
+    --text-color-daten: black;
+    --input-fields: white;
+    --background-color-elements: white;
+    --background-color-buttons: black;
 }
 
 body {

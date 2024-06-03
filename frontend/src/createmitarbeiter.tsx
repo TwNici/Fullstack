@@ -137,7 +137,7 @@ function CreateMitarbeiter() {
                             <label>Geschäfts Adresse:</label>
                             <input id="geschaeftsadresse" name="geschaeftsadresse" required
                                    value={form.geschaeftsadresse}
-                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)} maxLength={16}/>
+                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)} maxLength={36}/>
                         </div>
                         <div>
                             <label>Stock:</label>
