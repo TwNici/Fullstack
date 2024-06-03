@@ -119,7 +119,7 @@ function CreateMitarbeiter() {
                         <div>
                             <label>Ort:</label>
                             <input id="ort" name="ort" required value={form.ort}
-                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)} maxLength={11}/>
+                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)} maxLength={36}/>
                         </div>
                         <div>
                             <label>Initial Passwort:</label>
