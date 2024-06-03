@@ -8,7 +8,6 @@
     --text-color-daten: ;
 }
 
-
 .canvas-container {
     max-width: 20.3vw;
     max-height: 25vh;
@@ -25,10 +24,7 @@
     background-color: var(--background-color-elements);
 }
 
-
-
-
-#DivCanvasDel{
+#DivCanvasDel {
     width: 82.7vw;
     height: 20vh;
     position: fixed;
@@ -38,8 +34,6 @@
     z-index: 4;
 }
 
-
-
 #suchleistencanvas {
     width: 80vw;
     height: 6vh;
@@ -48,10 +42,9 @@
     left: 16vw;
     top: 7vw;
     z-index: 10;
-
 }
 
-#suchleiste{
+#suchleiste {
     width: 30vw;
     border-color: Black;
     top: 1.5vh;
@@ -63,14 +56,13 @@
 #suchleiste::placeholder {
     color: var(--text-color-daten);
 }
+
 #suchenButtonAdressbuch {
     position: absolute;
     left: 31vw;
     top: -0.4vw;
     padding-left: -1vw;
     width: 3.5vw;
-
-
 }
 
 #treffertext {
@@ -82,7 +74,6 @@
     background-color: Black;
     padding-left: 1vw;
     color: white;
-
 }
 
 #treffertext:hover {
@@ -94,7 +85,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
     margin: auto;
     width: 84vw;
@@ -103,7 +94,6 @@
     z-index: 3;
     background-color: transparent;
 }
-
 
 #mdatentext {
     left: 6.6vw;
@@ -124,6 +114,4 @@
     position: absolute;
     cursor: pointer;
     object-fit: cover;
-
-
 }
