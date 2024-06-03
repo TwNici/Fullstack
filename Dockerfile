@@ -1,9 +1,9 @@
 FROM openjdk:21
-LABEL authors="CHNI4"
 
-ADD backend/target/Backend-0.0.1-SNAPSHOT.jar app.jar
+WORKDIR /app
+
+COPY backend/target/app.jar .
 
 EXPOSE 8080
 
-
-ENTRYPOINT ["java", "-jar", "-Dspring.profile.active=dev", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
