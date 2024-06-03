@@ -1,16 +1,16 @@
-import axios, {AxiosResponse} from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import './App.css';
-import {useContext, useEffect, useState} from "react";
+import { useContext, useEffect, useState } from "react";
 import Layout from "./Layout.tsx";
-import {FormInputType, roleType, UserContext} from "./App.tsx";
-import {useNavigate} from 'react-router-dom';
+import { FormInputType, roleType, UserContext } from "./App.tsx";
+import { useNavigate } from 'react-router-dom';
 import "./CSS/AdressbuchSide.css"
 
 function Adressbuch() {
     const [mitarbeiter, setMitarbeiter] = useState<FormInputType[]>([]);
     const [suchbegriff, setSuchbegriff] = useState('');
     const [gefilterteMitarbeiter, setGefilterteMitarbeiter] = useState<FormInputType[]>([]);
-    const {setUserId} = useContext(UserContext)
+    const { setUserId } = useContext(UserContext);
     const [rolle, setRole] = useState<roleType>(roleType.USER);
 
     const formatBase64Image = (data: string): string => {
@@ -27,7 +27,8 @@ function Adressbuch() {
             }
         }).then((res: AxiosResponse<roleType>) => {
             setRole(res.data);
-        })
+        });
+
         axios.get('/api/user/mitarbeiter', {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem("jwt")}`
@@ -35,38 +36,38 @@ function Adressbuch() {
         })
             .then((response: AxiosResponse<FormInputType[]>) => {
                 setMitarbeiter(response.data);
-                console.log(response.data)
                 setGefilterteMitarbeiter(response.data);
             })
             .catch(error => {
-                console.error('FR to backend:', error);
+                console.error('Error fetching data from backend:', error);
             });
     }, []);
 
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         const gefiltert = mitarbeiter.filter(m => {
-            const fullName = `${m.name.toLowerCase()} ${m.nachname.toLowerCase()}`;
+            const fullName = `${m.name?.toLowerCase() || ''} ${m.nachname?.toLowerCase() || ''}`;
             return (
                 fullName.includes(suchbegriff.toLowerCase()) ||
-                m.name.toLowerCase().includes(suchbegriff.toLowerCase()) ||
-                m.nachname.toLowerCase().includes(suchbegriff.toLowerCase()) ||
-                m.userid.toLowerCase().includes(suchbegriff.toLowerCase())
+                (m.name?.toLowerCase() || '').includes(suchbegriff.toLowerCase()) ||
+                (m.nachname?.toLowerCase() || '').includes(suchbegriff.toLowerCase()) ||
+                (m.userid?.toLowerCase() || '').includes(suchbegriff.toLowerCase())
             );
         });
         setGefilterteMitarbeiter(gefiltert);
     };
 
-
-        const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const AdressbuchBildClick = (userId: string) => {
         setUserId(userId);
         navigate("/InfoOverview");
     };
+
     const suchenav = (event: React.ChangeEvent<HTMLSelectElement>) => {
         navigate(event.target.value);
     };
+
     return (
         <div>
             <Layout />
@@ -80,7 +81,6 @@ function Adressbuch() {
                         placeholder="Mitarbeiter Suchen..."
                         value={suchbegriff}
                         onChange={(e) => setSuchbegriff(e.target.value)}
-
                     />
                     <button id={"suchenButtonAdressbuch"} className={"btn-layout shadow-and-radius"} type="submit">Suchen</button>
                 </form>
@@ -91,17 +91,15 @@ function Adressbuch() {
                 </select>
             </div>
             <div id="datencanvas">
-                {Array.isArray(gefilterteMitarbeiter) &&  gefilterteMitarbeiter.map((mitarbeiter, index) => (
+                {Array.isArray(gefilterteMitarbeiter) && gefilterteMitarbeiter.map((mitarbeiter, index) => (
                     <div className="canvas-container flex-container shadow-and-radius" key={index}>
-                        <div id={"mdatentext"} className={"shadow-and-radius"} onClick={() => {AdressbuchBildClick(mitarbeiter.userid)}}>
-                            {mitarbeiter.bildUrl && <img  src={formatBase64Image(mitarbeiter.bildUrl)} className={"shadow-and-radius"} id="BildAdressbuch" alt="BILD"/>}
-                            <p> <b>{mitarbeiter.name} {mitarbeiter.nachname} <i>({mitarbeiter.userid}) </i> </b></p>
+                        <div id={"mdatentext"} className={"shadow-and-radius"} onClick={() => { AdressbuchBildClick(mitarbeiter.userid) }}>
+                            {mitarbeiter.bildUrl && <img src={formatBase64Image(mitarbeiter.bildUrl)} className={"shadow-and-radius"} id="BildAdressbuch" alt="BILD" />}
+                            <p><b>{mitarbeiter.name} {mitarbeiter.nachname} <i>({mitarbeiter.userid})</i></b></p>
                             <p>Tele: {mitarbeiter.telefonnummer}</p>
                             <p>Ort: {mitarbeiter.ort}</p>
                             <p>Geschlecht: {mitarbeiter.geschlecht}</p>
-                            {rolle == roleType.ADMIN && <p>Rolle: {mitarbeiter.rolle}</p>}
-
-
+                            {rolle === roleType.ADMIN && <p>Rolle: {mitarbeiter.rolle}</p>}
                         </div>
                     </div>
                 ))}
