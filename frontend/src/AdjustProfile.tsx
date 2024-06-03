@@ -132,7 +132,7 @@ function AdjustProfile() {
                 </div>
                 <div>
                     <label>Ort:</label>
-                    <input  id="ort" name="ort" value={formData.ort} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}} maxLength={11}/>
+                    <input  id="ort" name="ort" value={formData.ort} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}} maxLength={36}/>
                 </div>
                 <div>
                     <label>Initial Passwort:</label>
@@ -148,7 +148,7 @@ function AdjustProfile() {
 
                 <div>
                     <label>Geschäfts Adresse:</label>
-                    <input  id="geschaeftsadresse" name="geschaeftsadresse" value={formData.geschaeftsadresse} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}} maxLength={16} />
+                    <input  id="geschaeftsadresse" name="geschaeftsadresse" value={formData.geschaeftsadresse} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}} maxLength={36} />
                 </div>
                 <div>
                     <label>Stock:</label>
@@ -160,7 +160,7 @@ function AdjustProfile() {
                 </div>
                 <div>
                     <label>Gebäude:</label>
-                    <input  id="gebaeude" name="gebaeude" value={formData.gebaeude} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}} maxLength={5} />
+                    <input  id="gebaeude" name="gebaeude" value={formData.gebaeude} onChange={(e) => {handleInputChange(e.target.name, e.target.value)}} maxLength={36} />
                 </div>
                 <div>
                     <label htmlFor="dragDrop" className="btn-layout shadow-and-radius">Bild Hochladen / PNG</label>

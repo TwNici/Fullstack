@@ -152,7 +152,7 @@ function CreateMitarbeiter() {
                         <div>
                             <label>Gebäude:</label>
                             <input id="gebaeude" name="gebaeude" required value={form.gebaeude}
-                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)} maxLength={5}/>
+                                   onChange={(e) => onChangeValues(e.target.name, e.target.value)} maxLength={36}/>
                         </div>
                         <div>
                             <label htmlFor="dragDrop" className="btn-layout shadow-and-radius">Bild Hochladen / PNG</label>
