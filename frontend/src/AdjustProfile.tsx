@@ -54,9 +54,8 @@ function AdjustProfile() {
             }
         })
             .then(response => {
-                console.log('Deleted successfully:', response.data);
+                console.log("Bye", response.data);
             })
-            .catch(error => console.error('Error:', error));
 
     };
 
