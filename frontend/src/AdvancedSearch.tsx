@@ -38,12 +38,9 @@ function AdvancedSearch() {
     }, []);
 
     const handleNumChange = (value: keyof FormInputType) => {
-        if (value === "stock" || value === "pultnummer") {
-            setIsNumber(true);
-        } else {
-            setIsNumber(false);
-        }
+        setIsNumber(value === "stock" || value === "pultnummer");
     };
+
 
     const handleChange = (name: string, value: string) => {
         setSuche({
@@ -56,7 +53,12 @@ function AdvancedSearch() {
         e.preventDefault();
         const { criteria, operator, userdata } = suche;
         const gefiltert = mitarbeiter.filter(m => {
-            let data: string | number = m[userdata];
+            let data = m[userdata];
+
+            if (data == null) {
+                // Wenn der Wert null oder undefined ist, überspringen wir diesen Eintrag
+                return false;
+            }
 
             if (isNumber && !isNaN(Number(data))) {
                 data = Number(data);
@@ -84,6 +86,7 @@ function AdvancedSearch() {
         });
         setGefilterteMitarbeiter(gefiltert);
     };
+
 
     const navigate = useNavigate();
 
