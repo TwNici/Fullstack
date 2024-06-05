@@ -73,7 +73,6 @@ public class UserController {
     @DeleteMapping("/mitarbeiter/{userId}")
     public void deleteMitarbeiter(@PathVariable String userId) {
         service.deleteMitarbeiter(userId);
-
     }
 
     @GetMapping("/getrole")

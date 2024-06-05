@@ -86,12 +86,12 @@ function Mitarbeiterlist() {
                     <option value="/">Visitenkarte</option>
                 </select>
             </div>
-            <div id="mitarbeiterlist-infocanvas" className={"shadow-and-radius"}><b>NameㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤNachnameㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤUserIDㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤTelefonnummerㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤOrtㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤGeschlechtㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤRolle</b></div>
+            <div id="mitarbeiterlist-infocanvas" className={"shadow-and-radius"}><b>NameㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤNachnameㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤUserIDㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤTelefonnummerㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤOrtㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤGeschlechtㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤRolle</b></div>
             <div id="datencanvas-mitabeiterlist">
                 {Array.isArray(gefilterteMitarbeiter) &&  gefilterteMitarbeiter.map((mitarbeiter, index) => (
                     <div className="canvas-container-mitabeiterlist flex-container-mitabeiterlist shadow-and-radius" key={index}>
                         <div id={"mdatentext-mitabeiterlist"}  onClick={() => {AdressbuchTextClick(mitarbeiter.userid)}}>
-                            <p> <b>{mitarbeiter.name}ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ{mitarbeiter.nachname}ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ<i>({mitarbeiter.userid})ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</i>{mitarbeiter.telefonnummer}ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ{mitarbeiter.ort}ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ{mitarbeiter.geschlecht}ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</b>  {rolle == roleType.ADMIN && <b> {mitarbeiter.rolle}</b>}</p>
+                            <p> <b>{mitarbeiter.name}ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ{mitarbeiter.nachname}ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ<i>({mitarbeiter.userid})ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</i>{mitarbeiter.telefonnummer}ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ{mitarbeiter.ort}ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ{mitarbeiter.geschlecht}ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</b>  {rolle == roleType.ADMIN && <b> {mitarbeiter.rolle}</b>}</p>
 
                         </div>
                     </div>

@@ -49,7 +49,7 @@
     height: 6%;
     left: 16%;
     top: 20%;
-    position: absolute;
+    position: fixed;
     z-index: 20;
     color: var(--text-color-daten);
     padding-top: 1vw;
