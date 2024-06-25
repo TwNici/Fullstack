@@ -40,16 +40,22 @@ function Mitarbeiterlist() {
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         const gefiltert = mitarbeiter.filter(m => {
-            const fullName = `${m.name.toLowerCase()} ${m.nachname.toLowerCase()}`;
+            const name = m.name?.toLowerCase() || '';
+            const nachname = m.nachname?.toLowerCase() || '';
+            const userid = m.userid?.toLowerCase() || '';
+
+            const fullName = `${name} ${nachname}`;
+
             return (
                 fullName.includes(suchbegriff.toLowerCase()) ||
-                m.name.toLowerCase().includes(suchbegriff.toLowerCase()) ||
-                m.nachname.toLowerCase().includes(suchbegriff.toLowerCase()) ||
-                m.userid.toLowerCase().includes(suchbegriff.toLowerCase())
+                name.includes(suchbegriff.toLowerCase()) ||
+                nachname.includes(suchbegriff.toLowerCase()) ||
+                userid.includes(suchbegriff.toLowerCase())
             );
         });
         setGefilterteMitarbeiter(gefiltert);
     };
+
 
 
     const navigate = useNavigate();

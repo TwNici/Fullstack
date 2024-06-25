@@ -55,14 +55,20 @@ function MitarbeiterlistAdvanced() {
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         const { criteria, operator, userdata } = suche;
+
         const gefiltert = mitarbeiter.filter(m => {
-            let data: string | number = m[userdata];
+            let data = m[userdata];
+
+            if (data == null) {
+                return false;
+            }
 
             if (isNumber && !isNaN(Number(data))) {
                 data = Number(data);
             } else {
                 data = data.toString().toLowerCase();
             }
+
             const criteriaLower = criteria.toLowerCase();
 
             switch (operator) {
@@ -82,6 +88,7 @@ function MitarbeiterlistAdvanced() {
                     return false;
             }
         });
+
         setGefilterteMitarbeiter(gefiltert);
     };
 

@@ -56,7 +56,7 @@ function AdvancedSearch() {
             let data = m[userdata];
 
             if (data == null) {
-                // Wenn der Wert null oder undefined ist, überspringen wir diesen Eintrag
+
                 return false;
             }
 
