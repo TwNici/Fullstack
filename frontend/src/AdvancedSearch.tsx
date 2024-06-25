@@ -156,8 +156,6 @@ function AdvancedSearch() {
                         <option value="telefonnummer">Telefon</option>
                         <option value="ort">Ort</option>
                         <option value="strasse">Strasse</option>
-                        <option value="privatAdresse">Privat Adresse</option>
-                        <option value="geschaeftsAdresse">Geschäfts Adresse</option>
                         <option value="stock">Stock</option>
                         <option value="pultnummer">Pultnummer</option>
                         <option value="gebaeude">Gebäude</option>
