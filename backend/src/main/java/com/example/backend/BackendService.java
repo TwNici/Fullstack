@@ -34,7 +34,7 @@ public class BackendService {
         }
         if (mitarbeiterDetails.getInitialPW() == null){
             Optional<Mitarbeiter> found = repo.findById(mitarbeiterDetails.getUserid());
-            if (found.isEmpty()) return null;
+            if (found.get().getInitialPW().isEmpty()) return null;
             mitarbeiterDetails.setInitialPW(found.get().getInitialPW());
         }
         repo.deleteById(mitarbeiterDetails.getUserid());
